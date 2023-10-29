@@ -328,7 +328,7 @@
                         "name": "PROJECTASSIGNMENT_HOURLYRATE"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -336,7 +336,7 @@
                         "name": "PROJECTASSIGNMENT_STARTDATE"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -386,7 +386,7 @@
                         "name": "TIMESHEET_NAME"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -394,7 +394,7 @@
                         "name": "TIMESHEET_STARTPERIOD"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -889,7 +889,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "PAYMENT_REASON"
                     },
@@ -1060,7 +1062,7 @@
                         "name": "PURCHASEORDER_NUMBER"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -1174,7 +1176,7 @@
                         "name": "PURCHASEINVOICE_NUMBER"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",

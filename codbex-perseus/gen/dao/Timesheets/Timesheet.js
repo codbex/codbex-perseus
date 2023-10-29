@@ -1,6 +1,7 @@
 const query = require("db/query");
 const producer = require("messaging/producer");
 const daoApi = require("db/dao");
+const EntityUtils = require("codbex-perseus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_TIMESHEET",
@@ -20,12 +21,12 @@ let dao = daoApi.create({
  {
 			name: "StartPeriod",
 			column: "TIMESHEET_STARTPERIOD",
-			type: "VARCHAR",
+			type: "DATE",
 		},
  {
 			name: "EndPeriod",
 			column: "TIMESHEET_ENDPERIOD",
-			type: "VARCHAR",
+			type: "DATE",
 		},
  {
 			name: "ProjectAssignment",
@@ -46,14 +47,23 @@ let dao = daoApi.create({
 });
 
 exports.list = function(settings) {
-	return dao.list(settings);
+	return dao.list(settings).map(function(e) {
+		EntityUtils.setDate(e, "StartPeriod");
+		EntityUtils.setDate(e, "EndPeriod");
+		return e;
+	});
 };
 
 exports.get = function(id) {
-	return dao.find(id);
+	let entity = dao.find(id);
+	EntityUtils.setDate(entity, "StartPeriod");
+	EntityUtils.setDate(entity, "EndPeriod");
+	return entity;
 };
 
 exports.create = function(entity) {
+	EntityUtils.setLocalDate(entity, "StartPeriod");
+	EntityUtils.setLocalDate(entity, "EndPeriod");
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
 		table: "CODBEX_TIMESHEET",
@@ -67,6 +77,8 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	// EntityUtils.setLocalDate(entity, "StartPeriod");
+	// EntityUtils.setLocalDate(entity, "EndPeriod");
 	dao.update(entity);
 	triggerEvent("Update", {
 		table: "CODBEX_TIMESHEET",

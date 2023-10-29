@@ -1,6 +1,7 @@
 const query = require("db/query");
 const producer = require("messaging/producer");
 const daoApi = require("db/dao");
+const EntityUtils = require("codbex-perseus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_PURCHASEORDER",
@@ -25,7 +26,7 @@ let dao = daoApi.create({
  {
 			name: "Date",
 			column: "PURCHASEORDER_DATE",
-			type: "VARCHAR",
+			type: "DATE",
 		},
  {
 			name: "Supplier",
@@ -61,14 +62,20 @@ let dao = daoApi.create({
 });
 
 exports.list = function(settings) {
-	return dao.list(settings);
+	return dao.list(settings).map(function(e) {
+		EntityUtils.setDate(e, "Date");
+		return e;
+	});
 };
 
 exports.get = function(id) {
-	return dao.find(id);
+	let entity = dao.find(id);
+	EntityUtils.setDate(entity, "Date");
+	return entity;
 };
 
 exports.create = function(entity) {
+	EntityUtils.setLocalDate(entity, "Date");
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
 		table: "CODBEX_PURCHASEORDER",
@@ -82,6 +89,7 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	// EntityUtils.setLocalDate(entity, "Date");
 	dao.update(entity);
 	triggerEvent("Update", {
 		table: "CODBEX_PURCHASEORDER",

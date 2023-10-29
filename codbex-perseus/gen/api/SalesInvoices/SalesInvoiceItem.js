@@ -23,9 +23,11 @@ rs.service()
 				http.sendInternalServerError(error.message);
 			}
         })
-	.resource("count")
+	.resource("count/{SalesInvoice}")
 		.get(function(ctx, request) {
-			http.sendResponseOk("" + dao.count());
+			let SalesInvoice = parseInt(ctx.pathParameters.SalesInvoice);
+			SalesInvoice = isNaN(SalesInvoice) ? ctx.pathParameters.SalesInvoice : SalesInvoice;
+			http.sendResponseOk("" + dao.count(SalesInvoice));
 		})
 		.catch(function(ctx, error) {
             if (error.name === "ForbiddenError") {

@@ -62,6 +62,16 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("ProjectAssignment", `Unable to list ProjectAssignment: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.StartDate) {
+							e.StartDate = new Date(e.StartDate);
+						}
+						if (e.EndDate) {
+							e.EndDate = new Date(e.EndDate);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});

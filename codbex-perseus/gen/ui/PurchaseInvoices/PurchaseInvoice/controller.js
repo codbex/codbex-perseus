@@ -39,6 +39,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("PurchaseInvoice", `Unable to list PurchaseInvoice: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.Date) {
+							e.Date = new Date(e.Date);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});

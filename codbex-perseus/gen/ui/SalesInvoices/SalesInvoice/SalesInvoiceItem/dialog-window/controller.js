@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.Projects.ProjectAssignment';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.SalesInvoices.SalesInvoiceItem';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Projects/ProjectAssignment.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/SalesInvoices/SalesInvoiceItem.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "ProjectAssignment Details",
-			create: "Create ProjectAssignment",
-			update: "Update ProjectAssignment"
+			select: "SalesInvoiceItem Details",
+			create: "Create SalesInvoiceItem",
+			update: "Update SalesInvoiceItem"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -28,19 +28,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					};
 				}
 
-				if (params.entity.StartDate) {
-					params.entity.StartDate = new Date(params.entity.StartDate);
-				}
-				if (params.entity.EndDate) {
-					params.entity.EndDate = new Date(params.entity.EndDate);
-				}
-
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsEmployee = params.optionsEmployee;
-				$scope.optionsProject = params.optionsProject;
-				$scope.optionsPosition = params.optionsPosition;
+				$scope.optionsSalesInvoice = params.optionsSalesInvoice;
 			}
 		}
 
@@ -60,12 +51,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					messageHub.showAlertError("ProjectAssignment", `Unable to create ProjectAssignment: '${response.message}'`);
+					messageHub.showAlertError("SalesInvoiceItem", `Unable to create SalesInvoiceItem: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("ProjectAssignment", "ProjectAssignment successfully created");
+				messageHub.showAlertSuccess("SalesInvoiceItem", "SalesInvoiceItem successfully created");
 			});
 		};
 
@@ -75,19 +66,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("ProjectAssignment", `Unable to update ProjectAssignment: '${response.message}'`);
+					messageHub.showAlertError("SalesInvoiceItem", `Unable to update SalesInvoiceItem: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("ProjectAssignment", "ProjectAssignment successfully updated");
+				messageHub.showAlertSuccess("SalesInvoiceItem", "SalesInvoiceItem successfully updated");
 			});
 		};
 
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("ProjectAssignment-details");
+			messageHub.closeDialogWindow("SalesInvoiceItem-details");
 		};
 
 	}]);

@@ -25,6 +25,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					$scope.formErrors = {
 					};
 				}
+				if (params.entity.StartPeriod) {
+					params.entity.StartPeriod = new Date(params.entity.StartPeriod);
+				}
+				if (params.entity.EndPeriod) {
+					params.entity.EndPeriod = new Date(params.entity.EndPeriod);
+				}
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;

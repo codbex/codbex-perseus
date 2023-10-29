@@ -1256,7 +1256,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "DATE",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "StartDate",
@@ -1265,8 +1265,7 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "StartDate",
-          "minLength": 0,
-          "maxLength": 20,
+          "isDateType": true,
           "inputRule": ""
         },
         {
@@ -1278,7 +1277,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "DATE",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "EndDate",
@@ -1287,8 +1286,7 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "EndDate",
-          "minLength": 0,
-          "maxLength": 20,
+          "isDateType": true,
           "inputRule": ""
         }
       ],
@@ -1315,7 +1313,8 @@
       "primaryKeysString": "Id",
       "hasDropdowns": true,
       "masterEntity": "Project",
-      "masterEntityId": "Project"
+      "masterEntityId": "Project",
+      "hasDates": true
     },
     {
       "properties": [
@@ -1431,7 +1430,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "DATE",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "StartPeriod",
@@ -1440,8 +1439,7 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "StartPeriod",
-          "minLength": 0,
-          "maxLength": 20,
+          "isDateType": true,
           "inputRule": ""
         },
         {
@@ -1453,7 +1451,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "DATE",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "EndPeriod",
@@ -1462,8 +1460,7 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "EndPeriod",
-          "minLength": 0,
-          "maxLength": 20,
+          "isDateType": true,
           "inputRule": ""
         },
         {
@@ -1558,6 +1555,7 @@
         "Id"
       ],
       "primaryKeysString": "Id",
+      "hasDates": true,
       "hasDropdowns": true
     },
     {
@@ -2607,7 +2605,7 @@
           "name": "Date",
           "widgetIsMajor": true,
           "widgetLength": "20",
-          "widgetType": "TEXTBOX",
+          "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
           "isDateType": true,
@@ -2871,7 +2869,7 @@
             "name": "Date",
             "widgetIsMajor": true,
             "widgetLength": "20",
-            "widgetType": "TEXTBOX",
+            "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "Date",
             "isDateType": true,
@@ -3192,7 +3190,7 @@
       "dataName": "SALESINVOICEITEM",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE_MASTER",
+      "layoutType": "MANAGE_DETAILS",
       "menuIndex": "100",
       "menuKey": "salesinvoiceitem",
       "menuLabel": "SalesInvoiceItem",
@@ -3208,92 +3206,6 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "masterProperties": {
-        "title": {
-          "calculatedPropertyExpression": "",
-          "dataAutoIncrement": false,
-          "dataLength": "200",
-          "dataName": "SALESINVOICEITEM_NAME",
-          "dataNullable": true,
-          "dataPrecision": "NaN",
-          "dataPrimaryKey": false,
-          "dataScale": "NaN",
-          "dataType": "VARCHAR",
-          "dataUnique": false,
-          "isCalculatedProperty": false,
-          "name": "Name",
-          "widgetIsMajor": true,
-          "widgetLength": "200",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "widgetLabel": "Name",
-          "minLength": 0,
-          "maxLength": 200,
-          "inputRule": ""
-        },
-        "properties": [
-          {
-            "calculatedPropertyExpression": "",
-            "dataAutoIncrement": false,
-            "dataLength": "20",
-            "dataName": "SALESINVOICEITEM_QUANTITY",
-            "dataNullable": true,
-            "dataPrecision": "NaN",
-            "dataPrimaryKey": false,
-            "dataScale": "NaN",
-            "dataType": "DOUBLE",
-            "dataUnique": false,
-            "isCalculatedProperty": false,
-            "name": "Quantity",
-            "widgetIsMajor": true,
-            "widgetLength": "20",
-            "widgetType": "NUMBER",
-            "dataNotNull": false,
-            "widgetLabel": "Quantity",
-            "inputRule": ""
-          },
-          {
-            "calculatedPropertyExpression": "",
-            "dataAutoIncrement": false,
-            "dataLength": "20",
-            "dataName": "SALESINVOICEITEM_PRICE",
-            "dataNullable": true,
-            "dataPrecision": "NaN",
-            "dataPrimaryKey": false,
-            "dataScale": "NaN",
-            "dataType": "DOUBLE",
-            "dataUnique": false,
-            "isCalculatedProperty": false,
-            "name": "Price",
-            "widgetIsMajor": true,
-            "widgetLength": "20",
-            "widgetType": "NUMBER",
-            "dataNotNull": false,
-            "widgetLabel": "Price",
-            "inputRule": ""
-          },
-          {
-            "calculatedPropertyExpression": "",
-            "dataAutoIncrement": false,
-            "dataLength": "20",
-            "dataName": "SALESINVOICEITEM_AMOUNT",
-            "dataNullable": true,
-            "dataPrecision": "NaN",
-            "dataPrimaryKey": false,
-            "dataScale": "NaN",
-            "dataType": "DOUBLE",
-            "dataUnique": false,
-            "isCalculatedProperty": false,
-            "name": "Amount",
-            "widgetIsMajor": true,
-            "widgetLength": "20",
-            "widgetType": "NUMBER",
-            "dataNotNull": false,
-            "widgetLabel": "Amount",
-            "inputRule": ""
-          }
-        ]
-      },
       "masterEntity": "SalesInvoice",
       "masterEntityId": "SalesInvoice",
       "hasDropdowns": true
@@ -3387,10 +3299,12 @@
         {
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
-          "dataLength": "20",
+          "dataLength": "100",
           "dataName": "PAYMENT_REASON",
           "dataNullable": true,
+          "dataPrecision": "NaN",
           "dataPrimaryKey": false,
+          "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
           "isCalculatedProperty": false,
@@ -3537,10 +3451,12 @@
           {
             "calculatedPropertyExpression": "",
             "dataAutoIncrement": false,
-            "dataLength": "20",
+            "dataLength": "100",
             "dataName": "PAYMENT_REASON",
             "dataNullable": true,
+            "dataPrecision": "NaN",
             "dataPrimaryKey": false,
+            "dataScale": "NaN",
             "dataType": "VARCHAR",
             "dataUnique": false,
             "isCalculatedProperty": false,
@@ -4051,7 +3967,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "DATE",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "Date",
@@ -4060,8 +3976,7 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
-          "minLength": 0,
-          "maxLength": 20,
+          "isDateType": true,
           "inputRule": ""
         },
         {
@@ -4218,6 +4133,7 @@
         "Id"
       ],
       "primaryKeysString": "Id",
+      "hasDates": true,
       "hasDropdowns": true
     },
     {
@@ -4380,7 +4296,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "DATE",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "name": "Date",
@@ -4389,8 +4305,7 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
-          "minLength": 0,
-          "maxLength": 20,
+          "isDateType": true,
           "inputRule": ""
         },
         {
@@ -4572,6 +4487,7 @@
         "Id"
       ],
       "primaryKeysString": "Id",
+      "hasDates": true,
       "hasDropdowns": true
     },
     {

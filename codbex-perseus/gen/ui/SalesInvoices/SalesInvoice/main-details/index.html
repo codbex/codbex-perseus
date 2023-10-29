@@ -67,11 +67,7 @@
                                 ng-change="isValid(formFieldset['Date'].$valid, 'Date')"
                                 ng-model="entity.Date"
                                 ng-readonly="action === 'select'"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
-                                type="text"
-                                placeholder="Enter Date">
+                                type="date">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>

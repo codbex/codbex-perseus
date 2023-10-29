@@ -37,7 +37,7 @@
 							item-title="{{next.Name}}">
 							<fd-list-byline dg-align="left">
 								{{next.Number}} |
-								{{next.Date}} |
+								{{next.Date | date: "dd/MMM/yyyy"}} |
 								{{optionsCustomerValue(next.Customer)}} |
 								{{optionsSalesOrderValue(next.SalesOrder)}} |
 								{{next.Amount}} |

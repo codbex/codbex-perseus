@@ -39,6 +39,16 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("Timesheet", `Unable to list Timesheet: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.StartPeriod) {
+							e.StartPeriod = new Date(e.StartPeriod);
+						}
+						if (e.EndPeriod) {
+							e.EndPeriod = new Date(e.EndPeriod);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});
