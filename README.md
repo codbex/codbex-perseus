@@ -1,2 +1,7 @@
 # codbex-perseus
-Services Management
+## Customer Relationship Management for Services
+
+### Model
+
+![model](images/perseus-model.png)
+
