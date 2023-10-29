@@ -1,0 +1,5 @@
+{
+    "module": "codbex-perseus/gen/ui/Projects/Project/ProjectAssignment/view.js",
+    "extensionPoint": "codbex-perseus-view",
+    "description": "codbex-perseus - Application View - Details"
+}

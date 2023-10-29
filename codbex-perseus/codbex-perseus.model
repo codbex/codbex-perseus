@@ -55,7 +55,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Team_Company",
                         "relationshipEntityName": "Company",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity Team",
@@ -69,9 +69,9 @@
                 "menuLabel": "Team",
                 "name": "Team",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+                "perspectiveName": "Employees",
+                "perspectiveOrder": "900",
                 "title": "Team",
                 "tooltip": "Team",
                 "type": "PRIMARY"
@@ -181,7 +181,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_City",
                         "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -203,7 +203,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -225,7 +225,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_Team",
                         "relationshipEntityName": "Team",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Employees"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -247,7 +247,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Employee_Company",
                         "relationshipEntityName": "Company",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity Employee",
@@ -261,9 +261,9 @@
                 "menuLabel": "Employee",
                 "name": "Employee",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+                "perspectiveName": "Employees",
+                "perspectiveOrder": "900",
                 "title": "Employee",
                 "tooltip": "Employee",
                 "type": "PRIMARY"
@@ -314,12 +314,12 @@
                 "menuLabel": "City",
                 "name": "City",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
                 "title": "City",
                 "tooltip": "City",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -367,12 +367,12 @@
                 "menuLabel": "Country",
                 "name": "Country",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
                 "title": "Country",
                 "tooltip": "Country",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -479,7 +479,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_City",
                         "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -501,7 +501,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -530,9 +530,9 @@
                 "menuLabel": "Customer",
                 "name": "Customer",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/user-arrows.svg",
+                "perspectiveName": "Partners",
+                "perspectiveOrder": "800",
                 "title": "Customer",
                 "tooltip": "Customer",
                 "type": "PRIMARY"
@@ -591,7 +591,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Project_Customer",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Partners"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -647,7 +647,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Project_Company",
                         "relationshipEntityName": "Company",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity Project",
@@ -661,8 +661,8 @@
                 "menuLabel": "Project",
                 "name": "Project",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/brackets-curly.svg",
+                "perspectiveName": "Projects",
                 "perspectiveOrder": "100",
                 "title": "Project",
                 "tooltip": "Project",
@@ -722,7 +722,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProjectAssignment_Employee",
                         "relationshipEntityName": "Employee",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Employees"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -746,7 +746,7 @@
                         "widgetLength": "20",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "Project",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Projects"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -768,7 +768,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "ProjectAssignment_Position",
                         "relationshipEntityName": "Position",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -833,8 +833,8 @@
                 "menuLabel": "ProjectAssignment",
                 "name": "ProjectAssignment",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/brackets-curly.svg",
+                "perspectiveName": "Projects",
                 "perspectiveOrder": "100",
                 "title": "ProjectAssignment",
                 "tooltip": "ProjectAssignment",
@@ -884,12 +884,12 @@
                 "menuLabel": "Position",
                 "name": "Position",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
                 "title": "Position",
                 "tooltip": "Position",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -979,7 +979,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Timesheet_ProjectAssignment",
                         "relationshipEntityName": "ProjectAssignment",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Projects"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1001,7 +1001,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Timesheet_Activity",
                         "relationshipEntityName": "Activity",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1032,9 +1032,9 @@
                 "menuLabel": "Timesheet",
                 "name": "Timesheet",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/clock.svg",
+                "perspectiveName": "Timesheets",
+                "perspectiveOrder": "110",
                 "title": "Timesheet",
                 "tooltip": "Timesheet",
                 "type": "PRIMARY"
@@ -1083,12 +1083,12 @@
                 "menuLabel": "Activity",
                 "name": "Activity",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
                 "title": "Activity",
                 "tooltip": "Activity",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -1105,6 +1105,23 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "100",
+                        "dataName": "SALARY_NAME",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "100",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1127,7 +1144,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Salary_Employee",
                         "relationshipEntityName": "Employee",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Employees"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1162,6 +1179,23 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetType": "DATE"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "SALARY_NET",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Net",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
                     }
                 ],
                 "caption": "Manage entity Salary",
@@ -1175,9 +1209,9 @@
                 "menuLabel": "Salary",
                 "name": "Salary",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+                "perspectiveName": "Employees",
+                "perspectiveOrder": "900",
                 "title": "Salary",
                 "tooltip": "Salary",
                 "type": "PRIMARY"
@@ -1287,7 +1321,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Supplier_City",
                         "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1309,7 +1343,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Supplier_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1338,9 +1372,9 @@
                 "menuLabel": "Supplier",
                 "name": "Supplier",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/user-arrows.svg",
+                "perspectiveName": "Partners",
+                "perspectiveOrder": "800",
                 "title": "Supplier",
                 "tooltip": "Supplier",
                 "type": "PRIMARY"
@@ -1431,7 +1465,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Customer",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Partners"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1470,7 +1504,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1518,9 +1552,9 @@
                 "menuLabel": "SalesOrder",
                 "name": "SalesOrder",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/file-plus-alt.svg",
+                "perspectiveName": "SalesOrders",
+                "perspectiveOrder": "200",
                 "title": "SalesOrder",
                 "tooltip": "SalesOrder",
                 "type": "PRIMARY"
@@ -1560,7 +1594,7 @@
                         "widgetLength": "20",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrder",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "SalesOrders"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1582,7 +1616,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderItem_Timesheet",
                         "relationshipEntityName": "Timesheet",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Timesheets"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1647,9 +1681,9 @@
                 "menuLabel": "SalesOrderItem",
                 "name": "SalesOrderItem",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/file-plus-alt.svg",
+                "perspectiveName": "SalesOrders",
+                "perspectiveOrder": "200",
                 "title": "SalesOrderItem",
                 "tooltip": "SalesOrderItem",
                 "type": "DEPENDENT"
@@ -1742,7 +1776,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesInvoice_Customer",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Partners"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1764,7 +1798,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesInvoice_SalesOrder",
                         "relationshipEntityName": "SalesOrder",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "SalesOrders"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1803,7 +1837,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesInvoice_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1885,9 +1919,9 @@
                 "menuLabel": "SalesInvoice",
                 "name": "SalesInvoice",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/invoice.svg",
+                "perspectiveName": "SalesInvoices",
+                "perspectiveOrder": "300",
                 "title": "SalesInvoice",
                 "tooltip": "SalesInvoice",
                 "type": "PRIMARY"
@@ -1931,7 +1965,7 @@
                         "widgetLength": "20",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "SalesInvoice",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "SalesInvoices"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2013,9 +2047,9 @@
                 "menuLabel": "SalesInvoiceItem",
                 "name": "SalesInvoiceItem",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/invoice.svg",
+                "perspectiveName": "SalesInvoices",
+                "perspectiveOrder": "300",
                 "title": "SalesInvoiceItem",
                 "tooltip": "SalesInvoiceItem",
                 "type": "DEPENDENT"
@@ -2089,7 +2123,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Payment_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2148,9 +2182,9 @@
                 "menuLabel": "Payment",
                 "name": "Payment",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveName": "Payments",
+                "perspectiveOrder": "400",
                 "title": "Payment",
                 "tooltip": "Payment",
                 "type": "PRIMARY"
@@ -2260,7 +2294,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Company_City",
                         "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2282,7 +2316,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Company_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2311,12 +2345,12 @@
                 "menuLabel": "Company",
                 "name": "Company",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
                 "title": "Company",
                 "tooltip": "Company",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -2351,6 +2385,23 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "3",
                         "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "CURRENCY_DEFAULT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "BOOLEAN",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Default",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "CHECKBOX"
                     }
                 ],
                 "caption": "Manage entity Currency",
@@ -2364,12 +2415,12 @@
                 "menuLabel": "Currency",
                 "name": "Currency",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
                 "title": "Currency",
                 "tooltip": "Currency",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -2399,12 +2450,14 @@
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Payment",
+                        "relationshipCardinality": "1_n",
+                        "relationshipName": "PaymentReceived_Payment",
+                        "relationshipType": "COMPOSITION",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetType": "TEXTBOX",
-                        "relationshipName": "PaymentReceived_Payment",
                         "relationshipEntityName": "Payment",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Payments"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -2426,7 +2479,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "PaymentReceived_SalesInvoice",
                         "relationshipEntityName": "SalesInvoice",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "SalesInvoices"
                     }
                 ],
                 "caption": "Manage entity PaymentReceived",
@@ -2440,15 +2493,750 @@
                 "menuLabel": "PaymentReceived",
                 "name": "PaymentReceived",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveName": "Payments",
+                "perspectiveOrder": "400",
                 "title": "PaymentReceived",
                 "tooltip": "PaymentReceived",
                 "type": "DEPENDENT"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "PURCHASEORDER_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "100",
+                        "dataName": "PURCHASEORDER_NAME",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "100",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEORDER_NUMBER",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Number",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEORDER_DATE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Date",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DATE"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PURCHASEORDER_SUPPLIER",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Supplier",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "PurchaseOrder_Supplier",
+                        "relationshipEntityName": "Supplier",
+                        "relationshipEntityPerspectiveName": "Partners"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "2000",
+                        "dataName": "PURCHASEORDER_DESCRIPTION",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Description",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTAREA"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEORDER_AMOUNT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Amount",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PURCHASEORDER_CURRENCY",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Currency",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "PurchaseOrder_Currency",
+                        "relationshipEntityName": "Currency",
+                        "relationshipEntityPerspectiveName": "Settings"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEORDER_VAT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "VAT",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEORDER_TOTAL",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Total",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    }
+                ],
+                "caption": "Manage entity PurchaseOrder",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEORDER\"",
+                "dataName": "PURCHASEORDER",
+                "dataQuery": "",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "purchaseorder",
+                "menuLabel": "PurchaseOrder",
+                "name": "PurchaseOrder",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/file-minus-alt.svg",
+                "perspectiveName": "PurchaseOrders",
+                "perspectiveOrder": "210",
+                "title": "PurchaseOrder",
+                "tooltip": "PurchaseOrder",
+                "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "EXCHANGE_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "EXCHANGE_CURRENCY",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Currency",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Exchange_Currency",
+                        "relationshipEntityName": "Currency",
+                        "relationshipEntityPerspectiveName": "Settings"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "EXCHANGE_RATE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Rate",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    }
+                ],
+                "caption": "Manage entity Exchange",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_EXCHANGE\"",
+                "dataName": "EXCHANGE",
+                "dataQuery": "",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "exchange",
+                "menuLabel": "Exchange",
+                "name": "Exchange",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
+                "title": "Exchange",
+                "tooltip": "Exchange",
+                "type": "SETTING"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "PURCHASEINVOICE_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "100",
+                        "dataName": "PURCHASEINVOICE_NAME",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "100",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEINVOICE_NUMBER",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Number",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEINVOICE_DATE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Date",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DATE"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PURCHASEINVOICE_SUPPLIER",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Supplier",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "PurchaseInvoice_Supplier",
+                        "relationshipEntityName": "Supplier",
+                        "relationshipEntityPerspectiveName": "Partners"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PURCHASEINVOICE_PURCHASEORDER",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "PurchaseOrder",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "PurchaseInvoice_PurchaseOrder",
+                        "relationshipEntityName": "PurchaseOrder",
+                        "relationshipEntityPerspectiveName": "PurchaseOrders"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "2000",
+                        "dataName": "PURCHASEINVOICE_DESCRIPTION",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Description",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "2000",
+                        "widgetType": "TEXTAREA"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEINVOICE_AMOUNT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Amount",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PURCHASEINVOICE_CURRENCY",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Currency",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "PurchaseInvoice_Currency",
+                        "relationshipEntityName": "Currency",
+                        "relationshipEntityPerspectiveName": "Settings"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEINVOICE_VAT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "VAT",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PURCHASEINVOICE_TOTAL",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Total",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    }
+                ],
+                "caption": "Manage entity PurchaseInvoice",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEINVOICE\"",
+                "dataName": "PURCHASEINVOICE",
+                "dataQuery": "",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "purchaseinvoice",
+                "menuLabel": "PurchaseInvoice",
+                "name": "PurchaseInvoice",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
+                "perspectiveName": "PurchaseInvoices",
+                "perspectiveOrder": "310",
+                "title": "PurchaseInvoice",
+                "tooltip": "PurchaseInvoice",
+                "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "PAYMENTSENT_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PAYMENTSENT_PAYMENT",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Payment",
+                        "relationshipCardinality": "1_n",
+                        "relationshipName": "PaymentSent_Payment",
+                        "relationshipType": "COMPOSITION",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX",
+                        "relationshipEntityName": "Payment",
+                        "relationshipEntityPerspectiveName": "Payments"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PAYMENTSENT_PURCHASEINVOICE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "PurchaseInvoice",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "PaymentSent_PurchaseInvoice",
+                        "relationshipEntityName": "PurchaseInvoice",
+                        "relationshipEntityPerspectiveName": "PurchaseInvoices"
+                    }
+                ],
+                "caption": "Manage entity PaymentSent",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYMENTSENT\"",
+                "dataName": "PAYMENTSENT",
+                "dataQuery": "",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE_DETAILS",
+                "menuIndex": "100",
+                "menuKey": "paymentsent",
+                "menuLabel": "PaymentSent",
+                "name": "PaymentSent",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/bill.svg",
+                "perspectiveName": "Payments",
+                "perspectiveOrder": "400",
+                "title": "PaymentSent",
+                "tooltip": "PaymentSent",
+                "type": "DEPENDENT"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "PAYROLL_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PAYROLL_EMPLOYEE",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Employee",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX",
+                        "relationshipName": "Payroll_Employee",
+                        "relationshipEntityName": "Employee",
+                        "relationshipEntityPerspectiveName": "Employees"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PAYROLL_AMOUNT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Amount",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "2000",
+                        "dataName": "PAYROLL_DESCRIPTION",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Description",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "2000",
+                        "widgetType": "TEXTAREA"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PAYROLL_DATE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DATE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Date",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DATE"
+                    }
+                ],
+                "caption": "Manage entity Payroll",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYROLL\"",
+                "dataName": "PAYROLL",
+                "dataQuery": "",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "payroll",
+                "menuLabel": "Payroll",
+                "name": "Payroll",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+                "perspectiveName": "Employees",
+                "perspectiveOrder": "900",
+                "title": "Payroll",
+                "tooltip": "Payroll",
+                "type": "PRIMARY"
             }
         ],
-        "perspectives": [],
+        "perspectives": [
+            {
+                "name": "Projects",
+                "label": "Projects",
+                "icon": "/services/web/resources/unicons/brackets-curly.svg",
+                "order": "100"
+            },
+            {
+                "name": "Timesheets",
+                "label": "Timesheets",
+                "icon": "/services/web/resources/unicons/clock.svg",
+                "order": "110"
+            },
+            {
+                "name": "SalesOrders",
+                "label": "Sales Orders",
+                "icon": "/services/web/resources/unicons/file-plus-alt.svg",
+                "order": "200"
+            },
+            {
+                "name": "PurchaseOrders",
+                "label": "Purchase Orders",
+                "icon": "/services/web/resources/unicons/file-minus-alt.svg",
+                "order": "210"
+            },
+            {
+                "name": "SalesInvoices",
+                "label": "Sales Invoices",
+                "icon": "/services/web/resources/unicons/invoice.svg",
+                "order": "300"
+            },
+            {
+                "name": "PurchaseInvoices",
+                "label": "Purchase Invoices",
+                "icon": "/services/web/resources/unicons/receipt.svg",
+                "order": "310"
+            },
+            {
+                "name": "Payments",
+                "label": "Payments",
+                "icon": "/services/web/resources/unicons/bill.svg",
+                "order": "400"
+            },
+            {
+                "name": "Partners",
+                "label": "Partners",
+                "icon": "/services/web/resources/unicons/user-arrows.svg",
+                "order": "800"
+            },
+            {
+                "name": "Employees",
+                "label": "Employees",
+                "icon": "/services/web/resources/unicons/users-alt.svg",
+                "order": "900"
+            },
+            {
+                "name": "Settings",
+                "label": "Settings",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "999"
+            }
+        ],
         "navigations": []
     }
 }
