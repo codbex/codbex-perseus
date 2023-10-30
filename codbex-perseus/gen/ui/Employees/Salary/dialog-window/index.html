@@ -105,6 +105,70 @@
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idIncomeTax" dg-required="false" dg-colon="true">IncomeTax</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.IncomeTax ? false : true }}">
+                            <fd-input id="idIncomeTax"
+                                name="IncomeTax"
+                                state="{{ formErrors.IncomeTax ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['IncomeTax'].$valid, 'IncomeTax')"
+                                ng-model="entity.IncomeTax"
+                                ng-readonly="action === 'select'"
+                                type="number"
+                                placeholder="Enter IncomeTax">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idSocialInsurance" dg-required="false" dg-colon="true">SocialInsurance</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.SocialInsurance ? false : true }}">
+                            <fd-input id="idSocialInsurance"
+                                name="SocialInsurance"
+                                state="{{ formErrors.SocialInsurance ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['SocialInsurance'].$valid, 'SocialInsurance')"
+                                ng-model="entity.SocialInsurance"
+                                ng-readonly="action === 'select'"
+                                type="number"
+                                placeholder="Enter SocialInsurance">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idHealthInsurance" dg-required="false" dg-colon="true">HealthInsurance</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.HealthInsurance ? false : true }}">
+                            <fd-input id="idHealthInsurance"
+                                name="HealthInsurance"
+                                state="{{ formErrors.HealthInsurance ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['HealthInsurance'].$valid, 'HealthInsurance')"
+                                ng-model="entity.HealthInsurance"
+                                ng-readonly="action === 'select'"
+                                type="number"
+                                placeholder="Enter HealthInsurance">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idPensionTax" dg-required="false" dg-colon="true">PensionTax</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.PensionTax ? false : true }}">
+                            <fd-input id="idPensionTax"
+                                name="PensionTax"
+                                state="{{ formErrors.PensionTax ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['PensionTax'].$valid, 'PensionTax')"
+                                ng-model="entity.PensionTax"
+                                ng-readonly="action === 'select'"
+                                type="number"
+                                placeholder="Enter PensionTax">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
             </fd-fieldset>
         </fd-scrollbar>
 

@@ -26,15 +26,11 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>Name</th>
+						<th fd-table-header-cell>Date</th>
 						<th fd-table-header-cell>Employee</th>
-						<th fd-table-header-cell>StartDate</th>
-						<th fd-table-header-cell>EndDate</th>
-						<th fd-table-header-cell>Net</th>
-						<th fd-table-header-cell>IncomeTax</th>
-						<th fd-table-header-cell>SocialInsurance</th>
-						<th fd-table-header-cell>HealthInsurance</th>
-						<th fd-table-header-cell>PensionTax</th>
+						<th fd-table-header-cell>Reason</th>
+						<th fd-table-header-cell>Ratio</th>
+						<th fd-table-header-cell>VacationTypeId</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -44,21 +40,15 @@
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<fd-input type="date" ng-model="next.Date" ng-readonly="true"></fd-input>
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsEmployeeValue(next.Employee)}}
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.StartDate" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.EndDate" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Net}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.IncomeTax}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SocialInsurance}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.HealthInsurance}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PensionTax}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Reason}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Ratio}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VacationTypeId}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

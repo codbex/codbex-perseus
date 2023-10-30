@@ -8,7 +8,7 @@ const perspectiveData = {
 	name: "Projects",
 	link: "/services/web/codbex-perseus/gen/ui/Projects/index.html",
 	order: "100",
-	icon: "/services/web/resources/unicons/brackets-curly.svg",
+	icon: "/services/web/resources/unicons/mobile-android-alt.svg",
 };
 
 if (typeof exports !== 'undefined') {

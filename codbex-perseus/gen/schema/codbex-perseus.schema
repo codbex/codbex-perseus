@@ -106,6 +106,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "EMPLOYEE_COMPANY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "EMPLOYEE_VACATION"
                     }
                 ]
             },
@@ -498,6 +506,38 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALARY_NET"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARY_INCOMETAX"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARY_SOCIALINSURANCE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARY_HEALTHINSURANCE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARY_PENSIONTAX"
                     }
                 ]
             },
@@ -1314,6 +1354,80 @@
                 ]
             },
             {
+                "name": "CODBEX_VACATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "VACATION_ID"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "VACATION_DATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "VACATION_EMPLOYEE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "VACATION_REASON"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "VACATION_RATIO"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "VACATION_VACATIONTYPEID"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_VACATIONTYPE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "VACATIONTYPE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "VACATIONTYPE_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "Team_Company",
                 "type": "foreignKey",
                 "table": "CODBEX_TEAM",
@@ -1663,6 +1777,24 @@
                 "columns": "PAYROLL_EMPLOYEE",
                 "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "Vacation_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_VACATION",
+                "constraintName": "Vacation_Employee",
+                "columns": "VACATION_EMPLOYEE",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "Vacation_VacationType",
+                "type": "foreignKey",
+                "table": "CODBEX_VACATION",
+                "constraintName": "Vacation_VacationType",
+                "columns": "VACATION_VACATIONTYPEID",
+                "referencedTable": "CODBEX_VACATIONTYPE",
+                "referencedColumns": "VACATIONTYPE_ID"
             }
         ]
     }

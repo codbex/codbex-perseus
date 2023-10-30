@@ -4,87 +4,64 @@ const daoApi = require("db/dao");
 const EntityUtils = require("codbex-perseus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
-	table: "CODBEX_SALARY",
+	table: "CODBEX_VACATION",
 	properties: [
 		{
 			name: "Id",
-			column: "SALARY_ID",
+			column: "VACATION_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
-			name: "Name",
-			column: "SALARY_NAME",
-			type: "VARCHAR",
+			name: "Date",
+			column: "VACATION_DATE",
+			type: "DATE",
 		},
  {
 			name: "Employee",
-			column: "SALARY_EMPLOYEE",
+			column: "VACATION_EMPLOYEE",
 			type: "INTEGER",
 		},
  {
-			name: "StartDate",
-			column: "SALARY_STARTDATE",
-			type: "DATE",
+			name: "Reason",
+			column: "VACATION_REASON",
+			type: "VARCHAR",
 		},
  {
-			name: "EndDate",
-			column: "SALARY_ENDDATE",
-			type: "DATE",
+			name: "Ratio",
+			column: "VACATION_RATIO",
+			type: "INTEGER",
 		},
  {
-			name: "Net",
-			column: "SALARY_NET",
-			type: "DOUBLE",
-		},
- {
-			name: "IncomeTax",
-			column: "SALARY_INCOMETAX",
-			type: "DOUBLE",
-		},
- {
-			name: "SocialInsurance",
-			column: "SALARY_SOCIALINSURANCE",
-			type: "DOUBLE",
-		},
- {
-			name: "HealthInsurance",
-			column: "SALARY_HEALTHINSURANCE",
-			type: "DOUBLE",
-		},
- {
-			name: "PensionTax",
-			column: "SALARY_PENSIONTAX",
-			type: "DOUBLE",
+			name: "VacationTypeId",
+			column: "VACATION_VACATIONTYPEID",
+			type: "INTEGER",
 		}
 ]
 });
 
 exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
-		EntityUtils.setDate(e, "StartDate");
-		EntityUtils.setDate(e, "EndDate");
+		EntityUtils.setDate(e, "Date");
 		return e;
 	});
 };
 
 exports.get = function(id) {
 	let entity = dao.find(id);
-	EntityUtils.setDate(entity, "StartDate");
-	EntityUtils.setDate(entity, "EndDate");
+	EntityUtils.setDate(entity, "Date");
 	return entity;
 };
 
 exports.create = function(entity) {
-	EntityUtils.setLocalDate(entity, "StartDate");
-	EntityUtils.setLocalDate(entity, "EndDate");
+	EntityUtils.setLocalDate(entity, "Date");
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "CODBEX_SALARY",
+		table: "CODBEX_VACATION",
 		key: {
 			name: "Id",
-			column: "SALARY_ID",
+			column: "VACATION_ID",
 			value: id
 		}
 	});
@@ -92,14 +69,13 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
-	// EntityUtils.setLocalDate(entity, "StartDate");
-	// EntityUtils.setLocalDate(entity, "EndDate");
+	// EntityUtils.setLocalDate(entity, "Date");
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "CODBEX_SALARY",
+		table: "CODBEX_VACATION",
 		key: {
 			name: "Id",
-			column: "SALARY_ID",
+			column: "VACATION_ID",
 			value: entity.Id
 		}
 	});
@@ -108,10 +84,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "CODBEX_SALARY",
+		table: "CODBEX_VACATION",
 		key: {
 			name: "Id",
-			column: "SALARY_ID",
+			column: "VACATION_ID",
 			value: id
 		}
 	});
@@ -122,7 +98,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALARY"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_VACATION"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -134,5 +110,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("codbex-perseus/Employees/Salary/" + operation).send(JSON.stringify(data));
+	producer.queue("codbex-perseus/Employees/Vacation/" + operation).send(JSON.stringify(data));
 }
