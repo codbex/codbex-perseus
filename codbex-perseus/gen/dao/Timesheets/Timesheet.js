@@ -34,14 +34,14 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Activity",
-			column: "TIMESHEET_ACTIVITY",
-			type: "INTEGER",
-		},
- {
 			name: "Hours",
 			column: "TIMESHEET_HOURS",
 			type: "INTEGER",
+		},
+ {
+			name: "Rate",
+			column: "TIMESHEET_RATE",
+			type: "DOUBLE",
 		}
 ]
 });

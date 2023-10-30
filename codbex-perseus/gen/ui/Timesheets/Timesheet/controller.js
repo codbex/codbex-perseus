@@ -65,7 +65,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "select",
 				entity: entity,
 				optionsProjectAssignment: $scope.optionsProjectAssignment,
-				optionsActivity: $scope.optionsActivity,
 			});
 		};
 
@@ -75,7 +74,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "create",
 				entity: {},
 				optionsProjectAssignment: $scope.optionsProjectAssignment,
-				optionsActivity: $scope.optionsActivity,
 			}, null, false);
 		};
 
@@ -84,7 +82,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "update",
 				entity: entity,
 				optionsProjectAssignment: $scope.optionsProjectAssignment,
-				optionsActivity: $scope.optionsActivity,
 			}, null, false);
 		};
 
@@ -119,19 +116,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsProjectAssignment = [];
-		$scope.optionsActivity = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/Projects/ProjectAssignment.js").then(function (response) {
 			$scope.optionsProjectAssignment = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/Activity.js").then(function (response) {
-			$scope.optionsActivity = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -142,14 +129,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsProjectAssignment.length; i++) {
 				if ($scope.optionsProjectAssignment[i].value === optionKey) {
 					return $scope.optionsProjectAssignment[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsActivityValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsActivity.length; i++) {
-				if ($scope.optionsActivity[i].value === optionKey) {
-					return $scope.optionsActivity[i].text;
 				}
 			}
 			return null;

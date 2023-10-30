@@ -90,19 +90,6 @@
                         </fd-combobox-input>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idActivity" dg-required="false" dg-colon="true">Activity</fd-form-label>
-                        <fd-combobox-input id="idActivity"
-                            name="Activity"
-                            state="{{ formErrors.Activity ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Activity'].$valid, 'Activity')"
-                            ng-model="entity.Activity"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsActivity"
-                            dg-placeholder="Search Activity ...">
-                        </fd-combobox-input>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
                         <fd-form-label for="idHours" dg-required="false" dg-colon="true">Hours</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.Hours ? false : true }}">
                             <fd-input id="idHours"
@@ -114,6 +101,22 @@
                                 ng-readonly="action === 'select'"
                                 type="number"
                                 placeholder="Enter Hours">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idRate" dg-required="false" dg-colon="true">Rate</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Rate ? false : true }}">
+                            <fd-input id="idRate"
+                                name="Rate"
+                                state="{{ formErrors.Rate ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Rate'].$valid, 'Rate')"
+                                ng-model="entity.Rate"
+                                ng-readonly="action === 'select'"
+                                type="number"
+                                placeholder="Enter Rate">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>

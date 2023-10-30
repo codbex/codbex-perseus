@@ -419,39 +419,19 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "TIMESHEET_ACTIVITY"
-                    },
-                    {
-                        "type": "INTEGER",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "TIMESHEET_HOURS"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_ACTIVITY",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "ACTIVITY_ID"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "ACTIVITY_NAME"
+                        "name": "TIMESHEET_RATE"
                     }
                 ]
             },
@@ -1543,15 +1523,6 @@
                 "columns": "TIMESHEET_PROJECTASSIGNMENT",
                 "referencedTable": "CODBEX_PROJECTASSIGNMENT",
                 "referencedColumns": "PROJECTASSIGNMENT_ID"
-            },
-            {
-                "name": "Timesheet_Activity",
-                "type": "foreignKey",
-                "table": "CODBEX_TIMESHEET",
-                "constraintName": "Timesheet_Activity",
-                "columns": "TIMESHEET_ACTIVITY",
-                "referencedTable": "CODBEX_ACTIVITY",
-                "referencedColumns": "ACTIVITY_ID"
             },
             {
                 "name": "Salary_Employee",
