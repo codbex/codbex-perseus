@@ -71,7 +71,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
                 "perspectiveName": "Employees",
-                "perspectiveOrder": "900",
+                "perspectiveOrder": "810",
                 "title": "Team",
                 "tooltip": "Team",
                 "type": "PRIMARY"
@@ -280,7 +280,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
                 "perspectiveName": "Employees",
-                "perspectiveOrder": "900",
+                "perspectiveOrder": "810",
                 "title": "Employee",
                 "tooltip": "Employee",
                 "type": "PRIMARY"
@@ -1240,7 +1240,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
                 "perspectiveName": "Employees",
-                "perspectiveOrder": "900",
+                "perspectiveOrder": "810",
                 "title": "Salary",
                 "tooltip": "Salary",
                 "type": "PRIMARY"
@@ -3200,7 +3200,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
                 "perspectiveName": "Employees",
-                "perspectiveOrder": "900",
+                "perspectiveOrder": "810",
                 "title": "Payroll",
                 "tooltip": "Payroll",
                 "type": "PRIMARY"
@@ -3327,7 +3327,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
                 "perspectiveName": "Employees",
-                "perspectiveOrder": "900",
+                "perspectiveOrder": "810",
                 "title": "Vacation",
                 "tooltip": "Vacation",
                 "type": "PRIMARY"
@@ -3384,6 +3384,98 @@
                 "title": "VacationType",
                 "tooltip": "VacationType",
                 "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "PROJECTTIMESHEETS_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PROJECTTIMESHEETS_STARTDATE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DATE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "StartDate",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DATE"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PROJECTTIMESHEETS_ENDDATE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DATE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "EndDate",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DATE"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "PROJECTTIMESHEETS_PROJECT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Project",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "ProjectTimesheetsReport_Project",
+                        "relationshipEntityName": "Project",
+                        "relationshipEntityPerspectiveName": "Projects"
+                    }
+                ],
+                "caption": "Manage entity ProjectTimesheets",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PROJECTTIMESHEETSREPORT\"",
+                "dataName": "PROJECTTIMESHEETSREPORT",
+                "dataQuery": "SELECT PROJECT_NAME, TIMESHEET_NAME, TIMESHEET_HOURS, TIMESHEET_RATE FROM ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET WHERE PROJECT_ID = PROJECTASSIGNMENT_PROJECT   AND PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "REPORT_TABLE",
+                "menuIndex": "100",
+                "menuKey": "projecttimesheets",
+                "menuLabel": "ProjectTimesheets",
+                "name": "ProjectTimesheetsReport",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/adjust.svg",
+                "perspectiveName": "Reports",
+                "perspectiveOrder": "900",
+                "title": "ProjectTimesheets",
+                "tooltip": "ProjectTimesheets",
+                "type": "REPORT"
             }
         ],
         "perspectives": [
@@ -3439,13 +3531,19 @@
                 "name": "Employees",
                 "label": "Employees",
                 "icon": "/services/web/resources/unicons/users-alt.svg",
-                "order": "900"
+                "order": "810"
             },
             {
                 "name": "Settings",
                 "label": "Settings",
                 "icon": "/services/web/resources/unicons/wrench.svg",
                 "order": "999"
+            },
+            {
+                "name": "Reports",
+                "label": "Reports",
+                "icon": "/services/web/resources/unicons/adjust.svg",
+                "order": "900"
             }
         ],
         "navigations": []
