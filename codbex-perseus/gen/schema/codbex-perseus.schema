@@ -754,6 +754,14 @@
                         "name": "SALESINVOICE_DATE"
                     },
                     {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESINVOICE_DUE"
+                    },
+                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",

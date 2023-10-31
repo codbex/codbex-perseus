@@ -29,6 +29,11 @@ let dao = daoApi.create({
 			type: "DATE",
 		},
  {
+			name: "Due",
+			column: "SALESINVOICE_DUE",
+			type: "DATE",
+		},
+ {
 			name: "Customer",
 			column: "SALESINVOICE_CUSTOMER",
 			type: "INTEGER",
@@ -74,6 +79,7 @@ let dao = daoApi.create({
 exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
 		EntityUtils.setDate(e, "Date");
+		EntityUtils.setDate(e, "Due");
 		return e;
 	});
 };
@@ -81,11 +87,13 @@ exports.list = function(settings) {
 exports.get = function(id) {
 	let entity = dao.find(id);
 	EntityUtils.setDate(entity, "Date");
+	EntityUtils.setDate(entity, "Due");
 	return entity;
 };
 
 exports.create = function(entity) {
 	EntityUtils.setLocalDate(entity, "Date");
+	EntityUtils.setLocalDate(entity, "Due");
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
 		table: "CODBEX_SALESINVOICE",
@@ -100,6 +108,7 @@ exports.create = function(entity) {
 
 exports.update = function(entity) {
 	// EntityUtils.setLocalDate(entity, "Date");
+	// EntityUtils.setLocalDate(entity, "Due");
 	dao.update(entity);
 	triggerEvent("Update", {
 		table: "CODBEX_SALESINVOICE",
