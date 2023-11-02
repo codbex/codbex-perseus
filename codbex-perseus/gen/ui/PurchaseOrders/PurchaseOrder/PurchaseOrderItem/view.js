@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "PurchaseOrder-details",
-    label: "PurchaseOrder",
-    link: "/services/web/codbex-perseus/gen/ui/PurchaseOrders/PurchaseOrder/dialog-window/index.html",
+    id: "PurchaseOrderItem",
+    label: "PurchaseOrderItem",
+    factory: "frame",
+    region: "bottom",
+    link: "/services/web/codbex-perseus/gen/ui/PurchaseOrders/PurchaseOrder/PurchaseOrderItem/index.html",
     perspectiveName: "PurchaseOrders"
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-perseus/gen/ui/PurchaseOrders/PurchaseOrder/PurchaseOrderItem/dialog-window/view.js",
+    "extensionPoint": "codbex-perseus-dialog-window",
+    "description": "codbex-perseus - Application Dialog Window"
+}

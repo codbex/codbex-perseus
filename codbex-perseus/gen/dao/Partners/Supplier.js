@@ -43,8 +43,23 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "BankAccount",
-			column: "SUPPLIER_BANKACCOUNT",
+			name: "VATNO",
+			column: "SUPPLIER_VATNO",
+			type: "VARCHAR",
+		},
+ {
+			name: "IBAN",
+			column: "SUPPLIER_IBAN",
+			type: "VARCHAR",
+		},
+ {
+			name: "SWIFT",
+			column: "SUPPLIER_SWIFT",
+			type: "VARCHAR",
+		},
+ {
+			name: "Bank",
+			column: "SUPPLIER_BANK",
 			type: "VARCHAR",
 		}
 ]

@@ -206,6 +206,35 @@
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
+					<fd-form-item horizontal="false">
+						<fd-form-label for="idConditions" dg-required="false" dg-colon="true">Conditions</fd-form-label>
+						<fd-textarea id="idConditions"
+							name="Conditions"
+							state="{{ formErrors.Conditions ? 'error' : '' }}"
+							ng-required="false"
+							ng-change="isValid(formFieldset['Conditions'].$valid, 'Conditions')"
+							ng-model="entity.Conditions"
+							ng-readonly="action === 'select'"
+							ng-minlength="0.0 || 0"
+							ng-maxlength="20.0 || -1"
+							dg-input-rules="{ patterns: [''] }"
+							placeholder="Enter Conditions">
+						</fd-textarea>
+						<fd-form-message dg-type="error" ng-show="formErrors.Conditions">Incorrect Input</fd-form-message>
+					</fd-form-item horizontal="false">
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
+                        <fd-combobox-input id="idStatus"
+                            name="Status"
+                            state="{{ formErrors.Status ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Status'].$valid, 'Status')"
+                            ng-model="entity.Status"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsStatus"
+                            dg-placeholder="Search Status ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
 
                 </fd-form-group>
             </fd-fieldset>

@@ -57,6 +57,11 @@ let dao = daoApi.create({
 			name: "Total",
 			column: "PURCHASEORDER_TOTAL",
 			type: "DOUBLE",
+		},
+ {
+			name: "Status",
+			column: "PURCHASEORDER_STATUS",
+			type: "INTEGER",
 		}
 ]
 });

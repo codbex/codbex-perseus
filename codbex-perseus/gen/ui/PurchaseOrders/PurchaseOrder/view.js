@@ -7,7 +7,7 @@ const viewData = {
     id: "PurchaseOrder",
     label: "PurchaseOrder",
     factory: "frame",
-    region: "center",
+    region: "left",
     link: "/services/web/codbex-perseus/gen/ui/PurchaseOrders/PurchaseOrder/index.html",
     perspectiveName: "PurchaseOrders"
 };

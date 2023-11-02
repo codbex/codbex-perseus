@@ -33,6 +33,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "PostCode",
+			column: "COMPANY_POSTCODE",
+			type: "VARCHAR",
+		},
+ {
 			name: "City",
 			column: "COMPANY_CITY",
 			type: "INTEGER",
@@ -43,8 +48,23 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "BankAccount",
-			column: "COMPANY_BANKACCOUNT",
+			name: "VATNO",
+			column: "COMPANY_VATNO",
+			type: "VARCHAR",
+		},
+ {
+			name: "IBAN",
+			column: "COMPANY_IBAN",
+			type: "VARCHAR",
+		},
+ {
+			name: "SWIFT",
+			column: "COMPANY_SWIFT",
+			type: "VARCHAR",
+		},
+ {
+			name: "Bank",
+			column: "COMPANY_BANK",
 			type: "VARCHAR",
 		}
 ]

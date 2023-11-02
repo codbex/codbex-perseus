@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.PurchaseInvoices.PurchaseInvoice';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.Settings.SalesInvoiceStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/PurchaseInvoices/PurchaseInvoice.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Settings/SalesInvoiceStatus.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "PurchaseInvoice Details",
-			create: "Create PurchaseInvoice",
-			update: "Update PurchaseInvoice"
+			select: "SalesInvoiceStatus Details",
+			create: "Create SalesInvoiceStatus",
+			update: "Update SalesInvoiceStatus"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -25,15 +25,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					$scope.formErrors = {
 					};
 				}
-				if (params.entity.Date) {
-					params.entity.Date = new Date(params.entity.Date);
-				}
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsSupplier = params.optionsSupplier;
-				$scope.optionsPurchaseOrder = params.optionsPurchaseOrder;
-				$scope.optionsCurrency = params.optionsCurrency;
 			}
 		}
 
@@ -53,12 +47,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create PurchaseInvoice: '${response.message}'`;
+					$scope.errorMessage = `Unable to create SalesInvoiceStatus: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("PurchaseInvoice", "PurchaseInvoice successfully created");
+				messageHub.showAlertSuccess("SalesInvoiceStatus", "SalesInvoiceStatus successfully created");
 			});
 		};
 
@@ -68,19 +62,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update PurchaseInvoice: '${response.message}'`;
+					$scope.errorMessage = `Unable to update SalesInvoiceStatus: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("PurchaseInvoice", "PurchaseInvoice successfully updated");
+				messageHub.showAlertSuccess("SalesInvoiceStatus", "SalesInvoiceStatus successfully updated");
 			});
 		};
 
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("PurchaseInvoice-details");
+			messageHub.closeDialogWindow("SalesInvoiceStatus-details");
 		};
 
 		$scope.clearErrorMessage = function () {

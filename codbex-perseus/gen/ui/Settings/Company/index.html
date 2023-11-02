@@ -30,9 +30,13 @@
 						<th fd-table-header-cell>Email</th>
 						<th fd-table-header-cell>Phone</th>
 						<th fd-table-header-cell>Address</th>
+						<th fd-table-header-cell>PostCode</th>
 						<th fd-table-header-cell>City</th>
 						<th fd-table-header-cell>Country</th>
-						<th fd-table-header-cell>BankAccount</th>
+						<th fd-table-header-cell>VATNO</th>
+						<th fd-table-header-cell>IBAN</th>
+						<th fd-table-header-cell>SWIFT</th>
+						<th fd-table-header-cell>Bank</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -50,13 +54,17 @@
 							<a href="tel:{{next.Phone}}" class="fd-link">{{next.Phone}}</a>
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Address}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PostCode}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsCityValue(next.City)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsCountryValue(next.Country)}}
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.BankAccount}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VATNO}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.IBAN}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SWIFT}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Bank}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

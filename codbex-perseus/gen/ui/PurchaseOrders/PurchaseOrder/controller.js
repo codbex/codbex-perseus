@@ -7,37 +7,59 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
-		function resetPagination() {
-			$scope.dataPage = 1;
-			$scope.dataCount = 0;
-			$scope.dataLimit = 20;
+		$scope.dataPage = 1;
+		$scope.dataCount = 0;
+		$scope.dataOffset = 0;
+		$scope.dataLimit = 10;
+		$scope.action = "select";
+
+		function refreshData() {
+			$scope.dataReset = true;
+			$scope.dataPage--;
 		}
-		resetPagination();
 
 		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
+			$scope.$apply(function () {
+				$scope.selectedEntity = null;
+				$scope.action = "select";
+			});
+		});
+
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			refreshData();
+			$scope.loadPage();
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			refreshData();
+			$scope.loadPage();
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
-			$scope.dataPage = pageNumber;
+		$scope.loadPage = function () {
+			$scope.selectedEntity = null;
 			entityApi.count().then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("PurchaseOrder", `Unable to count PurchaseOrder: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let offset = (pageNumber - 1) * $scope.dataLimit;
+				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
+				let offset = ($scope.dataPage - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
+				if ($scope.dataReset) {
+					offset = 0;
+					limit = $scope.dataPage * $scope.dataLimit;
+				}
 				entityApi.list(offset, limit).then(function (response) {
 					if (response.status != 200) {
 						messageHub.showAlertError("PurchaseOrder", `Unable to list PurchaseOrder: '${response.message}'`);
 						return;
+					}
+					if ($scope.data == null || $scope.dataReset) {
+						$scope.data = [];
+						$scope.dataReset = false;
 					}
 
 					response.data.forEach(e => {
@@ -46,7 +68,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						}
 					});
 
-					$scope.data = response.data;
+					$scope.data = $scope.data.concat(response.data);
+					$scope.dataPage++;
 				});
 			});
 		};
@@ -54,39 +77,39 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
-		};
-
-		$scope.openDetails = function (entity) {
-			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("PurchaseOrder-details", {
-				action: "select",
+			messageHub.postMessage("entitySelected", {
 				entity: entity,
+				selectedMainEntityId: entity.Id,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("PurchaseOrder-details", {
-				action: "create",
+			$scope.action = "create";
+
+			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsSupplier: $scope.optionsSupplier,
 				optionsCurrency: $scope.optionsCurrency,
-			}, null, false);
+				optionsStatus: $scope.optionsStatus,
+			});
 		};
 
-		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("PurchaseOrder-details", {
-				action: "update",
-				entity: entity,
+		$scope.updateEntity = function () {
+			$scope.action = "update";
+			messageHub.postMessage("updateEntity", {
+				entity: $scope.selectedEntity,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsCurrency: $scope.optionsCurrency,
-			}, null, false);
+				optionsStatus: $scope.optionsStatus,
+			});
 		};
 
-		$scope.deleteEntity = function (entity) {
-			let id = entity.Id;
+		$scope.deleteEntity = function () {
+			let id = $scope.selectedEntity.Id;
 			messageHub.showDialogAsync(
 				'Delete PurchaseOrder?',
 				`Are you sure you want to delete PurchaseOrder? This action cannot be undone.`,
@@ -107,6 +130,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("PurchaseOrder", `Unable to delete PurchaseOrder: '${response.message}'`);
 							return;
 						}
+						refreshData();
 						$scope.loadPage($scope.dataPage);
 						messageHub.postMessage("clearDetails");
 					});
@@ -117,6 +141,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsSupplier = [];
 		$scope.optionsCurrency = [];
+		$scope.optionsStatus = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/Partners/Supplier.js").then(function (response) {
 			$scope.optionsSupplier = response.data.map(e => {
@@ -135,6 +160,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Settings/PurchaseOrderStatus.js").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 		$scope.optionsSupplierValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
 				if ($scope.optionsSupplier[i].value === optionKey) {
@@ -147,6 +181,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
 				if ($scope.optionsCurrency[i].value === optionKey) {
 					return $scope.optionsCurrency[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;

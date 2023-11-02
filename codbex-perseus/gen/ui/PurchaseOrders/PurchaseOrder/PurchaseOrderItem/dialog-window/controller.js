@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.PurchaseOrders.PurchaseOrder';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.PurchaseOrders.PurchaseOrderItem';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/PurchaseOrders/PurchaseOrder.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/PurchaseOrders/PurchaseOrderItem.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "PurchaseOrder Details",
-			create: "Create PurchaseOrder",
-			update: "Update PurchaseOrder"
+			select: "PurchaseOrderItem Details",
+			create: "Create PurchaseOrderItem",
+			update: "Update PurchaseOrderItem"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -21,18 +21,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (dataParameters) {
 				let params = JSON.parse(dataParameters);
 				$scope.action = params.action;
-				if ($scope.action == "create") {
+				if ($scope.action === "create") {
+					// Set Errors for required fields only
 					$scope.formErrors = {
+
 					};
 				}
-				if (params.entity.Date) {
-					params.entity.Date = new Date(params.entity.Date);
-				}
+
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsSupplier = params.optionsSupplier;
-				$scope.optionsCurrency = params.optionsCurrency;
+				$scope.optionsPurchaseOrderId = params.optionsPurchaseOrderId;
 			}
 		}
 
@@ -52,12 +51,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create PurchaseOrder: '${response.message}'`;
+					messageHub.showAlertError("PurchaseOrderItem", `Unable to create PurchaseOrderItem: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("PurchaseOrder", "PurchaseOrder successfully created");
+				messageHub.showAlertSuccess("PurchaseOrderItem", "PurchaseOrderItem successfully created");
 			});
 		};
 
@@ -67,23 +66,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update PurchaseOrder: '${response.message}'`;
+					messageHub.showAlertError("PurchaseOrderItem", `Unable to update PurchaseOrderItem: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("PurchaseOrder", "PurchaseOrder successfully updated");
+				messageHub.showAlertSuccess("PurchaseOrderItem", "PurchaseOrderItem successfully updated");
 			});
 		};
 
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("PurchaseOrder-details");
-		};
-
-		$scope.clearErrorMessage = function () {
-			$scope.errorMessage = null;
+			messageHub.closeDialogWindow("PurchaseOrderItem-details");
 		};
 
 	}]);

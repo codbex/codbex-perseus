@@ -18,6 +18,11 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
+			name: "Contact",
+			column: "CUSTOMER_CONTACT",
+			type: "VARCHAR",
+		},
+ {
 			name: "Email",
 			column: "CUSTOMER_EMAIL",
 			type: "VARCHAR",
@@ -43,8 +48,13 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "BankAccount",
-			column: "CUSTOMER_BANKACCOUNT",
+			name: "IBAN",
+			column: "CUSTOMER_IBAN",
+			type: "VARCHAR",
+		},
+ {
+			name: "VATNO",
+			column: "CUSTOMER_VATNO",
 			type: "VARCHAR",
 		}
 ]

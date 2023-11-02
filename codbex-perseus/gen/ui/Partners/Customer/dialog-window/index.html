@@ -47,6 +47,25 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
+                        <fd-form-label for="idContact" dg-required="false" dg-colon="true">Contact</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Contact ? false : true }}">
+                            <fd-input id="idContact"
+                                name="Contact"
+                                state="{{ formErrors.Contact ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Contact'].$valid, 'Contact')"
+                                ng-model="entity.Contact"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Contact">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
                         <fd-form-label for="idEmail" dg-required="false" dg-colon="true">Email</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.Email ? false : true }}">
                             <fd-input id="idEmail"
@@ -127,20 +146,39 @@
                         </fd-combobox-input>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idBankAccount" dg-required="false" dg-colon="true">BankAccount</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.BankAccount ? false : true }}">
-                            <fd-input id="idBankAccount"
-                                name="BankAccount"
-                                state="{{ formErrors.BankAccount ? 'error' : '' }}"
+                        <fd-form-label for="idIBAN" dg-required="false" dg-colon="true">IBAN</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.IBAN ? false : true }}">
+                            <fd-input id="idIBAN"
+                                name="IBAN"
+                                state="{{ formErrors.IBAN ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['BankAccount'].$valid, 'BankAccount')"
-                                ng-model="entity.BankAccount"
+                                ng-change="isValid(formFieldset['IBAN'].$valid, 'IBAN')"
+                                ng-model="entity.IBAN"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
                                 ng-maxlength="20.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter BankAccount">
+                                placeholder="Enter IBAN">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idVATNO" dg-required="false" dg-colon="true">VATNO</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.VATNO ? false : true }}">
+                            <fd-input id="idVATNO"
+                                name="VATNO"
+                                state="{{ formErrors.VATNO ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['VATNO'].$valid, 'VATNO')"
+                                ng-model="entity.VATNO"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter VATNO">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>

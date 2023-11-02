@@ -72,6 +72,16 @@ let dao = daoApi.create({
 			name: "Total",
 			column: "SALESINVOICE_TOTAL",
 			type: "DOUBLE",
+		},
+ {
+			name: "Conditions",
+			column: "SALESINVOICE_CONDITIONS",
+			type: "VARCHAR",
+		},
+ {
+			name: "Status",
+			column: "SALESINVOICE_SALESINVOICESTATUSID",
+			type: "INTEGER",
 		}
 ]
 });
