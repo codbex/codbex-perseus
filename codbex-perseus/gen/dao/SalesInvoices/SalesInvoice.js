@@ -79,7 +79,12 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "Status",
+			name: "PaymentMethod",
+			column: "SALESINVOICE_PAYMENTMETHOD",
+			type: "VARCHAR",
+		},
+ {
+			name: "SentVia",
 			column: "SALESINVOICE_SALESINVOICESTATUSID",
 			type: "INTEGER",
 		}

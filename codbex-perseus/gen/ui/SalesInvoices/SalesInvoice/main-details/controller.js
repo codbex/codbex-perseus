@@ -24,7 +24,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsCustomer = [];
 				$scope.optionsSalesOrder = [];
 				$scope.optionsCurrency = [];
-				$scope.optionsStatus = [];
+				$scope.optionsSentVia = [];
 				$scope.action = 'select';
 			});
 		});
@@ -41,7 +41,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsSentVia = msg.data.optionsSentVia;
 				$scope.action = 'select';
 			});
 		});
@@ -52,7 +52,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsSentVia = msg.data.optionsSentVia;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
@@ -72,7 +72,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsSentVia = msg.data.optionsSentVia;
 				$scope.action = 'update';
 			});
 		});
