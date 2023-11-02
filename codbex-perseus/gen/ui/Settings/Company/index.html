@@ -31,8 +31,6 @@
 						<th fd-table-header-cell>Phone</th>
 						<th fd-table-header-cell>Address</th>
 						<th fd-table-header-cell>PostCode</th>
-						<th fd-table-header-cell>City</th>
-						<th fd-table-header-cell>Country</th>
 						<th fd-table-header-cell>VATNO</th>
 						<th fd-table-header-cell>IBAN</th>
 						<th fd-table-header-cell>SWIFT</th>
@@ -55,12 +53,6 @@
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Address}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PostCode}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCityValue(next.City)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCountryValue(next.Country)}}
-						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VATNO}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.IBAN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SWIFT}}</td>

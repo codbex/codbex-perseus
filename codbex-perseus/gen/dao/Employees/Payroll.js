@@ -14,6 +14,11 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
+			name: "Name",
+			column: "PAYROLL_NAME",
+			type: "VARCHAR",
+		},
+ {
 			name: "Employee",
 			column: "PAYROLL_EMPLOYEE",
 			type: "INTEGER",

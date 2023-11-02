@@ -101,30 +101,61 @@
 						<fd-form-message dg-type="error" ng-show="formErrors.Address">Incorrect Input</fd-form-message>
 					</fd-form-item horizontal="false">
                     <fd-form-item horizontal="false">
+                        <fd-form-label for="idPostCode" dg-required="false" dg-colon="true">PostCode</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.PostCode ? false : true }}">
+                            <fd-input id="idPostCode"
+                                name="PostCode"
+                                state="{{ formErrors.PostCode ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['PostCode'].$valid, 'PostCode')"
+                                ng-model="entity.PostCode"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter PostCode">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
                         <fd-form-label for="idCity" dg-required="false" dg-colon="true">City</fd-form-label>
-                        <fd-combobox-input id="idCity"
-                            name="City"
-                            state="{{ formErrors.City ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['City'].$valid, 'City')"
-                            ng-model="entity.City"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsCity"
-                            dg-placeholder="Search City ...">
-                        </fd-combobox-input>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.City ? false : true }}">
+                            <fd-input id="idCity"
+                                name="City"
+                                state="{{ formErrors.City ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['City'].$valid, 'City')"
+                                ng-model="entity.City"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="100.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter City">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idCountry" dg-required="false" dg-colon="true">Country</fd-form-label>
-                        <fd-combobox-input id="idCountry"
-                            name="Country"
-                            state="{{ formErrors.Country ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Country'].$valid, 'Country')"
-                            ng-model="entity.Country"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsCountry"
-                            dg-placeholder="Search Country ...">
-                        </fd-combobox-input>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Country ? false : true }}">
+                            <fd-input id="idCountry"
+                                name="Country"
+                                state="{{ formErrors.Country ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Country'].$valid, 'Country')"
+                                ng-model="entity.Country"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="100.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Country">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idTeam" dg-required="false" dg-colon="true">Team</fd-form-label>

@@ -54,8 +54,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "select",
 				entity: entity,
-				optionsCity: $scope.optionsCity,
-				optionsCountry: $scope.optionsCountry,
 				optionsTeam: $scope.optionsTeam,
 				optionsCompany: $scope.optionsCompany,
 			});
@@ -66,8 +64,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "create",
 				entity: {},
-				optionsCity: $scope.optionsCity,
-				optionsCountry: $scope.optionsCountry,
 				optionsTeam: $scope.optionsTeam,
 				optionsCompany: $scope.optionsCompany,
 			}, null, false);
@@ -77,8 +73,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Employee-details", {
 				action: "update",
 				entity: entity,
-				optionsCity: $scope.optionsCity,
-				optionsCountry: $scope.optionsCountry,
 				optionsTeam: $scope.optionsTeam,
 				optionsCompany: $scope.optionsCompany,
 			}, null, false);
@@ -114,28 +108,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsCity = [];
-		$scope.optionsCountry = [];
 		$scope.optionsTeam = [];
 		$scope.optionsCompany = [];
-
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/City.js").then(function (response) {
-			$scope.optionsCity = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/Country.js").then(function (response) {
-			$scope.optionsCountry = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
 
 		$http.get("/services/js/codbex-perseus/gen/api/Employees/Team.js").then(function (response) {
 			$scope.optionsTeam = response.data.map(e => {
@@ -154,22 +128,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsCityValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCity.length; i++) {
-				if ($scope.optionsCity[i].value === optionKey) {
-					return $scope.optionsCity[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsCountryValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsTeamValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsTeam.length; i++) {
 				if ($scope.optionsTeam[i].value === optionKey) {

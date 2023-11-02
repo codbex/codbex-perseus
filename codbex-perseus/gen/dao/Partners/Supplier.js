@@ -33,14 +33,19 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "City",
-			column: "SUPPLIER_CITY",
-			type: "INTEGER",
+			name: "PostCode",
+			column: "SUPPLIER_POSTCODE",
+			type: "VARCHAR",
 		},
  {
-			name: "CountryId",
-			column: "SUPPLIER_COUNTRYID",
-			type: "INTEGER",
+			name: "City",
+			column: "SUPPLIER_CITY",
+			type: "VARCHAR",
+		},
+ {
+			name: "Country",
+			column: "SUPPLIER_COUNTRY",
+			type: "VARCHAR",
 		},
  {
 			name: "VATNO",

@@ -76,16 +76,22 @@
                         "name": "EMPLOYEE_ADDRESS"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "EMPLOYEE_POSTCODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "EMPLOYEE_CITY"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -114,50 +120,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "EMPLOYEE_VACATION"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_CITY",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "CITY_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CITY_NAME"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_COUNTRY",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "COUNTRY_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COUNTRY_NAME"
                     }
                 ]
             },
@@ -212,16 +174,22 @@
                         "name": "CUSTOMER_ADDRESS"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_POSTCODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "CUSTOMER_CITY"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -580,20 +548,26 @@
                         "name": "SUPPLIER_ADDRESS"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_POSTCODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SUPPLIER_CITY"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SUPPLIER_COUNTRYID"
+                        "name": "SUPPLIER_COUNTRY"
                     },
                     {
                         "type": "VARCHAR",
@@ -1052,22 +1026,6 @@
                         "name": "COMPANY_POSTCODE"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_CITY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_COUNTRY"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -1418,6 +1376,14 @@
                         "name": "PAYROLL_ID"
                     },
                     {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYROLL_NAME"
+                    },
+                    {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
@@ -1730,24 +1696,6 @@
                 "referencedColumns": "COMPANY_ID"
             },
             {
-                "name": "Employee_City",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEE",
-                "constraintName": "Employee_City",
-                "columns": "EMPLOYEE_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "Employee_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEE",
-                "constraintName": "Employee_Country",
-                "columns": "EMPLOYEE_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
                 "name": "Employee_Team",
                 "type": "foreignKey",
                 "table": "CODBEX_EMPLOYEE",
@@ -1764,24 +1712,6 @@
                 "columns": "EMPLOYEE_COMPANY",
                 "referencedTable": "CODBEX_COMPANY",
                 "referencedColumns": "COMPANY_ID"
-            },
-            {
-                "name": "Customer_City",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMER",
-                "constraintName": "Customer_City",
-                "columns": "CUSTOMER_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "Customer_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMER",
-                "constraintName": "Customer_Country",
-                "columns": "CUSTOMER_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
             },
             {
                 "name": "Project_Customer",
@@ -1845,24 +1775,6 @@
                 "columns": "SALARY_EMPLOYEE",
                 "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
-            },
-            {
-                "name": "Supplier_City",
-                "type": "foreignKey",
-                "table": "CODBEX_SUPPLIER",
-                "constraintName": "Supplier_City",
-                "columns": "SUPPLIER_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "Supplier_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_SUPPLIER",
-                "constraintName": "Supplier_Country",
-                "columns": "SUPPLIER_COUNTRYID",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
             },
             {
                 "name": "SalesOrder_Customer",
@@ -1953,24 +1865,6 @@
                 "columns": "PAYMENT_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_ID"
-            },
-            {
-                "name": "Company_City",
-                "type": "foreignKey",
-                "table": "CODBEX_COMPANY",
-                "constraintName": "Company_City",
-                "columns": "COMPANY_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "Company_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_COMPANY",
-                "constraintName": "Company_Country",
-                "columns": "COMPANY_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
             },
             {
                 "name": "SalesInvoicePaid_Payment",

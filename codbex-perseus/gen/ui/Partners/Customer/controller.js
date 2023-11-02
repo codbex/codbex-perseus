@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Partners/Customer.js";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		function resetPagination() {
 			$scope.dataPage = 1;
@@ -54,8 +54,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Customer-details", {
 				action: "select",
 				entity: entity,
-				optionsCity: $scope.optionsCity,
-				optionsCountry: $scope.optionsCountry,
 			});
 		};
 
@@ -64,8 +62,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Customer-details", {
 				action: "create",
 				entity: {},
-				optionsCity: $scope.optionsCity,
-				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -73,8 +69,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Customer-details", {
 				action: "update",
 				entity: entity,
-				optionsCity: $scope.optionsCity,
-				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -106,44 +100,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsCity = [];
-		$scope.optionsCountry = [];
-
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/City.js").then(function (response) {
-			$scope.optionsCity = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/Country.js").then(function (response) {
-			$scope.optionsCountry = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-		$scope.optionsCityValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCity.length; i++) {
-				if ($scope.optionsCity[i].value === optionKey) {
-					return $scope.optionsCity[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsCountryValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);
