@@ -86,7 +86,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsCustomer: $scope.optionsCustomer,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsCurrency: $scope.optionsCurrency,
-				optionsSentVia: $scope.optionsSentVia,
 			});
 		};
 
@@ -99,7 +98,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsCustomer: $scope.optionsCustomer,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsCurrency: $scope.optionsCurrency,
-				optionsSentVia: $scope.optionsSentVia,
 			});
 		};
 
@@ -110,7 +108,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsCustomer: $scope.optionsCustomer,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsCurrency: $scope.optionsCurrency,
-				optionsSentVia: $scope.optionsSentVia,
 			});
 		};
 
@@ -148,7 +145,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCustomer = [];
 		$scope.optionsSalesOrder = [];
 		$scope.optionsCurrency = [];
-		$scope.optionsSentVia = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/Partners/Customer.js").then(function (response) {
 			$scope.optionsCustomer = response.data.map(e => {
@@ -176,15 +172,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/SalesInvoiceStatus.js").then(function (response) {
-			$scope.optionsSentVia = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
 		$scope.optionsCustomerValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
 				if ($scope.optionsCustomer[i].value === optionKey) {
@@ -205,14 +192,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
 				if ($scope.optionsCurrency[i].value === optionKey) {
 					return $scope.optionsCurrency[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsSentViaValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsSentVia.length; i++) {
-				if ($scope.optionsSentVia[i].value === optionKey) {
-					return $scope.optionsSentVia[i].text;
 				}
 			}
 			return null;

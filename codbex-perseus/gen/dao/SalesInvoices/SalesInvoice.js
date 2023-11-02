@@ -84,9 +84,9 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "SentVia",
-			column: "SALESINVOICE_SALESINVOICESTATUSID",
-			type: "INTEGER",
+			name: "SentMethod",
+			column: "SALESINVOICE_SENTMETHOD",
+			type: "VARCHAR",
 		}
 ]
 });

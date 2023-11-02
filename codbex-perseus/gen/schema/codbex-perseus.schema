@@ -884,12 +884,10 @@
                         "name": "SALESINVOICE_PAYMENTMETHOD"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "type": "VARCHAR",
+                        "length": 20,
                         "nullable": true,
-                        "name": "SALESINVOICE_SALESINVOICESTATUSID"
+                        "name": "SALESINVOICE_SENTMETHOD"
                     }
                 ]
             },
@@ -1937,15 +1935,6 @@
                 "columns": "SALESINVOICE_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_ID"
-            },
-            {
-                "name": "SalesInvoice_SalesInvoiceStatus",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESINVOICE",
-                "constraintName": "SalesInvoice_SalesInvoiceStatus",
-                "columns": "SALESINVOICE_SALESINVOICESTATUSID",
-                "referencedTable": "CODBEX_SALESINVOICESTATUS",
-                "referencedColumns": "SALESINVOICESTATUS_ID"
             },
             {
                 "name": "SalesInvoiceItem_SalesInvoice",
