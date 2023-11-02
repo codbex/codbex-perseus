@@ -4,9 +4,9 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "PaymentSent-details",
-    label: "PaymentSent",
-    link: "/services/web/codbex-perseus/gen/ui/Payments/Payment/PaymentSent/dialog-window/index.html",
+    id: "PurchaseInvoicePaid-details",
+    label: "PurchaseInvoicePaid",
+    link: "/services/web/codbex-perseus/gen/ui/Payments/Payment/PurchaseInvoicePaid/dialog-window/index.html",
     perspectiveName: "Payments"
 };
 

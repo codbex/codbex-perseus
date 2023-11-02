@@ -3,23 +3,23 @@ const producer = require("messaging/producer");
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_PAYMENTSENT",
+	table: "CODBEX_SALESINVOICEPAID",
 	properties: [
 		{
 			name: "Id",
-			column: "PAYMENTSENT_ID",
+			column: "PAYMENTRECEIVED_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
 			name: "Payment",
-			column: "PAYMENTSENT_PAYMENT",
+			column: "PAYMENTRECEIVED_PAYMENT",
 			type: "INTEGER",
 		},
  {
-			name: "PurchaseInvoice",
-			column: "PAYMENTSENT_PURCHASEINVOICE",
+			name: "SalesInvoice",
+			column: "PAYMENTRECEIVED_SALESINVOICE",
 			type: "INTEGER",
 		}
 ]
@@ -36,10 +36,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "CODBEX_PAYMENTSENT",
+		table: "CODBEX_SALESINVOICEPAID",
 		key: {
 			name: "Id",
-			column: "PAYMENTSENT_ID",
+			column: "PAYMENTRECEIVED_ID",
 			value: id
 		}
 	});
@@ -49,10 +49,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "CODBEX_PAYMENTSENT",
+		table: "CODBEX_SALESINVOICEPAID",
 		key: {
 			name: "Id",
-			column: "PAYMENTSENT_ID",
+			column: "PAYMENTRECEIVED_ID",
 			value: entity.Id
 		}
 	});
@@ -61,17 +61,17 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "CODBEX_PAYMENTSENT",
+		table: "CODBEX_SALESINVOICEPAID",
 		key: {
 			name: "Id",
-			column: "PAYMENTSENT_ID",
+			column: "PAYMENTRECEIVED_ID",
 			value: id
 		}
 	});
 };
 
 exports.count = function (Payment) {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTSENT" WHERE "PAYMENTSENT_PAYMENT" = ?', [Payment]);
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESINVOICEPAID" WHERE "PAYMENTRECEIVED_PAYMENT" = ?', [Payment]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -83,7 +83,7 @@ exports.count = function (Payment) {
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTSENT"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESINVOICEPAID"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -95,5 +95,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("codbex-perseus/Payments/PaymentSent/" + operation).send(JSON.stringify(data));
+	producer.queue("codbex-perseus/Payments/SalesInvoicePaid/" + operation).send(JSON.stringify(data));
 }

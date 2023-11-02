@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.PaymentSent';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.SalesInvoicePaid';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/PaymentSent.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/SalesInvoicePaid.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "PaymentSent Details",
-			create: "Create PaymentSent",
-			update: "Update PaymentSent"
+			select: "SalesInvoicePaid Details",
+			create: "Create SalesInvoicePaid",
+			update: "Update SalesInvoicePaid"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -31,7 +31,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsPurchaseInvoice = params.optionsPurchaseInvoice;
+				$scope.optionsSalesInvoice = params.optionsSalesInvoice;
 			}
 		}
 
@@ -51,12 +51,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					messageHub.showAlertError("PaymentSent", `Unable to create PaymentSent: '${response.message}'`);
+					messageHub.showAlertError("SalesInvoicePaid", `Unable to create SalesInvoicePaid: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("PaymentSent", "PaymentSent successfully created");
+				messageHub.showAlertSuccess("SalesInvoicePaid", "SalesInvoicePaid successfully created");
 			});
 		};
 
@@ -66,19 +66,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("PaymentSent", `Unable to update PaymentSent: '${response.message}'`);
+					messageHub.showAlertError("SalesInvoicePaid", `Unable to update SalesInvoicePaid: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("PaymentSent", "PaymentSent successfully updated");
+				messageHub.showAlertSuccess("SalesInvoicePaid", "SalesInvoicePaid successfully updated");
 			});
 		};
 
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("PaymentSent-details");
+			messageHub.closeDialogWindow("SalesInvoicePaid-details");
 		};
 
 	}]);

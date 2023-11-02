@@ -1,5 +1,5 @@
 {
-    "module": "codbex-perseus/gen/ui/Payments/Payment/PaymentReceived/dialog-window/view.js",
+    "module": "codbex-perseus/gen/ui/Payments/Payment/PurchaseInvoicePaid/dialog-window/view.js",
     "extensionPoint": "codbex-perseus-dialog-window",
     "description": "codbex-perseus - Application Dialog Window"
 }

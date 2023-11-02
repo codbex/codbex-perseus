@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.PaymentSent';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.PurchaseInvoicePaid';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/PaymentSent.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/PurchaseInvoicePaid.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -50,7 +50,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage = pageNumber;
 			entityApi.count(Payment).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("PaymentSent", `Unable to count PaymentSent: '${response.message}'`);
+					messageHub.showAlertError("PurchaseInvoicePaid", `Unable to count PurchaseInvoicePaid: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
@@ -59,7 +59,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("PaymentSent", `Unable to list PaymentSent: '${response.message}'`);
+						messageHub.showAlertError("PurchaseInvoicePaid", `Unable to list PurchaseInvoicePaid: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -73,7 +73,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("PaymentSent-details", {
+			messageHub.showDialogWindow("PurchaseInvoicePaid-details", {
 				action: "select",
 				entity: entity,
 				optionsPurchaseInvoice: $scope.optionsPurchaseInvoice,
@@ -82,7 +82,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("PaymentSent-details", {
+			messageHub.showDialogWindow("PurchaseInvoicePaid-details", {
 				action: "create",
 				entity: {},
 				selectedMainEntityKey: "Payment",
@@ -92,7 +92,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("PaymentSent-details", {
+			messageHub.showDialogWindow("PurchaseInvoicePaid-details", {
 				action: "update",
 				entity: entity,
 				selectedMainEntityKey: "Payment",
@@ -104,8 +104,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete PaymentSent?',
-				`Are you sure you want to delete PaymentSent? This action cannot be undone.`,
+				'Delete PurchaseInvoicePaid?',
+				`Are you sure you want to delete PurchaseInvoicePaid? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -120,7 +120,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("PaymentSent", `Unable to delete PaymentSent: '${response.message}'`);
+							messageHub.showAlertError("PurchaseInvoicePaid", `Unable to delete PurchaseInvoicePaid: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);

@@ -1128,7 +1128,7 @@
                 ]
             },
             {
-                "name": "CODBEX_PAYMENTRECEIVED",
+                "name": "CODBEX_SALESINVOICEPAID",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -1378,7 +1378,7 @@
                 ]
             },
             {
-                "name": "CODBEX_PAYMENTSENT",
+                "name": "CODBEX_PURCHASEINVOICEPAID",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -1973,19 +1973,19 @@
                 "referencedColumns": "COUNTRY_ID"
             },
             {
-                "name": "PaymentReceived_Payment",
+                "name": "SalesInvoicePaid_Payment",
                 "type": "foreignKey",
-                "table": "CODBEX_PAYMENTRECEIVED",
-                "constraintName": "PaymentReceived_Payment",
+                "table": "CODBEX_SALESINVOICEPAID",
+                "constraintName": "SalesInvoicePaid_Payment",
                 "columns": "PAYMENTRECEIVED_PAYMENT",
                 "referencedTable": "CODBEX_PAYMENT",
                 "referencedColumns": "PAYMENT_ID"
             },
             {
-                "name": "PaymentReceived_SalesInvoice",
+                "name": "SalesInvoicePaid_SalesInvoice",
                 "type": "foreignKey",
-                "table": "CODBEX_PAYMENTRECEIVED",
-                "constraintName": "PaymentReceived_SalesInvoice",
+                "table": "CODBEX_SALESINVOICEPAID",
+                "constraintName": "SalesInvoicePaid_SalesInvoice",
                 "columns": "PAYMENTRECEIVED_SALESINVOICE",
                 "referencedTable": "CODBEX_SALESINVOICE",
                 "referencedColumns": "SALESINVOICE_ID"
@@ -2063,19 +2063,19 @@
                 "referencedColumns": "PURCHASEINVOICESTATUS_ID"
             },
             {
-                "name": "PaymentSent_Payment",
+                "name": "PurchaseInvoicePaid_Payment",
                 "type": "foreignKey",
-                "table": "CODBEX_PAYMENTSENT",
-                "constraintName": "PaymentSent_Payment",
+                "table": "CODBEX_PURCHASEINVOICEPAID",
+                "constraintName": "PurchaseInvoicePaid_Payment",
                 "columns": "PAYMENTSENT_PAYMENT",
                 "referencedTable": "CODBEX_PAYMENT",
                 "referencedColumns": "PAYMENT_ID"
             },
             {
-                "name": "PaymentSent_PurchaseInvoice",
+                "name": "PurchaseInvoicePaid_PurchaseInvoice",
                 "type": "foreignKey",
-                "table": "CODBEX_PAYMENTSENT",
-                "constraintName": "PaymentSent_PurchaseInvoice",
+                "table": "CODBEX_PURCHASEINVOICEPAID",
+                "constraintName": "PurchaseInvoicePaid_PurchaseInvoice",
                 "columns": "PAYMENTSENT_PURCHASEINVOICE",
                 "referencedTable": "CODBEX_PURCHASEINVOICE",
                 "referencedColumns": "PURCHASEINVOICE_ID"

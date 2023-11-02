@@ -1,5 +1,5 @@
 const rs = require("http/rs");
-const dao = require("codbex-perseus/gen/dao/Payments/PaymentSent");
+const dao = require("codbex-perseus/gen/dao/Payments/SalesInvoicePaid");
 const http = require("codbex-perseus/gen/api/utils/http");
 
 rs.service()
@@ -45,7 +45,7 @@ rs.service()
 			if (entity) {
 			    http.sendResponseOk(entity);
 			} else {
-				http.sendResponseNotFound("PaymentSent not found");
+				http.sendResponseNotFound("SalesInvoicePaid not found");
 			}
 		})
 		.produces(["application/json"])
@@ -62,7 +62,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/PaymentSent.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/SalesInvoicePaid.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
@@ -100,7 +100,7 @@ rs.service()
 				dao.delete(id);
 				http.sendResponseNoContent();
 			} else {
-				http.sendResponseNotFound("PaymentSent not found");
+				http.sendResponseNotFound("SalesInvoicePaid not found");
 			}
 		})
 		.catch(function(ctx, error) {
