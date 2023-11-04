@@ -34,13 +34,13 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "AccountFrom",
-			column: "PAYMENT_ACCOUNTFROM",
+			name: "FromIBAN",
+			column: "PAYMENT_FROMIBAN",
 			type: "VARCHAR",
 		},
  {
-			name: "AccountTo",
-			column: "PAYMENT_ACCOUNTTO",
+			name: "ToIBAN",
+			column: "PAYMENT_TOIBAN",
 			type: "VARCHAR",
 		}
 ]

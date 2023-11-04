@@ -35,6 +35,8 @@
 						<th fd-table-header-cell>IBAN</th>
 						<th fd-table-header-cell>SWIFT</th>
 						<th fd-table-header-cell>Bank</th>
+						<th fd-table-header-cell>City</th>
+						<th fd-table-header-cell>Country</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -57,6 +59,8 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.IBAN}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.SWIFT}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Bank}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.City}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Country}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

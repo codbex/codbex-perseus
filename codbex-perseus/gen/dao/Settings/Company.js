@@ -56,6 +56,16 @@ let dao = daoApi.create({
 			name: "Bank",
 			column: "COMPANY_BANK",
 			type: "VARCHAR",
+		},
+ {
+			name: "City",
+			column: "COMPANY_CITY",
+			type: "VARCHAR",
+		},
+ {
+			name: "Country",
+			column: "COMPANY_COUNTRY",
+			type: "VARCHAR",
 		}
 ]
 });

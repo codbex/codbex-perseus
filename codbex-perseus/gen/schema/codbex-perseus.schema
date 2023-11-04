@@ -197,7 +197,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 34,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -577,7 +577,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 34,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -963,15 +963,19 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 34,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_ACCOUNTFROM"
+                        "name": "PAYMENT_FROMIBAN"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 34,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_ACCOUNTTO"
+                        "name": "PAYMENT_TOIBAN"
                     }
                 ]
             },
@@ -1052,6 +1056,22 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "COMPANY_BANK"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_CITY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_COUNTRY"
                     }
                 ]
             },

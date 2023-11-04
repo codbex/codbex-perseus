@@ -86,39 +86,39 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idAccountFrom" dg-required="false" dg-colon="true">AccountFrom</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.AccountFrom ? false : true }}">
-                            <fd-input id="idAccountFrom"
-                                name="AccountFrom"
-                                state="{{ formErrors.AccountFrom ? 'error' : '' }}"
+                        <fd-form-label for="idFromIBAN" dg-required="false" dg-colon="true">FromIBAN</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.FromIBAN ? false : true }}">
+                            <fd-input id="idFromIBAN"
+                                name="FromIBAN"
+                                state="{{ formErrors.FromIBAN ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['AccountFrom'].$valid, 'AccountFrom')"
-                                ng-model="entity.AccountFrom"
+                                ng-change="isValid(formFieldset['FromIBAN'].$valid, 'FromIBAN')"
+                                ng-model="entity.FromIBAN"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
                                 ng-maxlength="20.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter AccountFrom">
+                                placeholder="Enter FromIBAN">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idAccountTo" dg-required="false" dg-colon="true">AccountTo</fd-form-label>
-                        <fd-form-input-message-group dg-inactive="{{ formErrors.AccountTo ? false : true }}">
-                            <fd-input id="idAccountTo"
-                                name="AccountTo"
-                                state="{{ formErrors.AccountTo ? 'error' : '' }}"
+                        <fd-form-label for="idToIBAN" dg-required="false" dg-colon="true">ToIBAN</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.ToIBAN ? false : true }}">
+                            <fd-input id="idToIBAN"
+                                name="ToIBAN"
+                                state="{{ formErrors.ToIBAN ? 'error' : '' }}"
 								ng-required="false"
-                                ng-change="isValid(formFieldset['AccountTo'].$valid, 'AccountTo')"
-                                ng-model="entity.AccountTo"
+                                ng-change="isValid(formFieldset['ToIBAN'].$valid, 'ToIBAN')"
+                                ng-model="entity.ToIBAN"
                                 ng-readonly="action === 'select'"
                                 ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
+                                ng-maxlength="34.0 || -1"
                                 dg-input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter AccountTo">
+                                placeholder="Enter ToIBAN">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
