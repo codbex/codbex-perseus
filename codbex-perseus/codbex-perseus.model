@@ -1898,7 +1898,7 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity['Amount'] * 0.2",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESINVOICE_VAT",
@@ -1908,7 +1908,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "VAT",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -1928,7 +1928,9 @@
                         "isCalculatedProperty": "false",
                         "name": "Discount",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Discount %",
                         "widgetLength": "20",
+                        "widgetShortLabel": "Discount %",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1949,7 +1951,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Amount\"] + entity[\"VAT\"] - (entity[\"Amount\"] * entity[\"Discount\"] ? entity[\"Discount\"] : 0) / 100 + (entity[\"Taxes\"] ? entity[\"Taxes\"] : 0)",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESINVOICE_TOTAL",
@@ -1959,7 +1961,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -2124,7 +2126,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESINVOICEITEM_AMOUNT",
@@ -2134,7 +2136,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Amount",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",

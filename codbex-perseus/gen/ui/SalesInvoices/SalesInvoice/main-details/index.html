@@ -159,7 +159,7 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idDiscount" dg-required="false" dg-colon="true">Discount</fd-form-label>
+                        <fd-form-label for="idDiscount" dg-required="false" dg-colon="true">Discount %</fd-form-label>
                         <fd-form-input-message-group dg-inactive="{{ formErrors.Discount ? false : true }}">
                             <fd-input id="idDiscount"
                                 name="Discount"
@@ -169,7 +169,7 @@
                                 ng-model="entity.Discount"
                                 ng-readonly="action === 'select'"
                                 type="number"
-                                placeholder="Enter Discount">
+                                placeholder="Enter Discount %">
                             </fd-input>
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>

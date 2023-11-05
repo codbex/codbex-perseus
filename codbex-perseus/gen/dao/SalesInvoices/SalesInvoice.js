@@ -109,6 +109,8 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	EntityUtils.setLocalDate(entity, "Date");
 	EntityUtils.setLocalDate(entity, "Due");
+	entity["VAT"] = entity['Amount'] * 0.2;
+	entity["Total"] = entity["Amount"] + entity["VAT"] - (entity["Amount"] * entity["Discount"] ? entity["Discount"] : 0) / 100 + (entity["Taxes"] ? entity["Taxes"] : 0);
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
 		table: "CODBEX_SALESINVOICE",
@@ -124,6 +126,8 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	// EntityUtils.setLocalDate(entity, "Date");
 	// EntityUtils.setLocalDate(entity, "Due");
+	entity["VAT"] = entity['Amount'] * 0.2;
+	entity["Total"] = entity["Amount"] + entity["VAT"] - (entity["Amount"] * entity["Discount"] ? entity["Discount"] : 0) / 100 + (entity["Taxes"] ? entity["Taxes"] : 0);
 	dao.update(entity);
 	triggerEvent("Update", {
 		table: "CODBEX_SALESINVOICE",
