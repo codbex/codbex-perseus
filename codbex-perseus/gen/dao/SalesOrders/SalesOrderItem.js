@@ -49,6 +49,7 @@ exports.get = function(id) {
 };
 
 exports.create = function(entity) {
+	entity["Amount"] = entity["Hours"] * entity["Rate"];
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
 		table: "CODBEX_SALESORDERITEM",
@@ -62,6 +63,7 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	entity["Amount"] = entity["Hours"] * entity["Rate"];
 	dao.update(entity);
 	triggerEvent("Update", {
 		table: "CODBEX_SALESORDERITEM",

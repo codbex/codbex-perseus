@@ -2,5 +2,5 @@
     "name": "codbex-perseus/SalesInvoices/SalesInvoiceItem/Create",
     "kind": "Q",
     "handler": "codbex-perseus-ext/events/SalesInvoiceItem/SalesInvoiceItemHandler.js",
-    "description": "Sales Invoice Item Create Listener 1"
+    "description": "Sales Invoice Item Create Listener"
 }

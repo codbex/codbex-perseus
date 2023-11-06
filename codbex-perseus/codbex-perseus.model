@@ -1526,7 +1526,7 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity['Amount'] * 0.2",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDER_VAT",
@@ -1536,14 +1536,14 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "VAT",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Amount\"] + entity[\"VAT\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDER_TOTAL",
@@ -1553,7 +1553,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -1694,7 +1694,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Hours\"] * entity[\"Rate\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDERITEM_AMOUNT",
@@ -1704,7 +1704,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Amount",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -2812,7 +2812,7 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity['Amount'] * 0.2",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PURCHASEORDER_VAT",
@@ -2822,14 +2822,14 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "VAT",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Amount\"] + entity[\"VAT\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PURCHASEORDER_TOTAL",
@@ -2839,7 +2839,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -3128,7 +3128,7 @@
                         "relationshipEntityPerspectiveName": "Settings"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity['Amount'] * 0.2",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PURCHASEINVOICE_VAT",
@@ -3138,14 +3138,14 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "VAT",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Amount\"] + entity[\"VAT\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PURCHASEINVOICE_TOTAL",
@@ -3155,7 +3155,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Total",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -3767,7 +3767,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PURCHASEORDERITEM_AMOUNT",
@@ -3777,7 +3777,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Amount",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -3895,7 +3895,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpression": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "PURCHASEINVOICEITEM_AMOUNT",
@@ -3905,7 +3905,7 @@
                         "dataScale": "NaN",
                         "dataType": "DOUBLE",
                         "dataUnique": "false",
-                        "isCalculatedProperty": "false",
+                        "isCalculatedProperty": "true",
                         "name": "Amount",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
