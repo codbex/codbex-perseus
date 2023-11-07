@@ -44,6 +44,7 @@ exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
 		table: "CODBEX_CURRENCY",
+		entity: entity,
 		key: {
 			name: "Id",
 			column: "CURRENCY_ID",
@@ -58,6 +59,7 @@ exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
 		table: "CODBEX_CURRENCY",
+		entity: entity,
 		key: {
 			name: "Id",
 			column: "CURRENCY_ID",
@@ -67,9 +69,11 @@ exports.update = function(entity) {
 };
 
 exports.delete = function(id) {
+	let entity = dao.find(id);
 	dao.remove(id);
 	triggerEvent("Delete", {
 		table: "CODBEX_CURRENCY",
+		entity: entity,
 		key: {
 			name: "Id",
 			column: "CURRENCY_ID",

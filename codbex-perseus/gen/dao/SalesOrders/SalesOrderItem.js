@@ -12,43 +12,43 @@ let dao = daoApi.create({
 			id: true,
 			autoIncrement: true,
 		},
-		{
+ {
 			name: "SalesOrder",
 			column: "SALESORDERITEM_SALESORDER",
 			type: "INTEGER",
 		},
-		{
+ {
 			name: "Timesheet",
 			column: "SALESORDERITEM_TIMESHEET",
 			type: "INTEGER",
 		},
-		{
+ {
 			name: "Hours",
 			column: "SALESORDERITEM_HOURS",
 			type: "DOUBLE",
 		},
-		{
+ {
 			name: "Rate",
 			column: "SALESORDERITEM_RATE",
 			type: "DOUBLE",
 		},
-		{
+ {
 			name: "Amount",
 			column: "SALESORDERITEM_AMOUNT",
 			type: "DOUBLE",
 		}
-	]
+]
 });
 
-exports.list = function (settings) {
+exports.list = function(settings) {
 	return dao.list(settings);
 };
 
-exports.get = function (id) {
+exports.get = function(id) {
 	return dao.find(id);
 };
 
-exports.create = function (entity) {
+exports.create = function(entity) {
 	entity["Amount"] = entity["Hours"] * entity["Rate"];
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
@@ -63,7 +63,7 @@ exports.create = function (entity) {
 	return id;
 };
 
-exports.update = function (entity) {
+exports.update = function(entity) {
 	entity["Amount"] = entity["Hours"] * entity["Rate"];
 	dao.update(entity);
 	triggerEvent("Update", {
@@ -77,8 +77,8 @@ exports.update = function (entity) {
 	});
 };
 
-exports.delete = function (id) {
-	let entity = dao.get(id);
+exports.delete = function(id) {
+	let entity = dao.find(id);
 	dao.remove(id);
 	triggerEvent("Delete", {
 		table: "CODBEX_SALESORDERITEM",
@@ -103,7 +103,7 @@ exports.count = function (SalesOrder) {
 	return 0;
 };
 
-exports.customDataCount = function () {
+exports.customDataCount = function() {
 	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
