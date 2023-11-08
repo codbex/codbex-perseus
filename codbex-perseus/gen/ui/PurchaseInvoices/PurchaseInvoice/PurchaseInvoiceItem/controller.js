@@ -46,15 +46,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let PurchaseInvoiceId = $scope.selectedMainEntityId;
+			let PurchaseInvoice = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(PurchaseInvoiceId).then(function (response) {
+			entityApi.count(PurchaseInvoice).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("PurchaseInvoiceItem", `Unable to count PurchaseInvoiceItem: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `PurchaseInvoiceId=${PurchaseInvoiceId}`;
+				let query = `PurchaseInvoice=${PurchaseInvoice}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
@@ -76,7 +76,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PurchaseInvoiceItem-details", {
 				action: "select",
 				entity: entity,
-				optionsPurchaseInvoiceId: $scope.optionsPurchaseInvoiceId,
+				optionsPurchaseInvoice: $scope.optionsPurchaseInvoice,
 			});
 		};
 
@@ -85,9 +85,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PurchaseInvoiceItem-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "PurchaseInvoiceId",
+				selectedMainEntityKey: "PurchaseInvoice",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPurchaseInvoiceId: $scope.optionsPurchaseInvoiceId,
+				optionsPurchaseInvoice: $scope.optionsPurchaseInvoice,
 			}, null, false);
 		};
 
@@ -95,9 +95,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PurchaseInvoiceItem-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "PurchaseInvoiceId",
+				selectedMainEntityKey: "PurchaseInvoice",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPurchaseInvoiceId: $scope.optionsPurchaseInvoiceId,
+				optionsPurchaseInvoice: $scope.optionsPurchaseInvoice,
 			}, null, false);
 		};
 
@@ -131,20 +131,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsPurchaseInvoiceId = [];
+		$scope.optionsPurchaseInvoice = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/PurchaseInvoices/PurchaseInvoice.js").then(function (response) {
-			$scope.optionsPurchaseInvoiceId = response.data.map(e => {
+			$scope.optionsPurchaseInvoice = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
 				}
 			});
 		});
-		$scope.optionsPurchaseInvoiceIdValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsPurchaseInvoiceId.length; i++) {
-				if ($scope.optionsPurchaseInvoiceId[i].value === optionKey) {
-					return $scope.optionsPurchaseInvoiceId[i].text;
+		$scope.optionsPurchaseInvoiceValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsPurchaseInvoice.length; i++) {
+				if ($scope.optionsPurchaseInvoice[i].value === optionKey) {
+					return $scope.optionsPurchaseInvoice[i].text;
 				}
 			}
 			return null;

@@ -6162,7 +6162,7 @@
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
-          "dataName": "PURCHASEINVOICEITEM_PURCHASEINVOICEID",
+          "dataName": "PURCHASEINVOICEITEM_PURCHASEINVOICE",
           "dataNullable": true,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
@@ -6170,7 +6170,7 @@
           "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
-          "name": "PurchaseInvoiceId",
+          "name": "PurchaseInvoice",
           "relationshipCardinality": "1_n",
           "relationshipName": "PurchaseInvoiceItem_PurchaseInvoice",
           "relationshipType": "COMPOSITION",
@@ -6182,7 +6182,7 @@
           "relationshipEntityName": "PurchaseInvoice",
           "relationshipEntityPerspectiveName": "PurchaseInvoices",
           "dataNotNull": false,
-          "widgetLabel": "PurchaseInvoiceId",
+          "widgetLabel": "PurchaseInvoice",
           "inputRule": ""
         },
         {
@@ -6290,7 +6290,7 @@
       ],
       "primaryKeysString": "Id",
       "masterEntity": "PurchaseInvoice",
-      "masterEntityId": "PurchaseInvoiceId",
+      "masterEntityId": "PurchaseInvoice",
       "hasDropdowns": true
     },
     {

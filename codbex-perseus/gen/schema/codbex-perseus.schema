@@ -1590,7 +1590,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PURCHASEINVOICEITEM_PURCHASEINVOICEID"
+                        "name": "PURCHASEINVOICEITEM_PURCHASEINVOICE"
                     },
                     {
                         "type": "VARCHAR",
@@ -2035,7 +2035,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEINVOICEITEM",
                 "constraintName": "PurchaseInvoiceItem_PurchaseInvoice",
-                "columns": "PURCHASEINVOICEITEM_PURCHASEINVOICEID",
+                "columns": "PURCHASEINVOICEITEM_PURCHASEINVOICE",
                 "referencedTable": "CODBEX_PURCHASEINVOICE",
                 "referencedColumns": "PURCHASEINVOICE_ID"
             }
