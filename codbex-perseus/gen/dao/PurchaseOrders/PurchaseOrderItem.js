@@ -14,8 +14,8 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "PurchaseOrderId",
-			column: "PURCHASEORDERITEM_PURCHASEORDERID",
+			name: "PurchaseOrder",
+			column: "PURCHASEORDERITEM_PURCHASEORDER",
 			type: "INTEGER",
 		},
  {
@@ -95,8 +95,8 @@ exports.delete = function(id) {
 	});
 };
 
-exports.count = function (PurchaseOrderId) {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM" WHERE "PURCHASEORDERITEM_PURCHASEORDERID" = ?', [PurchaseOrderId]);
+exports.count = function (PurchaseOrder) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM" WHERE "PURCHASEORDERITEM_PURCHASEORDER" = ?', [PurchaseOrder]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

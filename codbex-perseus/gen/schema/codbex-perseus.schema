@@ -1536,7 +1536,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PURCHASEORDERITEM_PURCHASEORDERID"
+                        "name": "PURCHASEORDERITEM_PURCHASEORDER"
                     },
                     {
                         "type": "VARCHAR",
@@ -2026,7 +2026,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDERITEM",
                 "constraintName": "PurchaseOrderItem_PurchaseOrder",
-                "columns": "PURCHASEORDERITEM_PURCHASEORDERID",
+                "columns": "PURCHASEORDERITEM_PURCHASEORDER",
                 "referencedTable": "CODBEX_PURCHASEORDER",
                 "referencedColumns": "PURCHASEORDER_ID"
             },

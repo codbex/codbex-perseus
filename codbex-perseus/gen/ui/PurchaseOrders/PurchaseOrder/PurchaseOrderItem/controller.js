@@ -46,15 +46,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let PurchaseOrderId = $scope.selectedMainEntityId;
+			let PurchaseOrder = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(PurchaseOrderId).then(function (response) {
+			entityApi.count(PurchaseOrder).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("PurchaseOrderItem", `Unable to count PurchaseOrderItem: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `PurchaseOrderId=${PurchaseOrderId}`;
+				let query = `PurchaseOrder=${PurchaseOrder}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
@@ -76,7 +76,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PurchaseOrderItem-details", {
 				action: "select",
 				entity: entity,
-				optionsPurchaseOrderId: $scope.optionsPurchaseOrderId,
+				optionsPurchaseOrder: $scope.optionsPurchaseOrder,
 			});
 		};
 
@@ -85,9 +85,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PurchaseOrderItem-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "PurchaseOrderId",
+				selectedMainEntityKey: "PurchaseOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPurchaseOrderId: $scope.optionsPurchaseOrderId,
+				optionsPurchaseOrder: $scope.optionsPurchaseOrder,
 			}, null, false);
 		};
 
@@ -95,9 +95,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PurchaseOrderItem-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "PurchaseOrderId",
+				selectedMainEntityKey: "PurchaseOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPurchaseOrderId: $scope.optionsPurchaseOrderId,
+				optionsPurchaseOrder: $scope.optionsPurchaseOrder,
 			}, null, false);
 		};
 
@@ -131,20 +131,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsPurchaseOrderId = [];
+		$scope.optionsPurchaseOrder = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/PurchaseOrders/PurchaseOrder.js").then(function (response) {
-			$scope.optionsPurchaseOrderId = response.data.map(e => {
+			$scope.optionsPurchaseOrder = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
 				}
 			});
 		});
-		$scope.optionsPurchaseOrderIdValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsPurchaseOrderId.length; i++) {
-				if ($scope.optionsPurchaseOrderId[i].value === optionKey) {
-					return $scope.optionsPurchaseOrderId[i].text;
+		$scope.optionsPurchaseOrderValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsPurchaseOrder.length; i++) {
+				if ($scope.optionsPurchaseOrder[i].value === optionKey) {
+					return $scope.optionsPurchaseOrder[i].text;
 				}
 			}
 			return null;
