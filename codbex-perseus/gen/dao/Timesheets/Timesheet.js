@@ -65,7 +65,8 @@ exports.create = function(entity) {
 	EntityUtils.setLocalDate(entity, "StartPeriod");
 	EntityUtils.setLocalDate(entity, "EndPeriod");
 	let id = dao.insert(entity);
-	triggerEvent("Create", {
+	triggerEvent({
+		operation: "create",
 		table: "CODBEX_TIMESHEET",
 		entity: entity,
 		key: {
@@ -81,7 +82,8 @@ exports.update = function(entity) {
 	// EntityUtils.setLocalDate(entity, "StartPeriod");
 	// EntityUtils.setLocalDate(entity, "EndPeriod");
 	dao.update(entity);
-	triggerEvent("Update", {
+	triggerEvent({
+		operation: "update",
 		table: "CODBEX_TIMESHEET",
 		entity: entity,
 		key: {
@@ -95,7 +97,8 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	let entity = dao.find(id);
 	dao.remove(id);
-	triggerEvent("Delete", {
+	triggerEvent({
+		operation: "delete",
 		table: "CODBEX_TIMESHEET",
 		entity: entity,
 		key: {
@@ -122,6 +125,6 @@ exports.customDataCount = function() {
 	return 0;
 };
 
-function triggerEvent(operation, data) {
-	producer.queue("codbex-perseus/Timesheets/Timesheet/" + operation).send(JSON.stringify(data));
+function triggerEvent(data) {
+	producer.queue("codbex-perseus/Timesheets/Timesheet").send(JSON.stringify(data));
 }

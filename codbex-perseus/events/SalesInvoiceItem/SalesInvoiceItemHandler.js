@@ -2,7 +2,8 @@ exports.onMessage = function (message) {
     const SalesInvoiceDao = require("codbex-perseus/gen/dao/SalesInvoices/SalesInvoice");
     const SalesInvoiceItemDao = require("codbex-perseus/gen/dao/SalesInvoices/SalesInvoiceItem");
 
-    let item = JSON.parse(message).entity;
+    let event = JSON.parse(message);
+    let item = event.entity;
 
     let queryOptions = {};
     queryOptions['SalesInvoice'] = item.SalesInvoice;

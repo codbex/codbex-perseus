@@ -55,6 +55,6 @@ exports.customDataCount = function() {
 	return 0;
 };
 
-function triggerEvent(operation, data) {
-	producer.queue("codbex-perseus/Reports/ProjectTimesheetsReport/" + operation).send(JSON.stringify(data));
+function triggerEvent(data) {
+	producer.queue("codbex-perseus/Reports/ProjectTimesheetsReport").send(JSON.stringify(data));
 }

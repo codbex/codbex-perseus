@@ -84,7 +84,8 @@ exports.create = function(entity) {
 	entity["VAT"] = entity['Amount'] * 0.2;
 	entity["Total"] = entity["Amount"] + entity["VAT"];
 	let id = dao.insert(entity);
-	triggerEvent("Create", {
+	triggerEvent({
+		operation: "create",
 		table: "CODBEX_PURCHASEORDER",
 		entity: entity,
 		key: {
@@ -101,7 +102,8 @@ exports.update = function(entity) {
 	entity["VAT"] = entity['Amount'] * 0.2;
 	entity["Total"] = entity["Amount"] + entity["VAT"];
 	dao.update(entity);
-	triggerEvent("Update", {
+	triggerEvent({
+		operation: "update",
 		table: "CODBEX_PURCHASEORDER",
 		entity: entity,
 		key: {
@@ -115,7 +117,8 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	let entity = dao.find(id);
 	dao.remove(id);
-	triggerEvent("Delete", {
+	triggerEvent({
+		operation: "delete",
 		table: "CODBEX_PURCHASEORDER",
 		entity: entity,
 		key: {
@@ -142,6 +145,6 @@ exports.customDataCount = function() {
 	return 0;
 };
 
-function triggerEvent(operation, data) {
-	producer.queue("codbex-perseus/PurchaseOrders/PurchaseOrder/" + operation).send(JSON.stringify(data));
+function triggerEvent(data) {
+	producer.queue("codbex-perseus/PurchaseOrders/PurchaseOrder").send(JSON.stringify(data));
 }

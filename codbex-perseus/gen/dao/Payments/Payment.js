@@ -62,7 +62,8 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	EntityUtils.setLocalDate(entity, "Date");
 	let id = dao.insert(entity);
-	triggerEvent("Create", {
+	triggerEvent({
+		operation: "create",
 		table: "CODBEX_PAYMENT",
 		entity: entity,
 		key: {
@@ -77,7 +78,8 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	// EntityUtils.setLocalDate(entity, "Date");
 	dao.update(entity);
-	triggerEvent("Update", {
+	triggerEvent({
+		operation: "update",
 		table: "CODBEX_PAYMENT",
 		entity: entity,
 		key: {
@@ -91,7 +93,8 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	let entity = dao.find(id);
 	dao.remove(id);
-	triggerEvent("Delete", {
+	triggerEvent({
+		operation: "delete",
 		table: "CODBEX_PAYMENT",
 		entity: entity,
 		key: {
@@ -118,6 +121,6 @@ exports.customDataCount = function() {
 	return 0;
 };
 
-function triggerEvent(operation, data) {
-	producer.queue("codbex-perseus/Payments/Payment/" + operation).send(JSON.stringify(data));
+function triggerEvent(data) {
+	producer.queue("codbex-perseus/Payments/Payment").send(JSON.stringify(data));
 }

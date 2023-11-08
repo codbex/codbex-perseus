@@ -35,7 +35,8 @@ exports.get = function(id) {
 
 exports.create = function(entity) {
 	let id = dao.insert(entity);
-	triggerEvent("Create", {
+	triggerEvent({
+		operation: "create",
 		table: "CODBEX_EXCHANGE",
 		entity: entity,
 		key: {
@@ -49,7 +50,8 @@ exports.create = function(entity) {
 
 exports.update = function(entity) {
 	dao.update(entity);
-	triggerEvent("Update", {
+	triggerEvent({
+		operation: "update",
 		table: "CODBEX_EXCHANGE",
 		entity: entity,
 		key: {
@@ -63,7 +65,8 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	let entity = dao.find(id);
 	dao.remove(id);
-	triggerEvent("Delete", {
+	triggerEvent({
+		operation: "delete",
 		table: "CODBEX_EXCHANGE",
 		entity: entity,
 		key: {
@@ -90,6 +93,6 @@ exports.customDataCount = function() {
 	return 0;
 };
 
-function triggerEvent(operation, data) {
-	producer.queue("codbex-perseus/Settings/Exchange/" + operation).send(JSON.stringify(data));
+function triggerEvent(data) {
+	producer.queue("codbex-perseus/Settings/Exchange").send(JSON.stringify(data));
 }

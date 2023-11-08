@@ -1,6 +1,0 @@
-{
-    "name": "codbex-perseus/SalesInvoices/SalesInvoiceItem/Delete",
-    "kind": "Q",
-    "handler": "codbex-perseus/events/SalesInvoiceItem/SalesInvoiceItemHandler.js",
-    "description": "Sales Invoice Item Delete Listener"
-}
