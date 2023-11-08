@@ -1,8 +1,7 @@
-exports.onMessage = function (message) {
+exports.trigger = function (event) {
     const SalesInvoiceDao = require("codbex-perseus/gen/dao/SalesInvoices/SalesInvoice");
     const SalesInvoiceItemDao = require("codbex-perseus/gen/dao/SalesInvoices/SalesInvoiceItem");
 
-    let event = JSON.parse(message);
     let item = event.entity;
 
     let queryOptions = {};
@@ -19,8 +18,4 @@ exports.onMessage = function (message) {
     let header = SalesInvoiceDao.get(item.SalesInvoice);
     header.Amount = amount;
     SalesInvoiceDao.update(header);
-}
-
-exports.onError = function (error) {
-    console.error(error);
 }

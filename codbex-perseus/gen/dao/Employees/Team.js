@@ -1,5 +1,6 @@
 const query = require("db/query");
 const producer = require("messaging/producer");
+const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
@@ -94,5 +95,19 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
+	let triggerExtensions = extensions.getExtensions("codbex-perseus/Employees/Team");
+	try {
+		for (let i=0; i < triggerExtensions.length; i++) {
+			let module = triggerExtensions[i];
+			let triggerExtension = require(module);
+			try {
+				triggerExtension.trigger(data);
+			} catch (error) {
+				console.error(error);
+			}			
+		}
+	} catch (error) {
+		console.error(error);
+	}
 	producer.queue("codbex-perseus/Employees/Team").send(JSON.stringify(data));
 }

@@ -1,5 +1,6 @@
 const query = require("db/query");
 const producer = require("messaging/producer");
+const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
 const EntityUtils = require("codbex-perseus/gen/dao/utils/EntityUtils");
 
@@ -151,5 +152,19 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
+	let triggerExtensions = extensions.getExtensions("codbex-perseus/PurchaseInvoices/PurchaseInvoice");
+	try {
+		for (let i=0; i < triggerExtensions.length; i++) {
+			let module = triggerExtensions[i];
+			let triggerExtension = require(module);
+			try {
+				triggerExtension.trigger(data);
+			} catch (error) {
+				console.error(error);
+			}			
+		}
+	} catch (error) {
+		console.error(error);
+	}
 	producer.queue("codbex-perseus/PurchaseInvoices/PurchaseInvoice").send(JSON.stringify(data));
 }

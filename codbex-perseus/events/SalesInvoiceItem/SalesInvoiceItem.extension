@@ -1,0 +1,5 @@
+{
+    "module": "codbex-perseus/events/SalesInvoiceItem/SalesInvoiceItemHandler.js",
+    "extensionPoint": "codbex-perseus/SalesInvoices/SalesInvoiceItem",
+    "description": "SalesInvoiceItem Extension"
+}
