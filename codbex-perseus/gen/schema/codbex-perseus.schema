@@ -1510,15 +1510,6 @@
                 ]
             },
             {
-                "name": "CODBEX_PROJECTTIMESHEETSREPORT",
-                "type": "VIEW",
-                "columns": [
-                    {
-                        "query": "SELECT PROJECT_NAME, TIMESHEET_NAME, TIMESHEET_HOURS, TIMESHEET_RATE FROM ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET WHERE PROJECT_ID = PROJECTASSIGNMENT_PROJECT   AND PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_PURCHASEORDERITEM",
                 "type": "TABLE",
                 "columns": [

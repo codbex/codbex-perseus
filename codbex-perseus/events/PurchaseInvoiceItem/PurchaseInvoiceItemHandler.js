@@ -1,7 +1,7 @@
 exports.trigger = function (event) {
     const PurchaseInvoiceDao = require("codbex-perseus/gen/dao/PurchaseInvoices/PurchaseInvoice");
     const PurchaseInvoiceItemDao = require("codbex-perseus/gen/dao/PurchaseInvoices/PurchaseInvoiceItem");
-    console.log(">>>>>>>>>>>>>");
+
     let item = event.entity;
 
     let queryOptions = {};

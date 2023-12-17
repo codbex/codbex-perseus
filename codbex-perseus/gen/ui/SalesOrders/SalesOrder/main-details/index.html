@@ -123,7 +123,7 @@
 								ng-required="false"
                                 ng-change="isValid(formFieldset['VAT'].$valid, 'VAT')"
                                 ng-model="entity.VAT"
-                                ng-readonly="action === 'select'"
+                                ng-readonly="true"
                                 type="number"
                                 placeholder="Enter VAT">
                             </fd-input>
@@ -139,7 +139,7 @@
 								ng-required="false"
                                 ng-change="isValid(formFieldset['Total'].$valid, 'Total')"
                                 ng-model="entity.Total"
-                                ng-readonly="action === 'select'"
+                                ng-readonly="true"
                                 type="number"
                                 placeholder="Enter Total">
                             </fd-input>
@@ -172,6 +172,12 @@
                 </fd-button>
                 <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
                     ng-click="cancel()"></fd-button>
+            </div>
+        </footer>
+        <footer class="fd-dialog__footer fd-bar fd-bar--footer" ng-show="action === 'select' && entityActions.length && entity.Id">
+            <div class="fd-bar__right">
+                <fd-button ng-repeat="action in entityActions" class="fd-dialog__decisive-button" compact="true" dg-type="emphasized" dg-label="{{action.label}}"
+                    ng-click="triggerEntityAction(action.id, next)"></fd-button>
             </div>
         </footer>
     </body>

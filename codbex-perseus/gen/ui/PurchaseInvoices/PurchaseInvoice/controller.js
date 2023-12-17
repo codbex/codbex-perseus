@@ -13,6 +13,23 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.dataLimit = 10;
 		$scope.action = "select";
 
+		//-----------------Custom Actions-------------------//
+		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-perseus-custom-action").then(function (response) {
+			$scope.pageActions = response.data.filter(e => e.perspective === "PurchaseInvoices" && e.view === "PurchaseInvoice" && (e.type === "page" || e.type === undefined));
+		});
+
+		$scope.triggerPageAction = function (actionId) {
+			for (const next of $scope.pageActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-perseus-custom-action", {
+						src: next.link,
+					});
+					break;
+				}
+			}
+		};
+		//-----------------Custom Actions-------------------//
+
 		function refreshData() {
 			$scope.dataReset = true;
 			$scope.dataPage--;

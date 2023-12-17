@@ -47,7 +47,11 @@
                         </fd-form-input-message-group>
                     </fd-form-item>
                     <fd-form-item>
-                        <fd-checkbox id="idDefault" compact="false" ng-required="false" ng-model="entity.Default">
+                        <fd-checkbox id="idDefault"
+                            compact="false"
+                            ng-required="false"
+                            ng-disabled="action === 'select'"
+                            ng-model="entity.Default">
                         </fd-checkbox>
                         <fd-checkbox-label for="idDefault" dg-required="false">Default</fd-checkbox-label>
                     </fd-form-item>

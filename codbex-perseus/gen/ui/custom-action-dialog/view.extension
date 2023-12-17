@@ -1,0 +1,5 @@
+{
+    "module": "codbex-perseus/gen/ui/custom-action-dialog/view.js",
+    "extensionPoint": "codbex-perseus-dialog-window",
+    "description": "codbex-perseus - Custom Action Dialog Window"
+}

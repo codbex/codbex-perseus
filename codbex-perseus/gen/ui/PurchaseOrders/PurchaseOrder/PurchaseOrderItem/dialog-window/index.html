@@ -27,7 +27,7 @@
 							ng-required="false"
 							ng-change="isValid(formFieldset['Name'].$valid, 'Name')"
 							ng-model="entity.Name"
-							ng-readonly="action === 'select'"
+                            ng-readonly="action === 'select'"
 							ng-minlength="0.0 || 0"
 							ng-maxlength="200.0 || -1"
 							dg-input-rules="{ patterns: [''] }"
@@ -76,7 +76,7 @@
 								ng-required="false"
                                 ng-change="isValid(formFieldset['Amount'].$valid, 'Amount')"
                                 ng-model="entity.Amount"
-                                ng-readonly="action === 'select'"
+                                ng-readonly="true"
                                 type="number"
                                 placeholder="Enter Amount">
                             </fd-input>
