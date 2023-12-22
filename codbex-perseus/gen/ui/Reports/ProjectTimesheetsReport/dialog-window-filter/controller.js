@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Reports/ProjectTimesheetsReport.js";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', '$http', 'entityApi', function ($scope, messageHub, ViewParameters, $http, entityApi) {
 
 		$scope.entity = {};
 		$scope.formErrors = {};
@@ -13,7 +13,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.dataParameters = ViewParameters.get();
 		if ($scope.dataParameters?.filter) {
 			const filter = $scope.dataParameters.filter;
+			$scope.ProjectValue = filter.Project;
 			$scope.entity = filter;
+			$scope.entity.Project = undefined;
 		}
 
 		$scope.isValid = function (isValid, property) {
@@ -43,5 +45,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			messageHub.closeDialogWindow("ProjectTimesheetsReport-details-filter");
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsProject = [];
+
+		$http.get("/services/js/codbex-perseus/gen/api/Projects/Project.js").then(function (response) {
+			$scope.optionsProject = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+			$scope.entity.Project = $scope.ProjectValue;
+		});
+		$scope.optionsProjectValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsProject.length; i++) {
+				if ($scope.optionsProject[i].value === optionKey) {
+					return $scope.optionsProject[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);

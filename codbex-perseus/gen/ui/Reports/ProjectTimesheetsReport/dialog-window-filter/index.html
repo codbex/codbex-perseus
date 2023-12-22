@@ -25,6 +25,18 @@
 
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
                 <fd-form-group dg-header="Report Filter" name="entityForm">
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idProject" dg-required="false" dg-colon="true">Project</fd-form-label>
+                        <fd-combobox-input id="idProject"
+                            name="Project"
+                            state="{{ formErrors.Project ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Project'].$valid, 'Project')"
+                            ng-model="entity.Project"
+                            dropdown-items="optionsProject"
+                            dg-placeholder="Search Project ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
             </fd-fieldset>
         </fd-scrollbar>
 

@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-perseus/gen/api/Reports/ProjectTimesheetsReportService.ts";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.filter = {};
 
@@ -41,16 +41,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("ProjectTimesheetsReport", `Unable to list ProjectTimesheetsReport: '${response.message}'`);
 						return;
 					}
-
-					response.data.forEach(e => {
-						if (e.StartDate) {
-							e.StartDate = new Date(e.StartDate);
-						}
-						if (e.EndDate) {
-							e.EndDate = new Date(e.EndDate);
-						}
-					});
-
 					$scope.data = response.data;
 				});
 			});
@@ -66,7 +56,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProjectTimesheetsReport-details", {
 				action: "select",
 				entity: entity,
-				optionsProject: $scope.optionsProject,
 			});
 		};
 
@@ -77,26 +66,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsProject = [];
-
-		$http.get("/services/js/codbex-perseus/gen/api/Projects/Project.js").then(function (response) {
-			$scope.optionsProject = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-		$scope.optionsProjectValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProject.length; i++) {
-				if ($scope.optionsProject[i].value === optionKey) {
-					return $scope.optionsProject[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);

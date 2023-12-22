@@ -9,14 +9,7 @@ angular.module('page', ["ideUI", "ideView"])
 				let params = JSON.parse(dataParameters);
 				$scope.action = "select";
 
-				if (params.entity.StartDate) {
-					params.entity.StartDate = new Date(params.entity.StartDate);
-				}
-				if (params.entity.EndDate) {
-					params.entity.EndDate = new Date(params.entity.EndDate);
-				}
 				$scope.entity = params.entity;
-				$scope.optionsProject = params.optionsProject;
 			}
 		}
 

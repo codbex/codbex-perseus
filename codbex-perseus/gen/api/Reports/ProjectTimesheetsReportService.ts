@@ -1,5 +1,5 @@
 import { Controller, Get } from "@dirigible/http"
-import { ProjectTimesheetsReportRepository, ProjectTimesheetsReportFilter, ProjectTimesheetsReportPaginatedFilter } from "../../dao/entities/ProjectTimesheetsReportRepository";
+import { ProjectTimesheetsReportRepository, ProjectTimesheetsReportFilter, ProjectTimesheetsReportPaginatedFilter } from "../../dao/Reports/ProjectTimesheetsReportRepository";
 
 @Controller
 class ProjectTimesheetsReportService {
@@ -9,6 +9,7 @@ class ProjectTimesheetsReportService {
     @Get("/")
     public filter(_, ctx) {
         const filter: ProjectTimesheetsReportPaginatedFilter = {
+            Project: ctx.queryParameters.Project ? parseInt(ctx.queryParameters.Project) : undefined,
             "$limit": ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
             "$offset": ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
         };
@@ -19,6 +20,7 @@ class ProjectTimesheetsReportService {
     @Get("/count")
     public count(_, ctx) {
         const filter: ProjectTimesheetsReportFilter = {
+            Project: ctx.queryParameters.Project ? parseInt(ctx.queryParameters.Project) : undefined,
         };
 
         const count = this.repository.count(filter);

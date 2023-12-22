@@ -1,13 +1,14 @@
 import { database } from "@dirigible/db";
 
 export interface ProjectTimesheetsReport {
-    readonly Id: number;
-    readonly StartDate: Date;
-    readonly EndDate: Date;
-    readonly Project: number;
+    readonly Project: string;
+    readonly TotalHours: number;
+    readonly AverageRate: number;
+    readonly Total: number;
 }
 
 export interface ProjectTimesheetsReportFilter {
+    readonly Project: number;
 }
 
 export interface ProjectTimesheetsReportPaginatedFilter extends ProjectTimesheetsReportFilter {
@@ -30,12 +31,15 @@ export class ProjectTimesheetsReportRepository {
             connection = database.getConnection(this.datasourceName);
 
             const sql = `
-                SELECT PROJECT_NAME, TIMESHEET_NAME, TIMESHEET_HOURS, TIMESHEET_RATE FROM CODBEX_PROJECT, CODBEX_PROJECTASSIGNMENT, CODBEX_TIMESHEET WHERE PROJECT_ID = PROJECTASSIGNMENT_PROJECT   AND PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT
+                select PROJECT_NAME as "Project",     sum(TIMESHEET_HOURS) as "TotalHours",     convert(avg(TIMESHEET_RATE), float) as "AverageRate",     convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS "Total" from CODBEX_PROJECT, CODBEX_PROJECTASSIGNMENT, CODBEX_TIMESHEET where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT ${     filter.Project ?         'and PROJECT_ID = ?'     :         '' } group by PROJECT_NAME ${     filter["$limit"] && filter["$offset"] ?         'limit ? offset ?'     :     filter["$limit"] ?         'limit ?'     :     filter["$offset"] ?         'offset ?'     :         '' }
             `;
 
             const statement = connection.prepareStatement(sql);
 
             let paramIndex = 1;
+            if (filter.Project) {
+                statement.setInt(paramIndex++, filter.Project);
+            }
             if (filter["$limit"]) {
                 statement.setInt(paramIndex++, filter["$limit"]);
             }
@@ -46,10 +50,10 @@ export class ProjectTimesheetsReportRepository {
             const resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 data.push({
-                    Id: resultSet.getInt("Id"),
-                    StartDate: resultSet.getDate("StartDate"),
-                    EndDate: resultSet.getDate("EndDate"),
-                    Project: resultSet.getInt("Project")
+                    Project: resultSet.getString("Project"),
+                    TotalHours: resultSet.getInt("TotalHours"),
+                    AverageRate: resultSet.getDouble("AverageRate"),
+                    Total: resultSet.getDouble("Total")
                 });
             }
             resultSet.close();
@@ -69,12 +73,15 @@ export class ProjectTimesheetsReportRepository {
             connection = database.getConnection(this.datasourceName);
 
             const sql = `
-                SELECT COUNT(*) AS COUNT FROM "CODBEX_PROJECTTIMESHEETSREPORT"
+                select count(*) from (     select PROJECT_NAME as "Project",         sum(TIMESHEET_HOURS) as "TotalHours",         convert(avg(TIMESHEET_RATE), float) as "AverageRate",         convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS "Total"     from CODBEX_PROJECT, CODBEX_PROJECTASSIGNMENT, CODBEX_TIMESHEET     where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT     ${         filter.Project ?             'and PROJECT_ID = ?'         :             ''     }     group by PROJECT_NAME )
             `;
 
             const statement = connection.prepareStatement(sql);
 
             let paramIndex = 1;
+            if (filter.Project) {
+                statement.setInt(paramIndex++, filter.Project);
+            }
 
             const resultSet = statement.executeQuery();
             while (resultSet.next()) {

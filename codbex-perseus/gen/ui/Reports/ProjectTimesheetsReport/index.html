@@ -25,10 +25,10 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>Id</th>
-						<th fd-table-header-cell>StartDate</th>
-						<th fd-table-header-cell>EndDate</th>
 						<th fd-table-header-cell>Project</th>
+						<th fd-table-header-cell>TotalHours</th>
+						<th fd-table-header-cell>AverageRate</th>
+						<th fd-table-header-cell>Total</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -37,17 +37,11 @@
 						<td fd-table-cell no-data="true">No data available.</td>
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
-						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Id}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.StartDate" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.EndDate" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsProjectValue(next.Project)}}
-						</td>
+						dg-selected="next.Project === selectedEntity.Project" ng-click="selectEntity(next)">
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Project}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.TotalHours}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.AverageRate}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Total}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>
