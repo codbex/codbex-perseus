@@ -2420,7 +2420,7 @@
                     {
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "20",
+                        "dataLength": "34",
                         "dataName": "COMPANY_IBAN",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
@@ -2431,7 +2431,7 @@
                         "isCalculatedProperty": "false",
                         "name": "IBAN",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "34",
                         "widgetType": "TEXTBOX"
                     },
                     {
