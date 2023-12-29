@@ -4087,6 +4087,40 @@
                         "relationshipName": "ProjectTimesheetsReportFilter_Project",
                         "relationshipEntityName": "Project",
                         "relationshipEntityPerspectiveName": "Projects"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PROJECTTIMESHEETSREPORTFILTER_STARTPERIOD",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DATE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "StartPeriod",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DATE"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "PROJECTTIMESHEETSREPORTFILTER_ENDPERIOD",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DATE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "EndPeriod",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "DATE"
                     }
                 ],
                 "caption": "Manage entity ProjectTimesheetsReportFilter",
@@ -4105,7 +4139,7 @@
                 "perspectiveOrder": "100",
                 "title": "ProjectTimesheetsReportFilter",
                 "tooltip": "ProjectTimesheetsReportFilter",
-                "type": "REPORT_FILTER"
+                "type": "FILTER"
             },
             {
                 "properties": [
@@ -4179,9 +4213,9 @@
                     }
                 ],
                 "caption": "Manage entity ProjectTimesheets",
-                "dataCount": "select count(*) from (     select PROJECT_NAME as \"Project\",         sum(TIMESHEET_HOURS) as \"TotalHours\",         convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",         convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\"     from ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET     where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT     ${         filter.Project ?             'and PROJECT_ID = ?'         :             ''     }     group by PROJECT_NAME )",
+                "dataCount": "select count(*) from (     select PROJECT_NAME as \"Project\",         sum(TIMESHEET_HOURS) as \"TotalHours\",         convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",         convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\"     from ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET     where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT     ${         filter.Project && filter.StartPeriod && filter.EndPeriod ?             'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.Project && filter.StartPeriod ?             'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ?'         :         filter.Project && filter.EndPeriod ?             'and PROJECT_ID = ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.StartPeriod && filter.EndPeriod ?             'and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.Project ?             'and PROJECT_ID = ?'         :         filter.StartPeriod ?             'and TIMESHEET_STARTPERIOD >= ?'         :         filter.EndPeriod ?             'and TIMESHEET_ENDPERIOD <= ?'         :             ''     }     group by PROJECT_NAME )",
                 "dataName": "PROJECTTIMESHEETSREPORT",
-                "dataQuery": "select PROJECT_NAME as \"Project\",     sum(TIMESHEET_HOURS) as \"TotalHours\",     convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",     convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\" from ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT ${     filter.Project ?         'and PROJECT_ID = ?'     :         '' } group by PROJECT_NAME ${     filter[\"$limit\"] && filter[\"$offset\"] ?         'limit ? offset ?'     :     filter[\"$limit\"] ?         'limit ?'     :     filter[\"$offset\"] ?         'offset ?'     :         '' }",
+                "dataQuery": "select PROJECT_NAME as \"Project\",     sum(TIMESHEET_HOURS) as \"TotalHours\",     convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",     convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\" from ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT ${     filter.Project && filter.StartPeriod && filter.EndPeriod ?         'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.Project && filter.StartPeriod ?         'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ?'     :     filter.Project && filter.EndPeriod ?         'and PROJECT_ID = ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.StartPeriod && filter.EndPeriod ?         'and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.Project ?         'and PROJECT_ID = ?'     :     filter.StartPeriod ?         'and TIMESHEET_STARTPERIOD >= ?'     :     filter.EndPeriod ?         'and TIMESHEET_ENDPERIOD <= ?'     :         '' } group by PROJECT_NAME ${     filter[\"$limit\"] && filter[\"$offset\"] ?         'limit ? offset ?'     :     filter[\"$limit\"] ?         'limit ?'     :     filter[\"$offset\"] ?         'offset ?'     :         '' }",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "REPORT_TABLE",
                 "menuIndex": "100",

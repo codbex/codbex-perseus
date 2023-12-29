@@ -13,6 +13,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.dataParameters = ViewParameters.get();
 		if ($scope.dataParameters?.filter) {
 			const filter = $scope.dataParameters.filter;
+			if (filter.StartPeriod) {
+				filter.StartPeriod = new Date(filter.StartPeriod);
+			}
+			if (filter.EndPeriod) {
+				filter.EndPeriod = new Date(filter.EndPeriod);
+			}
 			$scope.ProjectValue = filter.Project;
 			$scope.entity = filter;
 			$scope.entity.Project = undefined;
@@ -33,6 +39,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			const filter = {
 				...$scope.entity
 			};
+			filter.StartPeriod = filter.StartPeriod?.getTime();
+			filter.EndPeriod = filter.EndPeriod?.getTime();
 			messageHub.postMessage("filter", filter);
 			$scope.cancel();
 		};
