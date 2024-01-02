@@ -7,7 +7,7 @@ class ProjectTimesheetsReportService {
     private readonly repository = new ProjectTimesheetsReportRepository();
 
     @Get("/")
-    public filter(_, ctx) {
+    public filter(_: any, ctx: any) {
         const filter: ProjectTimesheetsReportPaginatedFilter = {
             Project: ctx.queryParameters.Project ? parseInt(ctx.queryParameters.Project) : undefined,
             StartPeriod: ctx.queryParameters.StartPeriod ? new Date(parseInt(ctx.queryParameters.StartPeriod)) : undefined,
@@ -20,7 +20,7 @@ class ProjectTimesheetsReportService {
     }
 
     @Get("/count")
-    public count(_, ctx) {
+    public count(_: any, ctx: any) {
         const filter: ProjectTimesheetsReportFilter = {
             Project: ctx.queryParameters.Project ? parseInt(ctx.queryParameters.Project) : undefined,
             StartPeriod: ctx.queryParameters.StartPeriod ? new Date(parseInt(ctx.queryParameters.StartPeriod)) : undefined,

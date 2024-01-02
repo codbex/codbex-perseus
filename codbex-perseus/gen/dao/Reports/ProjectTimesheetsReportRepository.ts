@@ -8,9 +8,9 @@ export interface ProjectTimesheetsReport {
 }
 
 export interface ProjectTimesheetsReportFilter {
-    readonly Project: number;
-    readonly StartPeriod: Date;
-    readonly EndPeriod: Date;
+    readonly Project?: number;
+    readonly StartPeriod?: Date;
+    readonly EndPeriod?: Date;
 }
 
 export interface ProjectTimesheetsReportPaginatedFilter extends ProjectTimesheetsReportFilter {
@@ -20,7 +20,7 @@ export interface ProjectTimesheetsReportPaginatedFilter extends ProjectTimesheet
 
 export class ProjectTimesheetsReportRepository {
 
-    private readonly datasourceName: string;
+    private readonly datasourceName?: string;
 
     constructor(datasourceName?: string) {
         this.datasourceName = datasourceName;
