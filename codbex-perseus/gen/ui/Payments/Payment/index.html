@@ -49,11 +49,22 @@
 						<fd-list-content
 							item-title="{{next.Date | date: 'dd/MMM/yyyy'}}">
 							<fd-list-byline dg-align="left">
+								{{next.Valor | date: "dd/MMM/yyyy"}} |
+								{{next.CompanyIBAN}} |
+								{{next.CounterpartyIBAN}} |
+								{{next.CounterpartyName}} |
 								{{next.Amount}} |
 								{{optionsCurrencyValue(next.Currency)}} |
 								{{next.Reason}} |
-								{{next.FromIBAN}} |
-								{{next.ToIBAN}}
+								{{next.Description}} |
+								{{optionsCompanyValue(next.Company)}} |
+								{{optionsDirectionValue(next.Direction)}} |
+								{{optionsTypeValue(next.Type)}} |
+								{{next.UUID}} |
+								{{next.Reference}} |
+								{{optionsCustomerValue(next.Customer)}} |
+								{{optionsSupplierValue(next.Supplier)}} |
+								{{optionsEmployeeValue(next.Employee)}}
 							</fd-list-byline>
 						</fd-list-content>
 					</fd-list-link>

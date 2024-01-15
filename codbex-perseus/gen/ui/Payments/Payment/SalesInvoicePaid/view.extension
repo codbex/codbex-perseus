@@ -1,5 +1,0 @@
-{
-    "module": "codbex-perseus/gen/ui/Payments/Payment/SalesInvoicePaid/view.js",
-    "extensionPoint": "codbex-perseus-view",
-    "description": "codbex-perseus - Application View - Details"
-}

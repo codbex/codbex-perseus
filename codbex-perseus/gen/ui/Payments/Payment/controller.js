@@ -83,6 +83,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						if (e.Date) {
 							e.Date = new Date(e.Date);
 						}
+						if (e.Valor) {
+							e.Valor = new Date(e.Valor);
+						}
 					});
 
 					$scope.data = $scope.data.concat(response.data);
@@ -98,6 +101,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsCompany: $scope.optionsCompany,
+				optionsDirection: $scope.optionsDirection,
+				optionsType: $scope.optionsType,
+				optionsCustomer: $scope.optionsCustomer,
+				optionsSupplier: $scope.optionsSupplier,
+				optionsEmployee: $scope.optionsEmployee,
 			});
 		};
 
@@ -108,6 +117,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsCurrency: $scope.optionsCurrency,
+				optionsCompany: $scope.optionsCompany,
+				optionsDirection: $scope.optionsDirection,
+				optionsType: $scope.optionsType,
+				optionsCustomer: $scope.optionsCustomer,
+				optionsSupplier: $scope.optionsSupplier,
+				optionsEmployee: $scope.optionsEmployee,
 			});
 		};
 
@@ -116,6 +131,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
 				optionsCurrency: $scope.optionsCurrency,
+				optionsCompany: $scope.optionsCompany,
+				optionsDirection: $scope.optionsDirection,
+				optionsType: $scope.optionsType,
+				optionsCustomer: $scope.optionsCustomer,
+				optionsSupplier: $scope.optionsSupplier,
+				optionsEmployee: $scope.optionsEmployee,
 			});
 		};
 
@@ -151,9 +172,69 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsCurrency = [];
+		$scope.optionsCompany = [];
+		$scope.optionsDirection = [];
+		$scope.optionsType = [];
+		$scope.optionsCustomer = [];
+		$scope.optionsSupplier = [];
+		$scope.optionsEmployee = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/Settings/Currency.js").then(function (response) {
 			$scope.optionsCurrency = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Settings/Company.js").then(function (response) {
+			$scope.optionsCompany = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Settings/PaymentDirection.js").then(function (response) {
+			$scope.optionsDirection = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Settings/PaymentType.js").then(function (response) {
+			$scope.optionsType = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Partners/Customer.js").then(function (response) {
+			$scope.optionsCustomer = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Partners/Supplier.js").then(function (response) {
+			$scope.optionsSupplier = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Employees/Employee.js").then(function (response) {
+			$scope.optionsEmployee = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -164,6 +245,54 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
 				if ($scope.optionsCurrency[i].value === optionKey) {
 					return $scope.optionsCurrency[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCompanyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCompany.length; i++) {
+				if ($scope.optionsCompany[i].value === optionKey) {
+					return $scope.optionsCompany[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsDirectionValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsDirection.length; i++) {
+				if ($scope.optionsDirection[i].value === optionKey) {
+					return $scope.optionsDirection[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsType.length; i++) {
+				if ($scope.optionsType[i].value === optionKey) {
+					return $scope.optionsType[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCustomerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
+				if ($scope.optionsCustomer[i].value === optionKey) {
+					return $scope.optionsCustomer[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsSupplierValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
+				if ($scope.optionsSupplier[i].value === optionKey) {
+					return $scope.optionsSupplier[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsEmployeeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsEmployee.length; i++) {
+				if ($scope.optionsEmployee[i].value === optionKey) {
+					return $scope.optionsEmployee[i].text;
 				}
 			}
 			return null;

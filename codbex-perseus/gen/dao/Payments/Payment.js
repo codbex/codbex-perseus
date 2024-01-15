@@ -20,6 +20,26 @@ let dao = daoApi.create({
 			type: "DATE",
 		},
  {
+			name: "Valor",
+			column: "PAYMENT_VALOR",
+			type: "DATE",
+		},
+ {
+			name: "CompanyIBAN",
+			column: "PAYMENT_COMPANYIBAN",
+			type: "VARCHAR",
+		},
+ {
+			name: "CounterpartyIBAN",
+			column: "PAYMENT_COUNTERPARTYIBAN",
+			type: "VARCHAR",
+		},
+ {
+			name: "CounterpartyName",
+			column: "PAYMENT_COUNTERPARTYNAME",
+			type: "VARCHAR",
+		},
+ {
 			name: "Amount",
 			column: "PAYMENT_AMOUNT",
 			type: "VARCHAR",
@@ -35,14 +55,49 @@ let dao = daoApi.create({
 			type: "VARCHAR",
 		},
  {
-			name: "FromIBAN",
-			column: "PAYMENT_FROMIBAN",
+			name: "Description",
+			column: "PAYMENT_DESCRIPTION",
 			type: "VARCHAR",
 		},
  {
-			name: "ToIBAN",
-			column: "PAYMENT_TOIBAN",
+			name: "Company",
+			column: "PAYMENT_COMPANY",
+			type: "INTEGER",
+		},
+ {
+			name: "Direction",
+			column: "PAYMENT_DIRECTION",
+			type: "INTEGER",
+		},
+ {
+			name: "Type",
+			column: "PAYMENT_TYPE",
+			type: "INTEGER",
+		},
+ {
+			name: "UUID",
+			column: "PAYMENT_UUID",
 			type: "VARCHAR",
+		},
+ {
+			name: "Reference",
+			column: "PAYMENT_REFERENCE",
+			type: "VARCHAR",
+		},
+ {
+			name: "Customer",
+			column: "PAYMENT_CUSTOMER",
+			type: "INTEGER",
+		},
+ {
+			name: "Supplier",
+			column: "PAYMENT_SUPPLIER",
+			type: "INTEGER",
+		},
+ {
+			name: "Employee",
+			column: "PAYMENT_EMPLOYEE",
+			type: "INTEGER",
 		}
 ]
 });
@@ -50,6 +105,7 @@ let dao = daoApi.create({
 exports.list = function(settings) {
 	return dao.list(settings).map(function(e) {
 		EntityUtils.setDate(e, "Date");
+		EntityUtils.setDate(e, "Valor");
 		return e;
 	});
 };
@@ -57,11 +113,14 @@ exports.list = function(settings) {
 exports.get = function(id) {
 	let entity = dao.find(id);
 	EntityUtils.setDate(entity, "Date");
+	EntityUtils.setDate(entity, "Valor");
 	return entity;
 };
 
 exports.create = function(entity) {
 	EntityUtils.setLocalDate(entity, "Date");
+	EntityUtils.setLocalDate(entity, "Valor");
+	entity["UUID"] = require("utils/uuid").random();
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -78,6 +137,8 @@ exports.create = function(entity) {
 
 exports.update = function(entity) {
 	// EntityUtils.setLocalDate(entity, "Date");
+	// EntityUtils.setLocalDate(entity, "Valor");
+	entity["UUID"] = require("utils/uuid").random();
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

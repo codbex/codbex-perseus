@@ -12,27 +12,40 @@
             src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
         <link type="text/css" rel="stylesheet"
             href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+
         <script type="text/javascript" src="controller.js"></script>
     </head>
 
-    <body class="dg-vbox">
+    <body class="dg-vbox" dg-contextmenu="contextMenuContent">
         <fd-scrollbar class="dg-full-height">
+            <div class="fd-margin--md fd-message-strip fd-message-strip--error fd-message-strip--dismissible"
+                role="alert" ng-show="errorMessage">
+                <p class="fd-message-strip__text">{{ errorMessage }}</p>
+                <fd-button glyph="sap-icon--decline" compact="true" dg-type="transparent" aria-label="Close" in-msg-strip="true" ng-click="clearErrorMessage()">
+		        </fd-button>
+            </div>
+
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm">
                     <fd-form-item horizontal="false">
-                        <fd-form-label for="idPurchaseInvoice" dg-required="false" dg-colon="true">PurchaseInvoice</fd-form-label>
-                        <fd-combobox-input id="idPurchaseInvoice"
-                            name="PurchaseInvoice"
-                            state="{{ formErrors.PurchaseInvoice ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['PurchaseInvoice'].$valid, 'PurchaseInvoice')"
-                            ng-model="entity.PurchaseInvoice"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsPurchaseInvoice"
-                            dg-placeholder="Search PurchaseInvoice ...">
-                        </fd-combobox-input>
+                        <fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.Name ? false : true }}">
+                            <fd-input id="idName"
+                                name="Name"
+                                state="{{ formErrors.Name ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['Name'].$valid, 'Name')"
+                                ng-model="entity.Name"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Name">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
                     </fd-form-item>
-                </fd-form-group>
             </fd-fieldset>
         </fd-scrollbar>
 
@@ -46,6 +59,7 @@
                     ng-click="cancel()"></fd-button>
             </div>
         </footer>
+
     </body>
 
 </html>

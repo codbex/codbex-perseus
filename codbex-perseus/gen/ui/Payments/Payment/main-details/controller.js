@@ -39,6 +39,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.formErrors = {};
 				$scope.optionsCurrency = [];
+				$scope.optionsCompany = [];
+				$scope.optionsDirection = [];
+				$scope.optionsType = [];
+				$scope.optionsCustomer = [];
+				$scope.optionsSupplier = [];
+				$scope.optionsEmployee = [];
 				$scope.action = 'select';
 			});
 		});
@@ -48,8 +54,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data.entity.Date) {
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
+				if (msg.data.entity.Valor) {
+					msg.data.entity.Valor = new Date(msg.data.entity.Valor);
+				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsDirection = msg.data.optionsDirection;
+				$scope.optionsType = msg.data.optionsType;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsSupplier = msg.data.optionsSupplier;
+				$scope.optionsEmployee = msg.data.optionsEmployee;
 				$scope.action = 'select';
 			});
 		});
@@ -58,6 +73,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsDirection = msg.data.optionsDirection;
+				$scope.optionsType = msg.data.optionsType;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsSupplier = msg.data.optionsSupplier;
+				$scope.optionsEmployee = msg.data.optionsEmployee;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
@@ -70,8 +91,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data.entity.Date) {
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
+				if (msg.data.entity.Valor) {
+					msg.data.entity.Valor = new Date(msg.data.entity.Valor);
+				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsDirection = msg.data.optionsDirection;
+				$scope.optionsType = msg.data.optionsType;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsSupplier = msg.data.optionsSupplier;
+				$scope.optionsEmployee = msg.data.optionsEmployee;
 				$scope.action = 'update';
 			});
 		});

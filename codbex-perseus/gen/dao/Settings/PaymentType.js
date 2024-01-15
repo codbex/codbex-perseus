@@ -4,24 +4,19 @@ const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_SALESINVOICEPAID",
+	table: "CODBEX_PAYMENTTYPE",
 	properties: [
 		{
 			name: "Id",
-			column: "PAYMENTRECEIVED_ID",
+			column: "PAYMENTTYPE_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
-			name: "Payment",
-			column: "PAYMENTRECEIVED_PAYMENT",
-			type: "INTEGER",
-		},
- {
-			name: "SalesInvoice",
-			column: "PAYMENTRECEIVED_SALESINVOICE",
-			type: "INTEGER",
+			name: "Name",
+			column: "PAYMENTTYPE_NAME",
+			type: "VARCHAR",
 		}
 ]
 });
@@ -38,11 +33,11 @@ exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
-		table: "CODBEX_SALESINVOICEPAID",
+		table: "CODBEX_PAYMENTTYPE",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENTRECEIVED_ID",
+			column: "PAYMENTTYPE_ID",
 			value: id
 		}
 	});
@@ -53,11 +48,11 @@ exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
-		table: "CODBEX_SALESINVOICEPAID",
+		table: "CODBEX_PAYMENTTYPE",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENTRECEIVED_ID",
+			column: "PAYMENTTYPE_ID",
 			value: entity.Id
 		}
 	});
@@ -68,30 +63,22 @@ exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent({
 		operation: "delete",
-		table: "CODBEX_SALESINVOICEPAID",
+		table: "CODBEX_PAYMENTTYPE",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENTRECEIVED_ID",
+			column: "PAYMENTTYPE_ID",
 			value: id
 		}
 	});
 };
 
-exports.count = function (Payment) {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESINVOICEPAID" WHERE "PAYMENTRECEIVED_PAYMENT" = ?', [Payment]);
-	if (resultSet !== null && resultSet[0] !== null) {
-		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-			return resultSet[0].COUNT;
-		} else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-			return resultSet[0].count;
-		}
-	}
-	return 0;
+exports.count = function() {
+	return dao.count();
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESINVOICEPAID"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTTYPE"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -103,7 +90,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-perseus/Payments/SalesInvoicePaid");
+	let triggerExtensions = extensions.getExtensions("codbex-perseus/Settings/PaymentType");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -117,5 +104,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("codbex-perseus/Payments/SalesInvoicePaid").send(JSON.stringify(data));
+	producer.queue("codbex-perseus/Settings/PaymentType").send(JSON.stringify(data));
 }
