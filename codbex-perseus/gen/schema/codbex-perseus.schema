@@ -454,20 +454,12 @@
                         "name": "SALARY_COMPANY"
                     },
                     {
-                        "type": "DATE",
-                        "length": 20,
+                        "type": "INTEGER",
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALARY_STARTDATE"
-                    },
-                    {
-                        "type": "DATE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALARY_ENDDATE"
+                        "name": "SALARY_CURRENCY"
                     },
                     {
                         "type": "DOUBLE",
@@ -492,14 +484,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALARY_TOTAL"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALARY_CURRENCY"
                     }
                 ]
             },
@@ -1782,6 +1766,14 @@
                         "name": "PAYSLIP_ENDDATE"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_CURRENCY"
+                    },
+                    {
                         "type": "DOUBLE",
                         "length": 20,
                         "precision": "NaN",
@@ -1804,14 +1796,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PAYSLIP_TOTAL"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PAYSLIP_CURRENCY"
                     }
                 ]
             },

@@ -2,7 +2,6 @@ const query = require("db/query");
 const producer = require("messaging/producer");
 const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
-const EntityUtils = require("codbex-perseus/gen/dao/utils/EntityUtils");
 
 let dao = daoApi.create({
 	table: "CODBEX_SALARY",
@@ -30,14 +29,9 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "StartDate",
-			column: "SALARY_STARTDATE",
-			type: "DATE",
-		},
- {
-			name: "EndDate",
-			column: "SALARY_ENDDATE",
-			type: "DATE",
+			name: "Currency",
+			column: "SALARY_CURRENCY",
+			type: "INTEGER",
 		},
  {
 			name: "Net",
@@ -53,33 +47,19 @@ let dao = daoApi.create({
 			name: "Total",
 			column: "SALARY_TOTAL",
 			type: "DOUBLE",
-		},
- {
-			name: "Currency",
-			column: "SALARY_CURRENCY",
-			type: "INTEGER",
 		}
 ]
 });
 
 exports.list = function(settings) {
-	return dao.list(settings).map(function(e) {
-		EntityUtils.setDate(e, "StartDate");
-		EntityUtils.setDate(e, "EndDate");
-		return e;
-	});
+	return dao.list(settings);
 };
 
 exports.get = function(id) {
-	let entity = dao.find(id);
-	EntityUtils.setDate(entity, "StartDate");
-	EntityUtils.setDate(entity, "EndDate");
-	return entity;
+	return dao.find(id);
 };
 
 exports.create = function(entity) {
-	EntityUtils.setLocalDate(entity, "StartDate");
-	EntityUtils.setLocalDate(entity, "EndDate");
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
@@ -95,8 +75,6 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
-	// EntityUtils.setLocalDate(entity, "StartDate");
-	// EntityUtils.setLocalDate(entity, "EndDate");
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",

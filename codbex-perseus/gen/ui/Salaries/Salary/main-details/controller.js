@@ -47,12 +47,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
 			$scope.$apply(function () {
-				if (msg.data.entity.StartDate) {
-					msg.data.entity.StartDate = new Date(msg.data.entity.StartDate);
-				}
-				if (msg.data.entity.EndDate) {
-					msg.data.entity.EndDate = new Date(msg.data.entity.EndDate);
-				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
 				$scope.optionsCompany = msg.data.optionsCompany;
@@ -76,12 +70,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
 			$scope.$apply(function () {
-				if (msg.data.entity.StartDate) {
-					msg.data.entity.StartDate = new Date(msg.data.entity.StartDate);
-				}
-				if (msg.data.entity.EndDate) {
-					msg.data.entity.EndDate = new Date(msg.data.entity.EndDate);
-				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
 				$scope.optionsCompany = msg.data.optionsCompany;

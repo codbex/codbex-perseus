@@ -78,16 +78,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						$scope.data = [];
 						$scope.dataReset = false;
 					}
-
-					response.data.forEach(e => {
-						if (e.StartDate) {
-							e.StartDate = new Date(e.StartDate);
-						}
-						if (e.EndDate) {
-							e.EndDate = new Date(e.EndDate);
-						}
-					});
-
 					$scope.data = $scope.data.concat(response.data);
 					$scope.dataPage++;
 				});
