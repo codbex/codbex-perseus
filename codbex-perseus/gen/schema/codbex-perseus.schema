@@ -686,12 +686,12 @@
                         "name": "SALESORDERITEM_SALESORDER"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 200,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDERITEM_TIMESHEET"
+                        "name": "SALESORDERITEM_NAME"
                     },
                     {
                         "type": "DOUBLE",
@@ -699,7 +699,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDERITEM_HOURS"
+                        "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DOUBLE",
@@ -707,7 +707,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDERITEM_RATE"
+                        "name": "SALESORDERITEM_PRICE"
                     },
                     {
                         "type": "DOUBLE",
@@ -2086,15 +2086,6 @@
                 "columns": "SALESORDERITEM_SALESORDER",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
-            },
-            {
-                "name": "SalesOrderItem_Timesheet",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDERITEM",
-                "constraintName": "SalesOrderItem_Timesheet",
-                "columns": "SALESORDERITEM_TIMESHEET",
-                "referencedTable": "CODBEX_TIMESHEET",
-                "referencedColumns": "TIMESHEET_ID"
             },
             {
                 "name": "SalesInvoice_Customer",

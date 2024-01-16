@@ -19,18 +19,18 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Timesheet",
-			column: "SALESORDERITEM_TIMESHEET",
-			type: "INTEGER",
+			name: "Name",
+			column: "SALESORDERITEM_NAME",
+			type: "VARCHAR",
 		},
  {
-			name: "Hours",
-			column: "SALESORDERITEM_HOURS",
+			name: "Quantity",
+			column: "SALESORDERITEM_QUANTITY",
 			type: "DOUBLE",
 		},
  {
-			name: "Rate",
-			column: "SALESORDERITEM_RATE",
+			name: "Price",
+			column: "SALESORDERITEM_PRICE",
 			type: "DOUBLE",
 		},
  {

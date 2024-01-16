@@ -105,7 +105,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesOrderItem-details", {
 				action: "select",
 				entity: entity,
-				optionsTimesheet: $scope.optionsTimesheet,
 			});
 		};
 
@@ -116,7 +115,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsTimesheet: $scope.optionsTimesheet,
 			}, null, false);
 		};
 
@@ -126,7 +124,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityKey: "SalesOrder",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsTimesheet: $scope.optionsTimesheet,
 			}, null, false);
 		};
 
@@ -158,26 +155,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsTimesheet = [];
-
-		$http.get("/services/js/codbex-perseus/gen/api/Timesheets/Timesheet.js").then(function (response) {
-			$scope.optionsTimesheet = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-		$scope.optionsTimesheetValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsTimesheet.length; i++) {
-				if ($scope.optionsTimesheet[i].value === optionKey) {
-					return $scope.optionsTimesheet[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);
