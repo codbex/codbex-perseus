@@ -48,6 +48,11 @@ let dao = daoApi.create({
 			name: "Total",
 			column: "SALARY_TOTAL",
 			type: "DOUBLE",
+		},
+ {
+			name: "Currency",
+			column: "SALARY_CURRENCY",
+			type: "INTEGER",
 		}
 ]
 });

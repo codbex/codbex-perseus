@@ -53,6 +53,11 @@ let dao = daoApi.create({
 			name: "Total",
 			column: "PAYSLIP_TOTAL",
 			type: "DOUBLE",
+		},
+ {
+			name: "Currency",
+			column: "PAYSLIP_CURRENCY",
+			type: "INTEGER",
 		}
 ]
 });

@@ -39,6 +39,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.formErrors = {};
 				$scope.optionsEmployee = [];
+				$scope.optionsCurrency = [];
 				$scope.action = 'select';
 			});
 		});
@@ -53,6 +54,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'select';
 			});
 		});
@@ -61,6 +63,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsEmployee = msg.data.optionsEmployee;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
@@ -78,6 +81,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'update';
 			});
 		});

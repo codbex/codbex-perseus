@@ -484,6 +484,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALARY_TOTAL"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARY_CURRENCY"
                     }
                 ]
             },
@@ -1788,6 +1796,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PAYSLIP_TOTAL"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_CURRENCY"
                     }
                 ]
             },
@@ -2024,6 +2040,15 @@
                 "columns": "SALARY_EMPLOYEE",
                 "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "Salary_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_SALARY",
+                "constraintName": "Salary_Currency",
+                "columns": "SALARY_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
             },
             {
                 "name": "SalesOrder_Customer",
@@ -2303,6 +2328,15 @@
                 "columns": "PAYSLIP_COMPANY",
                 "referencedTable": "CODBEX_COMPANY",
                 "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "Payslip_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_PAYSLIP",
+                "constraintName": "Payslip_Currency",
+                "columns": "PAYSLIP_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
             },
             {
                 "name": "SalaryItem_Salary",
