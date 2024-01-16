@@ -4,28 +4,28 @@ const extensions = require('extensions/extensions');
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_PAYMENTLINK",
+	table: "CODBEX_PURCHASEINVOICEPAYMENT",
 	properties: [
 		{
 			name: "Id",
-			column: "PAYMENTLINK_ID",
+			column: "PURCHASEINVOICEPAYMENT_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
-			name: "Payment",
-			column: "PAYMENTLINK_PAYMENT",
+			name: "PurchaseInvoice",
+			column: "PURCHASEINVOICEPAYMENT_PURCHASEINVOICE",
 			type: "INTEGER",
 		},
  {
-			name: "Reference",
-			column: "PAYMENTLINK_REFERENCE",
-			type: "VARCHAR",
+			name: "Payment",
+			column: "PURCHASEINVOICEPAYMENT_PAYMENT",
+			type: "INTEGER",
 		},
  {
 			name: "Amount",
-			column: "PAYMENTLINK_AMOUNT",
+			column: "PURCHASEINVOICEPAYMENT_AMOUNT",
 			type: "DOUBLE",
 		}
 ]
@@ -43,11 +43,11 @@ exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
-		table: "CODBEX_PAYMENTLINK",
+		table: "CODBEX_PURCHASEINVOICEPAYMENT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENTLINK_ID",
+			column: "PURCHASEINVOICEPAYMENT_ID",
 			value: id
 		}
 	});
@@ -58,11 +58,11 @@ exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
-		table: "CODBEX_PAYMENTLINK",
+		table: "CODBEX_PURCHASEINVOICEPAYMENT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENTLINK_ID",
+			column: "PURCHASEINVOICEPAYMENT_ID",
 			value: entity.Id
 		}
 	});
@@ -73,22 +73,30 @@ exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent({
 		operation: "delete",
-		table: "CODBEX_PAYMENTLINK",
+		table: "CODBEX_PURCHASEINVOICEPAYMENT",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENTLINK_ID",
+			column: "PURCHASEINVOICEPAYMENT_ID",
 			value: id
 		}
 	});
 };
 
-exports.count = function() {
-	return dao.count();
+exports.count = function (PurchaseInvoice) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEINVOICEPAYMENT" WHERE "PURCHASEINVOICEPAYMENT_PURCHASEINVOICE" = ?', [PurchaseInvoice]);
+	if (resultSet !== null && resultSet[0] !== null) {
+		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
+			return resultSet[0].COUNT;
+		} else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
+			return resultSet[0].count;
+		}
+	}
+	return 0;
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTLINK"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEINVOICEPAYMENT"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -100,7 +108,7 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-perseus/entities/PaymentLink");
+	let triggerExtensions = extensions.getExtensions("codbex-perseus/PurchaseInvoices/PurchaseInvoicePayment");
 	try {
 		for (let i=0; i < triggerExtensions.length; i++) {
 			let module = triggerExtensions[i];
@@ -114,5 +122,5 @@ function triggerEvent(data) {
 	} catch (error) {
 		console.error(error);
 	}
-	producer.queue("codbex-perseus/entities/PaymentLink").send(JSON.stringify(data));
+	producer.queue("codbex-perseus/PurchaseInvoices/PurchaseInvoicePayment").send(JSON.stringify(data));
 }

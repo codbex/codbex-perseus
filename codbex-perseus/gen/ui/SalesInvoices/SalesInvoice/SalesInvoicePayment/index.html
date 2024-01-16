@@ -16,28 +16,23 @@
 	</head>
 
 	<body class="dg-vbox">
-		<fd-toolbar has-title="true">
+		<fd-message-page glyph="sap-icon--hint" ng-show="data == null">
+			<fd-message-page-title>Select a record to get a list of it's details.</fd-message-page-title>
+		</fd-message-page>
+
+		<fd-toolbar has-title="true" ng-hide="data == null">
 			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
 			<fd-button ng-repeat="action in pageActions" compact="true" dg-type="transparent" dg-label="{{action.label}}" ng-click="triggerPageAction(action.id)"></fd-button>
 			<fd-toolbar-spacer></fd-toolbar-spacer>
-			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"></fd-button>
+			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"
+				state="{{selectedMainEntityId == null ? 'disabled' : ''}}"></fd-button>
 		</fd-toolbar>
-
 		<fd-scrollbar class="dg-full-height" ng-hide="data == null">
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>Date</th>
-						<th fd-table-header-cell>Valor</th>
-						<th fd-table-header-cell>Company</th>
-						<th fd-table-header-cell>CompanyIBAN</th>
-						<th fd-table-header-cell>CounterpartyIBAN</th>
-						<th fd-table-header-cell>CounterpartyName</th>
+						<th fd-table-header-cell>Payment</th>
 						<th fd-table-header-cell>Amount</th>
-						<th fd-table-header-cell>Currency</th>
-						<th fd-table-header-cell>Reason</th>
-						<th fd-table-header-cell>Description</th>
-						<th fd-table-header-cell>Direction</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -48,26 +43,9 @@
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.Date" ng-readonly="true"></fd-input>
+							{{optionsPaymentValue(next.Payment)}}
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.Valor" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCompanyValue(next.Company)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CompanyIBAN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CounterpartyIBAN}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CounterpartyName}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Amount}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCurrencyValue(next.Currency)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Reason}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Description}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsDirectionValue(next.Direction)}}
-						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

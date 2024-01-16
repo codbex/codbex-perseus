@@ -7,7 +7,7 @@ const viewData = {
     id: "Payment",
     label: "Payment",
     factory: "frame",
-    region: "left",
+    region: "center",
     link: "/services/web/codbex-perseus/gen/ui/Payments/Payment/index.html",
     perspectiveName: "Payments"
 };

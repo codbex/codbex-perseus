@@ -4,12 +4,12 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Payment-details",
-    label: "Payment",
+    id: "SalesInvoicePayment",
+    label: "SalesInvoicePayment",
     factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-perseus/gen/ui/Payments/Payment/main-details/index.html",
-    perspectiveName: "Payments"
+    region: "bottom",
+    link: "/services/web/codbex-perseus/gen/ui/SalesInvoices/SalesInvoice/SalesInvoicePayment/index.html",
+    perspectiveName: "SalesInvoices"
 };
 
 if (typeof exports !== 'undefined') {

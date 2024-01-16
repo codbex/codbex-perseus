@@ -1,5 +1,5 @@
 const rs = require("http/rs");
-const dao = require("codbex-perseus/gen/dao/entities/PaymentLink");
+const dao = require("codbex-perseus/gen/dao/SalesInvoices/SalesInvoicePayment");
 const http = require("codbex-perseus/gen/api/utils/http");
 
 rs.service()
@@ -23,9 +23,11 @@ rs.service()
 				http.sendInternalServerError(error.message);
 			}
         })
-	.resource("count")
+	.resource("count/{SalesInvoice}")
 		.get(function(ctx, request) {
-			http.sendResponseOk("" + dao.count());
+			let SalesInvoice = parseInt(ctx.pathParameters.SalesInvoice);
+			SalesInvoice = isNaN(SalesInvoice) ? ctx.pathParameters.SalesInvoice : SalesInvoice;
+			http.sendResponseOk("" + dao.count(SalesInvoice));
 		})
 		.catch(function(ctx, error) {
             if (error.name === "ForbiddenError") {
@@ -43,7 +45,7 @@ rs.service()
 			if (entity) {
 			    http.sendResponseOk(entity);
 			} else {
-				http.sendResponseNotFound("PaymentLink not found");
+				http.sendResponseNotFound("SalesInvoicePayment not found");
 			}
 		})
 		.produces(["application/json"])
@@ -60,7 +62,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/PaymentLink.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/SalesInvoicePayment.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
@@ -98,7 +100,7 @@ rs.service()
 				dao.delete(id);
 				http.sendResponseNoContent();
 			} else {
-				http.sendResponseNotFound("PaymentLink not found");
+				http.sendResponseNotFound("SalesInvoicePayment not found");
 			}
 		})
 		.catch(function(ctx, error) {

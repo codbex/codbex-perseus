@@ -4,10 +4,10 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "PaymentType-details",
-    label: "PaymentType",
-    link: "/services/web/codbex-perseus/gen/ui/Settings/PaymentType/dialog-window/index.html",
-    perspectiveName: "Settings"
+    id: "Payment-details",
+    label: "Payment",
+    link: "/services/web/codbex-perseus/gen/ui/Payments/Payment/dialog-window/index.html",
+    perspectiveName: "Payments"
 };
 
 if (typeof exports !== 'undefined') {
