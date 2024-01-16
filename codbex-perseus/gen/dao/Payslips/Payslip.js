@@ -25,6 +25,11 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
+			name: "Company",
+			column: "PAYSLIP_COMPANY",
+			type: "INTEGER",
+		},
+ {
 			name: "StartDate",
 			column: "PAYSLIP_STARTDATE",
 			type: "DATE",
@@ -33,11 +38,6 @@ let dao = daoApi.create({
 			name: "EndDate",
 			column: "PAYSLIP_ENDDATE",
 			type: "DATE",
-		},
- {
-			name: "Company",
-			column: "PAYSLIP_COMPANY",
-			type: "INTEGER",
 		},
  {
 			name: "Net",

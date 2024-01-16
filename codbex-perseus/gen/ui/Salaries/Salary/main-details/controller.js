@@ -39,6 +39,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.formErrors = {};
 				$scope.optionsEmployee = [];
+				$scope.optionsCompany = [];
 				$scope.optionsCurrency = [];
 				$scope.action = 'select';
 			});
@@ -54,6 +55,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
+				$scope.optionsCompany = msg.data.optionsCompany;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'select';
 			});
@@ -63,6 +65,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsEmployee = msg.data.optionsEmployee;
+				$scope.optionsCompany = msg.data.optionsCompany;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'create';
 				// Set Errors for required fields only
@@ -81,6 +84,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
+				$scope.optionsCompany = msg.data.optionsCompany;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'update';
 			});

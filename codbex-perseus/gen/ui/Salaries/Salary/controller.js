@@ -101,6 +101,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsEmployee: $scope.optionsEmployee,
+				optionsCompany: $scope.optionsCompany,
 				optionsCurrency: $scope.optionsCurrency,
 			});
 		};
@@ -112,6 +113,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsEmployee: $scope.optionsEmployee,
+				optionsCompany: $scope.optionsCompany,
 				optionsCurrency: $scope.optionsCurrency,
 			});
 		};
@@ -121,6 +123,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
 				optionsEmployee: $scope.optionsEmployee,
+				optionsCompany: $scope.optionsCompany,
 				optionsCurrency: $scope.optionsCurrency,
 			});
 		};
@@ -157,10 +160,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsEmployee = [];
+		$scope.optionsCompany = [];
 		$scope.optionsCurrency = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/Employees/Employee.js").then(function (response) {
 			$scope.optionsEmployee = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Settings/Company.js").then(function (response) {
+			$scope.optionsCompany = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -180,6 +193,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsEmployee.length; i++) {
 				if ($scope.optionsEmployee[i].value === optionKey) {
 					return $scope.optionsEmployee[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCompanyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCompany.length; i++) {
+				if ($scope.optionsCompany[i].value === optionKey) {
+					return $scope.optionsCompany[i].text;
 				}
 			}
 			return null;

@@ -446,6 +446,14 @@
                         "name": "SALARY_EMPLOYEE"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARY_COMPANY"
+                    },
+                    {
                         "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
@@ -1750,6 +1758,14 @@
                         "name": "PAYSLIP_EMPLOYEE"
                     },
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_COMPANY"
+                    },
+                    {
                         "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
@@ -1764,14 +1780,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PAYSLIP_ENDDATE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PAYSLIP_COMPANY"
                     },
                     {
                         "type": "DOUBLE",
@@ -2040,6 +2048,15 @@
                 "columns": "SALARY_EMPLOYEE",
                 "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "Salary_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_SALARY",
+                "constraintName": "Salary_Company",
+                "columns": "SALARY_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
             },
             {
                 "name": "Salary_Currency",

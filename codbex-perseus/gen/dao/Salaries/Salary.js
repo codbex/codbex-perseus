@@ -25,6 +25,11 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
+			name: "Company",
+			column: "SALARY_COMPANY",
+			type: "INTEGER",
+		},
+ {
 			name: "StartDate",
 			column: "SALARY_STARTDATE",
 			type: "DATE",
