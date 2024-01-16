@@ -1,5 +1,5 @@
 const rs = require("http/rs");
-const dao = require("codbex-perseus/gen/dao/Payslips/PayslipItem");
+const dao = require("codbex-perseus/gen/dao/entities/PayslipPayment");
 const http = require("codbex-perseus/gen/api/utils/http");
 
 rs.service()
@@ -23,11 +23,9 @@ rs.service()
 				http.sendInternalServerError(error.message);
 			}
         })
-	.resource("count/{Payslip}")
+	.resource("count")
 		.get(function(ctx, request) {
-			let Payslip = parseInt(ctx.pathParameters.Payslip);
-			Payslip = isNaN(Payslip) ? ctx.pathParameters.Payslip : Payslip;
-			http.sendResponseOk("" + dao.count(Payslip));
+			http.sendResponseOk("" + dao.count());
 		})
 		.catch(function(ctx, error) {
             if (error.name === "ForbiddenError") {
@@ -45,7 +43,7 @@ rs.service()
 			if (entity) {
 			    http.sendResponseOk(entity);
 			} else {
-				http.sendResponseNotFound("PayslipItem not found");
+				http.sendResponseNotFound("PayslipPayment not found");
 			}
 		})
 		.produces(["application/json"])
@@ -62,7 +60,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/PayslipItem.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/PayslipPayment.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
@@ -100,7 +98,7 @@ rs.service()
 				dao.delete(id);
 				http.sendResponseNoContent();
 			} else {
-				http.sendResponseNotFound("PayslipItem not found");
+				http.sendResponseNotFound("PayslipPayment not found");
 			}
 		})
 		.catch(function(ctx, error) {

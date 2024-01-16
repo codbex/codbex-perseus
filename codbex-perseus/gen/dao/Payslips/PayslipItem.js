@@ -14,8 +14,8 @@ let dao = daoApi.create({
 			autoIncrement: true,
 		},
  {
-			name: "PayslipId",
-			column: "PAYSLIPITEM_PAYSLIPID",
+			name: "Payslip",
+			column: "PAYSLIPITEM_PAYSLIP",
 			type: "INTEGER",
 		},
  {
@@ -88,8 +88,8 @@ exports.delete = function(id) {
 	});
 };
 
-exports.count = function (PayslipId) {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYSLIPITEM" WHERE "PAYSLIPITEM_PAYSLIPID" = ?', [PayslipId]);
+exports.count = function (Payslip) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYSLIPITEM" WHERE "PAYSLIPITEM_PAYSLIP" = ?', [Payslip]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

@@ -1764,6 +1764,30 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PAYSLIP_COMPANY"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_NET"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_GROSS"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_TOTAL"
                     }
                 ]
             },
@@ -1846,8 +1870,10 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYSLIPITEM_PAYSLIPID"
+                        "name": "PAYSLIPITEM_PAYSLIP"
                     },
                     {
                         "type": "VARCHAR",
@@ -1870,6 +1896,42 @@
                         "length": 0,
                         "nullable": true,
                         "name": "PAYSLIPITEM_DIRECTION"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_PAYSLIPPAYMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PAYSLIPPAYMENT_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "PAYSLIPPAYMENT_PAYSLIP"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIPPAYMENT_PAYMENT"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIPPAYMENT_AMOUNT"
                     }
                 ]
             },
@@ -2265,7 +2327,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PAYSLIPITEM",
                 "constraintName": "PayslipItem_Payslip",
-                "columns": "PAYSLIPITEM_PAYSLIPID",
+                "columns": "PAYSLIPITEM_PAYSLIP",
                 "referencedTable": "CODBEX_PAYSLIP",
                 "referencedColumns": "PAYSLIP_ID"
             },
@@ -2277,6 +2339,24 @@
                 "columns": "PAYSLIPITEM_DIRECTION",
                 "referencedTable": "CODBEX_SALARYITEMDIRECTION",
                 "referencedColumns": "SALARYITEMDIRECTION_ID"
+            },
+            {
+                "name": "PayslipPayment_Payslip",
+                "type": "foreignKey",
+                "table": "CODBEX_PAYSLIPPAYMENT",
+                "constraintName": "PayslipPayment_Payslip",
+                "columns": "PAYSLIPPAYMENT_PAYSLIP",
+                "referencedTable": "CODBEX_PAYSLIP",
+                "referencedColumns": "PAYSLIP_ID"
+            },
+            {
+                "name": "PayslipPayment_Payment",
+                "type": "foreignKey",
+                "table": "CODBEX_PAYSLIPPAYMENT",
+                "constraintName": "PayslipPayment_Payment",
+                "columns": "PAYSLIPPAYMENT_PAYMENT",
+                "referencedTable": "CODBEX_PAYMENT",
+                "referencedColumns": "PAYMENT_ID"
             }
         ]
     }

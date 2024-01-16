@@ -75,15 +75,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let PayslipId = $scope.selectedMainEntityId;
+			let Payslip = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(PayslipId).then(function (response) {
+			entityApi.count(Payslip).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("PayslipItem", `Unable to count PayslipItem: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `PayslipId=${PayslipId}`;
+				let query = `Payslip=${Payslip}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				entityApi.filter(query, offset, limit).then(function (response) {
@@ -113,7 +113,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PayslipItem-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "PayslipId",
+				selectedMainEntityKey: "Payslip",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 			}, null, false);
 		};
@@ -122,7 +122,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PayslipItem-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "PayslipId",
+				selectedMainEntityKey: "Payslip",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 			}, null, false);
 		};
