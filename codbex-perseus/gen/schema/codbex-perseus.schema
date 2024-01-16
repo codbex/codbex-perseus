@@ -475,7 +475,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALARY_INCOMETAX"
+                        "name": "SALARY_GROSS"
                     },
                     {
                         "type": "DOUBLE",
@@ -483,23 +483,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALARY_SOCIALINSURANCE"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALARY_HEALTHINSURANCE"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALARY_PENSIONTAX"
+                        "name": "SALARY_TOTAL"
                     }
                 ]
             },
@@ -1376,58 +1360,6 @@
                 ]
             },
             {
-                "name": "CODBEX_PAYROLL",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "PAYROLL_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PAYROLL_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "PAYROLL_EMPLOYEE"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PAYROLL_AMOUNT"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 2000,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PAYROLL_DESCRIPTION"
-                    },
-                    {
-                        "type": "DATE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PAYROLL_DATE"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_VACATION",
                 "type": "TABLE",
                 "columns": [
@@ -1782,6 +1714,166 @@
                 ]
             },
             {
+                "name": "CODBEX_PAYSLIP",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PAYSLIP_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_EMPLOYEE"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_STARTDATE"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_ENDDATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIP_COMPANY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SALARYITEM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SALARYITEM_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "SALARYITEM_SALARY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARYITEM_NAME"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARYITEM_AMOUNT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALARYITEM_DIRECTION"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SALARYITEMDIRECTION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SALARYITEMDIRECTION_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SALARYITEMDIRECTION_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_PAYSLIPITEM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PAYSLIPITEM_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "PAYSLIPITEM_PAYSLIPID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIPITEM_NAME"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PAYSLIPITEM_AMOUNT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "PAYSLIPITEM_DIRECTION"
+                    }
+                ]
+            },
+            {
                 "name": "Team_Company",
                 "type": "foreignKey",
                 "table": "CODBEX_TEAM",
@@ -2061,15 +2153,6 @@
                 "referencedColumns": "PURCHASEINVOICESTATUS_ID"
             },
             {
-                "name": "Payroll_Employee",
-                "type": "foreignKey",
-                "table": "CODBEX_PAYROLL",
-                "constraintName": "Payroll_Employee",
-                "columns": "PAYROLL_EMPLOYEE",
-                "referencedTable": "CODBEX_EMPLOYEE",
-                "referencedColumns": "EMPLOYEE_ID"
-            },
-            {
                 "name": "Vacation_Employee",
                 "type": "foreignKey",
                 "table": "CODBEX_VACATION",
@@ -2140,6 +2223,60 @@
                 "columns": "SALESINVOICEPAYMENT_PAYMENT",
                 "referencedTable": "CODBEX_PAYMENT",
                 "referencedColumns": "PAYMENT_ID"
+            },
+            {
+                "name": "Payslip_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_PAYSLIP",
+                "constraintName": "Payslip_Employee",
+                "columns": "PAYSLIP_EMPLOYEE",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "Payslip_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_PAYSLIP",
+                "constraintName": "Payslip_Company",
+                "columns": "PAYSLIP_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "SalaryItem_Salary",
+                "type": "foreignKey",
+                "table": "CODBEX_SALARYITEM",
+                "constraintName": "SalaryItem_Salary",
+                "columns": "SALARYITEM_SALARY",
+                "referencedTable": "CODBEX_SALARY",
+                "referencedColumns": "SALARY_ID"
+            },
+            {
+                "name": "SalaryItem_SalaryItemDirection",
+                "type": "foreignKey",
+                "table": "CODBEX_SALARYITEM",
+                "constraintName": "SalaryItem_SalaryItemDirection",
+                "columns": "SALARYITEM_DIRECTION",
+                "referencedTable": "CODBEX_SALARYITEMDIRECTION",
+                "referencedColumns": "SALARYITEMDIRECTION_ID"
+            },
+            {
+                "name": "PayslipItem_Payslip",
+                "type": "foreignKey",
+                "table": "CODBEX_PAYSLIPITEM",
+                "constraintName": "PayslipItem_Payslip",
+                "columns": "PAYSLIPITEM_PAYSLIPID",
+                "referencedTable": "CODBEX_PAYSLIP",
+                "referencedColumns": "PAYSLIP_ID"
+            },
+            {
+                "name": "PayslipItem_SalaryItemDirection",
+                "type": "foreignKey",
+                "table": "CODBEX_PAYSLIPITEM",
+                "constraintName": "PayslipItem_SalaryItemDirection",
+                "columns": "PAYSLIPITEM_DIRECTION",
+                "referencedTable": "CODBEX_SALARYITEMDIRECTION",
+                "referencedColumns": "SALARYITEMDIRECTION_ID"
             }
         ]
     }
