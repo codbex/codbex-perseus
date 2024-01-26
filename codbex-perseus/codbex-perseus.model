@@ -1665,7 +1665,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "entity[\"Hours\"] * entity[\"Rate\"]",
+                        "calculatedPropertyExpression": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "SALESORDERITEM_AMOUNT",
