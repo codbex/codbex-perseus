@@ -1,8 +1,8 @@
-const query = require("db/query");
-const producer = require("messaging/producer");
-const extensions = require('extensions/extensions');
-const daoApi = require("db/dao");
-const EntityUtils = require("codbex-perseus/gen/dao/utils/EntityUtils");
+import { query } from "@dirigible/db";
+import { producer } from "@dirigible/messaging";
+import { extensions } from "@dirigible/extensions";
+import { dao as daoApi } from "@dirigible/db";
+import * as EntityUtils from "../utils/EntityUtils";
 
 let dao = daoApi.create({
 	table: "CODBEX_TIMESHEET",
@@ -47,22 +47,22 @@ let dao = daoApi.create({
 ]
 });
 
-exports.list = function(settings) {
+export const list = (settings) => {
 	return dao.list(settings).map(function(e) {
 		EntityUtils.setDate(e, "StartPeriod");
 		EntityUtils.setDate(e, "EndPeriod");
 		return e;
 	});
-};
+}
 
-exports.get = function(id) {
+export const get = (id) => {
 	let entity = dao.find(id);
 	EntityUtils.setDate(entity, "StartPeriod");
 	EntityUtils.setDate(entity, "EndPeriod");
 	return entity;
-};
+}
 
-exports.create = function(entity) {
+export const create = (entity) => {
 	EntityUtils.setLocalDate(entity, "StartPeriod");
 	EntityUtils.setLocalDate(entity, "EndPeriod");
 	let id = dao.insert(entity);
@@ -77,9 +77,9 @@ exports.create = function(entity) {
 		}
 	});
 	return id;
-};
+}
 
-exports.update = function(entity) {
+export const update = (entity) => {
 	// EntityUtils.setLocalDate(entity, "StartPeriod");
 	// EntityUtils.setLocalDate(entity, "EndPeriod");
 	dao.update(entity);
@@ -93,9 +93,9 @@ exports.update = function(entity) {
 			value: entity.Id
 		}
 	});
-};
+}
 
-exports.delete = function(id) {
+export const remove = (id) => {
 	let entity = dao.find(id);
 	dao.remove(id);
 	triggerEvent({
@@ -108,13 +108,13 @@ exports.delete = function(id) {
 			value: id
 		}
 	});
-};
+}
 
-exports.count = function() {
+export const count = () => {
 	return dao.count();
-};
+}
 
-exports.customDataCount = function() {
+export const customDataCount = () => {
 	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_TIMESHEET"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -124,22 +124,17 @@ exports.customDataCount = function() {
 		}
 	}
 	return 0;
-};
+}
 
-function triggerEvent(data) {
-	let triggerExtensions = extensions.getExtensions("codbex-perseus/Timesheets/Timesheet");
-	try {
-		for (let i=0; i < triggerExtensions.length; i++) {
-			let module = triggerExtensions[i];
-			let triggerExtension = require(module);
-			try {
-				triggerExtension.trigger(data);
-			} catch (error) {
-				console.error(error);
-			}			
-		}
-	} catch (error) {
-		console.error(error);
-	}
+
+const triggerEvent = async(data) => {
+	const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Timesheets/Timesheet", ["trigger"]);
+	triggerExtensions.forEach(triggerExtension => {
+		try {
+			triggerExtension.trigger(data);
+		} catch (error) {
+			console.error(error);
+		}			
+	});
 	producer.queue("codbex-perseus/Timesheets/Timesheet").send(JSON.stringify(data));
 }

@@ -1,6 +1,6 @@
-const rs = require("http/rs");
-const dao = require("codbex-perseus/gen/dao/Settings/Position");
-const http = require("codbex-perseus/gen/api/utils/http");
+import { rs } from "@dirigible/http";
+import * as dao from "../../dao/Settings/Position";
+import * as http from "../utils/http";
 
 rs.service()
 	.resource("")
@@ -95,7 +95,7 @@ rs.service()
 			let id = ctx.pathParameters.id;
 			let entity = dao.get(id);
 			if (entity) {
-				dao.delete(id);
+				dao.remove(id);
 				http.sendResponseNoContent();
 			} else {
 				http.sendResponseNotFound("Position not found");

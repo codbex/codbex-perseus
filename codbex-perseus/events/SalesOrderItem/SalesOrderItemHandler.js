@@ -1,21 +1,22 @@
-exports.trigger = function (event) {
-    const SalesOrderDao = require("codbex-perseus/gen/dao/SalesOrders/SalesOrder");
-    const SalesOrderItemDao = require("codbex-perseus/gen/dao/SalesOrders/SalesOrderItem");
+import * as SalesOrderDao from "../../gen/dao/SalesOrders/SalesOrder";
+import * as SalesOrderItemDao from "../../gen/dao/SalesOrders/SalesOrderItem";
 
-    let item = event.entity;
+export const trigger = (event) => {
+    const item = event.entity;
 
-    let queryOptions = {};
-    queryOptions['SalesOrder'] = item.SalesOrder;
-    let items = SalesOrderItemDao.list(queryOptions);
+    const queryOptions = {
+        SalesOrder: item.SalesOrder
+    };
+    const items = SalesOrderItemDao.list(queryOptions);
 
-    var amount = 0;
+    let amount = 0;
     for (let i = 0; i < items.length; i++) {
         if (items[i].Amount) {
             amount += items[i].Amount;
         }
     }
 
-    let header = SalesOrderDao.get(item.SalesOrder);
+    const header = SalesOrderDao.get(item.SalesOrder);
     header.Amount = amount;
     SalesOrderDao.update(header);
 }
