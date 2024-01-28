@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.SalesInvoices.SalesInvoicePayment';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.PaymentPurchaseInvoice';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/SalesInvoices/SalesInvoicePayment.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/PaymentPurchaseInvoice.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-perseus-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "SalesInvoices" && e.view === "SalesInvoicePayment" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "SalesInvoices" && e.view === "SalesInvoicePayment" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "Payments" && e.view === "PaymentPurchaseInvoice" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Payments" && e.view === "PaymentPurchaseInvoice" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {
@@ -39,32 +39,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		function resetPagination() {
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
-			$scope.dataLimit = 10;
+			$scope.dataLimit = 20;
 		}
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-perseus.SalesInvoices.SalesInvoice.entitySelected", function (msg) {
-			resetPagination();
-			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
-			$scope.loadPage($scope.dataPage);
-		}, true);
-
-		messageHub.onDidReceiveMessage("codbex-perseus.SalesInvoices.SalesInvoice.clearDetails", function (msg) {
-			$scope.$apply(function () {
-				resetPagination();
-				$scope.selectedMainEntityId = null;
-				$scope.data = null;
-			});
-		}, true);
-
-		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
-			$scope.$apply(function () {
-				$scope.entity = {};
-				$scope.action = 'select';
-			});
-		});
-
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
 			$scope.loadPage($scope.dataPage);
 		});
@@ -75,26 +54,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber) {
-			let SalesInvoice = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(SalesInvoice).then(function (response) {
+			entityApi.count().then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("SalesInvoicePayment", `Unable to count SalesInvoicePayment: '${response.message}'`);
+					messageHub.showAlertError("PaymentPurchaseInvoice", `Unable to count PaymentPurchaseInvoice: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `SalesInvoice=${SalesInvoice}`;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
-				entityApi.filter(query, offset, limit).then(function (response) {
+				entityApi.list(offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("SalesInvoicePayment", `Unable to list SalesInvoicePayment: '${response.message}'`);
+						messageHub.showAlertError("PaymentPurchaseInvoice", `Unable to list PaymentPurchaseInvoice: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.Date) {
+							e.Date = new Date(e.Date);
+						}
+						if (e.Valor) {
+							e.Valor = new Date(e.Valor);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});
 		};
+		$scope.loadPage($scope.dataPage);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -102,39 +90,38 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("SalesInvoicePayment-details", {
+			messageHub.showDialogWindow("PaymentPurchaseInvoice-details", {
 				action: "select",
 				entity: entity,
-				optionsPaymentEntry: $scope.optionsPaymentEntry,
+				optionsPurchaseInvoice: $scope.optionsPurchaseInvoice,
+				optionsCurrency: $scope.optionsCurrency,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("SalesInvoicePayment-details", {
+			messageHub.showDialogWindow("PaymentPurchaseInvoice-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "SalesInvoice",
-				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPaymentEntry: $scope.optionsPaymentEntry,
+				optionsPurchaseInvoice: $scope.optionsPurchaseInvoice,
+				optionsCurrency: $scope.optionsCurrency,
 			}, null, false);
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("SalesInvoicePayment-details", {
+			messageHub.showDialogWindow("PaymentPurchaseInvoice-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "SalesInvoice",
-				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPaymentEntry: $scope.optionsPaymentEntry,
+				optionsPurchaseInvoice: $scope.optionsPurchaseInvoice,
+				optionsCurrency: $scope.optionsCurrency,
 			}, null, false);
 		};
 
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete SalesInvoicePayment?',
-				`Are you sure you want to delete SalesInvoicePayment? This action cannot be undone.`,
+				'Delete PaymentPurchaseInvoice?',
+				`Are you sure you want to delete PaymentPurchaseInvoice? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -149,7 +136,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("SalesInvoicePayment", `Unable to delete SalesInvoicePayment: '${response.message}'`);
+							messageHub.showAlertError("PaymentPurchaseInvoice", `Unable to delete PaymentPurchaseInvoice: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);
@@ -160,20 +147,38 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsPaymentEntry = [];
+		$scope.optionsPurchaseInvoice = [];
+		$scope.optionsCurrency = [];
 
-		$http.get("/services/js/codbex-perseus/gen/api/Payments/PaymentEntry.js").then(function (response) {
-			$scope.optionsPaymentEntry = response.data.map(e => {
+		$http.get("/services/js/codbex-perseus/gen/api/PurchaseInvoices/PurchaseInvoice.js").then(function (response) {
+			$scope.optionsPurchaseInvoice = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
 				}
 			});
 		});
-		$scope.optionsPaymentEntryValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsPaymentEntry.length; i++) {
-				if ($scope.optionsPaymentEntry[i].value === optionKey) {
-					return $scope.optionsPaymentEntry[i].text;
+
+		$http.get("/services/js/codbex-perseus/gen/api/Settings/Currency.js").then(function (response) {
+			$scope.optionsCurrency = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+		$scope.optionsPurchaseInvoiceValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsPurchaseInvoice.length; i++) {
+				if ($scope.optionsPurchaseInvoice[i].value === optionKey) {
+					return $scope.optionsPurchaseInvoice[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCurrencyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
+				if ($scope.optionsCurrency[i].value === optionKey) {
+					return $scope.optionsCurrency[i].text;
 				}
 			}
 			return null;

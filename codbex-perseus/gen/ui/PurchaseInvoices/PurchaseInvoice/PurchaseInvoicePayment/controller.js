@@ -105,7 +105,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PurchaseInvoicePayment-details", {
 				action: "select",
 				entity: entity,
-				optionsPayment: $scope.optionsPayment,
+				optionsPaymentEntry: $scope.optionsPaymentEntry,
 			});
 		};
 
@@ -116,7 +116,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				selectedMainEntityKey: "PurchaseInvoice",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPayment: $scope.optionsPayment,
+				optionsPaymentEntry: $scope.optionsPaymentEntry,
 			}, null, false);
 		};
 
@@ -126,7 +126,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityKey: "PurchaseInvoice",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsPayment: $scope.optionsPayment,
+				optionsPaymentEntry: $scope.optionsPaymentEntry,
 			}, null, false);
 		};
 
@@ -160,20 +160,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsPayment = [];
+		$scope.optionsPaymentEntry = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/Payments/PaymentEntry.js").then(function (response) {
-			$scope.optionsPayment = response.data.map(e => {
+			$scope.optionsPaymentEntry = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
 				}
 			});
 		});
-		$scope.optionsPaymentValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsPayment.length; i++) {
-				if ($scope.optionsPayment[i].value === optionKey) {
-					return $scope.optionsPayment[i].text;
+		$scope.optionsPaymentEntryValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsPaymentEntry.length; i++) {
+				if ($scope.optionsPaymentEntry[i].value === optionKey) {
+					return $scope.optionsPaymentEntry[i].text;
 				}
 			}
 			return null;

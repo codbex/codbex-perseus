@@ -19,8 +19,8 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Payment",
-			column: "PURCHASEINVOICEPAYMENT_PAYMENT",
+			name: "PaymentEntry",
+			column: "PURCHASEINVOICEPAYMENT_PAYMENTENTRY",
 			type: "INTEGER",
 		},
  {

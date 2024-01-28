@@ -101,7 +101,7 @@ export const customDataCount = () => {
 
 
 const triggerEvent = async(data) => {
-	const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/entities/PayslipPayment", ["trigger"]);
+	const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Payslips/PayslipPayment", ["trigger"]);
 	triggerExtensions.forEach(triggerExtension => {
 		try {
 			triggerExtension.trigger(data);
@@ -109,5 +109,5 @@ const triggerEvent = async(data) => {
 			console.error(error);
 		}			
 	});
-	producer.queue("codbex-perseus/entities/PayslipPayment").send(JSON.stringify(data));
+	producer.queue("codbex-perseus/Payslips/PayslipPayment").send(JSON.stringify(data));
 }

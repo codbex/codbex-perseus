@@ -21,18 +21,18 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
                     <fd-form-item class="fd-row fd-form-item">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idPayment" dg-required="false" dg-colon="true">Payment</fd-form-label>
+                        	<fd-form-label for="idPaymentEntry" dg-required="false" dg-colon="true">PaymentEntry</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idPayment"
-	                            name="Payment"
-	                            state="{{ formErrors.Payment ? 'error' : '' }}"
+	                        <fd-combobox-input id="idPaymentEntry"
+	                            name="PaymentEntry"
+	                            state="{{ formErrors.PaymentEntry ? 'error' : '' }}"
 	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['Payment'].$valid, 'Payment')"
-	                            ng-model="entity.Payment"
+	                            ng-change="isValid(formFieldset['PaymentEntry'].$valid, 'PaymentEntry')"
+	                            ng-model="entity.PaymentEntry"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsPayment"
-	                            dg-placeholder="Search Payment ...">
+	                            dropdown-items="optionsPaymentEntry"
+	                            dg-placeholder="Search PaymentEntry ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>

@@ -1,5 +1,5 @@
 import { rs } from "@dirigible/http";
-import * as dao from "../../dao/entities/PayslipPayment";
+import * as dao from "../../dao/Payments/PaymentPurchaseInvoice";
 import * as http from "../utils/http";
 
 rs.service()
@@ -43,7 +43,7 @@ rs.service()
 			if (entity) {
 			    http.sendResponseOk(entity);
 			} else {
-				http.sendResponseNotFound("PayslipPayment not found");
+				http.sendResponseNotFound("PaymentPurchaseInvoice not found");
 			}
 		})
 		.produces(["application/json"])
@@ -60,7 +60,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/PayslipPayment.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-perseus/gen/api/PaymentPurchaseInvoice.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
@@ -98,7 +98,7 @@ rs.service()
 				dao.remove(id);
 				http.sendResponseNoContent();
 			} else {
-				http.sendResponseNotFound("PayslipPayment not found");
+				http.sendResponseNotFound("PaymentPurchaseInvoice not found");
 			}
 		})
 		.catch(function(ctx, error) {

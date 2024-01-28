@@ -1,0 +1,5 @@
+{
+    "module": "codbex-perseus/events/PaymentSalesInvoice/PaymentSalesInvoiceHandler.js",
+    "extensionPoint": "codbex-perseus/Payments/PaymentSalesInvoice",
+    "description": "PaymentSalesInvoice Extension"
+}
