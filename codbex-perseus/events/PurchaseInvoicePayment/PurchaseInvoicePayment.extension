@@ -1,0 +1,5 @@
+{
+    "module": "codbex-perseus/events/PurchaseInvoicePayment/PurchaseInvoicePaymentHandler.js",
+    "extensionPoint": "codbex-perseus/PurchaseInvoices/PurchaseInvoicePayment",
+    "description": "PurchaseInvoicePayment Extension"
+}
