@@ -1,17 +1,17 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.Payment';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.PaymentEntry';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/Payment.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/PaymentEntry.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
-			select: "Payment Details",
-			create: "Create Payment",
-			update: "Update Payment"
+			select: "PaymentEntry Details",
+			create: "Create PaymentEntry",
+			update: "Update PaymentEntry"
 		};
 		$scope.formErrors = {};
 		$scope.action = 'select';
@@ -56,12 +56,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create Payment: '${response.message}'`;
+					$scope.errorMessage = `Unable to create PaymentEntry: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Payment", "Payment successfully created");
+				messageHub.showAlertSuccess("PaymentEntry", "PaymentEntry successfully created");
 			});
 		};
 
@@ -71,19 +71,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update Payment: '${response.message}'`;
+					$scope.errorMessage = `Unable to update PaymentEntry: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Payment", "Payment successfully updated");
+				messageHub.showAlertSuccess("PaymentEntry", "PaymentEntry successfully updated");
 			});
 		};
 
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("Payment-details");
+			messageHub.closeDialogWindow("PaymentEntry-details");
 		};
 
 		$scope.clearErrorMessage = function () {

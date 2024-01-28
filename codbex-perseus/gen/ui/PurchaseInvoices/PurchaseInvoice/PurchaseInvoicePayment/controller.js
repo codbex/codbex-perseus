@@ -162,7 +162,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsPayment = [];
 
-		$http.get("/services/js/codbex-perseus/gen/api/Payments/Payment.js").then(function (response) {
+		$http.get("/services/js/codbex-perseus/gen/api/Payments/PaymentEntry.js").then(function (response) {
 			$scope.optionsPayment = response.data.map(e => {
 				return {
 					value: e.Id,

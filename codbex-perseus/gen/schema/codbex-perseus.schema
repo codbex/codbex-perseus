@@ -912,7 +912,7 @@
                 ]
             },
             {
-                "name": "CODBEX_PAYMENT",
+                "name": "CODBEX_PAYMENTENTRY",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -920,8 +920,10 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_ID"
+                        "name": "PAYMENTENTRY_ID"
                     },
                     {
                         "type": "DATE",
@@ -929,7 +931,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_DATE"
+                        "name": "PAYMENTENTRY_DATE"
                     },
                     {
                         "type": "DATE",
@@ -937,7 +939,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_VALOR"
+                        "name": "PAYMENTENTRY_VALOR"
                     },
                     {
                         "type": "INTEGER",
@@ -945,7 +947,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_COMPANY"
+                        "name": "PAYMENTENTRY_COMPANY"
                     },
                     {
                         "type": "VARCHAR",
@@ -953,7 +955,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_COMPANYIBAN"
+                        "name": "PAYMENTENTRY_COMPANYIBAN"
                     },
                     {
                         "type": "VARCHAR",
@@ -961,7 +963,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_COUNTERPARTYIBAN"
+                        "name": "PAYMENTENTRY_COUNTERPARTYIBAN"
                     },
                     {
                         "type": "VARCHAR",
@@ -969,13 +971,15 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_COUNTERPARTYNAME"
+                        "name": "PAYMENTENTRY_COUNTERPARTYNAME"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_AMOUNT"
+                        "name": "PAYMENTENTRY_AMOUNT"
                     },
                     {
                         "type": "INTEGER",
@@ -983,7 +987,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_CURRENCY"
+                        "name": "PAYMENTENTRY_CURRENCY"
                     },
                     {
                         "type": "VARCHAR",
@@ -991,7 +995,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_REASON"
+                        "name": "PAYMENTENTRY_REASON"
                     },
                     {
                         "type": "VARCHAR",
@@ -999,7 +1003,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_DESCRIPTION"
+                        "name": "PAYMENTENTRY_DESCRIPTION"
                     },
                     {
                         "type": "INTEGER",
@@ -1007,7 +1011,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PAYMENT_DIRECTION"
+                        "name": "PAYMENTENTRY_DIRECTION"
                     }
                 ]
             },
@@ -2133,29 +2137,29 @@
                 "referencedColumns": "SALESINVOICE_ID"
             },
             {
-                "name": "Payment_Company",
+                "name": "PaymentEntry_Company",
                 "type": "foreignKey",
-                "table": "CODBEX_PAYMENT",
-                "constraintName": "Payment_Company",
-                "columns": "PAYMENT_COMPANY",
+                "table": "CODBEX_PAYMENTENTRY",
+                "constraintName": "PaymentEntry_Company",
+                "columns": "PAYMENTENTRY_COMPANY",
                 "referencedTable": "CODBEX_COMPANY",
                 "referencedColumns": "COMPANY_ID"
             },
             {
-                "name": "Payment_Currency",
+                "name": "PaymentEntry_Currency",
                 "type": "foreignKey",
-                "table": "CODBEX_PAYMENT",
-                "constraintName": "Payment_Currency",
-                "columns": "PAYMENT_CURRENCY",
+                "table": "CODBEX_PAYMENTENTRY",
+                "constraintName": "PaymentEntry_Currency",
+                "columns": "PAYMENTENTRY_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_ID"
             },
             {
-                "name": "Payment_PaymentDirection",
+                "name": "PaymentEntry_PaymentDirection",
                 "type": "foreignKey",
-                "table": "CODBEX_PAYMENT",
-                "constraintName": "Payment_PaymentDirection",
-                "columns": "PAYMENT_DIRECTION",
+                "table": "CODBEX_PAYMENTENTRY",
+                "constraintName": "PaymentEntry_PaymentDirection",
+                "columns": "PAYMENTENTRY_DIRECTION",
                 "referencedTable": "CODBEX_PAYMENTDIRECTION",
                 "referencedColumns": "PAYMENTDIRECTION_ID"
             },
@@ -2277,13 +2281,13 @@
                 "referencedColumns": "PURCHASEINVOICE_ID"
             },
             {
-                "name": "PurchaseInvoicePayment_Payment",
+                "name": "PurchaseInvoicePayment_PaymentEntry",
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEINVOICEPAYMENT",
-                "constraintName": "PurchaseInvoicePayment_Payment",
+                "constraintName": "PurchaseInvoicePayment_PaymentEntry",
                 "columns": "PURCHASEINVOICEPAYMENT_PAYMENT",
-                "referencedTable": "CODBEX_PAYMENT",
-                "referencedColumns": "PAYMENT_ID"
+                "referencedTable": "CODBEX_PAYMENTENTRY",
+                "referencedColumns": "PAYMENTENTRY_ID"
             },
             {
                 "name": "SalesInvoicePayment_SalesInvoice",
@@ -2295,13 +2299,13 @@
                 "referencedColumns": "SALESINVOICE_ID"
             },
             {
-                "name": "SalesInvoicePayment_Payment",
+                "name": "SalesInvoicePayment_PaymentEntry",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESINVOICEPAYMENT",
-                "constraintName": "SalesInvoicePayment_Payment",
+                "constraintName": "SalesInvoicePayment_PaymentEntry",
                 "columns": "SALESINVOICEPAYMENT_PAYMENT",
-                "referencedTable": "CODBEX_PAYMENT",
-                "referencedColumns": "PAYMENT_ID"
+                "referencedTable": "CODBEX_PAYMENTENTRY",
+                "referencedColumns": "PAYMENTENTRY_ID"
             },
             {
                 "name": "Payslip_Employee",
@@ -2376,13 +2380,13 @@
                 "referencedColumns": "PAYSLIP_ID"
             },
             {
-                "name": "PayslipPayment_Payment",
+                "name": "PayslipPayment_PaymentEntry",
                 "type": "foreignKey",
                 "table": "CODBEX_PAYSLIPPAYMENT",
-                "constraintName": "PayslipPayment_Payment",
+                "constraintName": "PayslipPayment_PaymentEntry",
                 "columns": "PAYSLIPPAYMENT_PAYMENT",
-                "referencedTable": "CODBEX_PAYMENT",
-                "referencedColumns": "PAYMENT_ID"
+                "referencedTable": "CODBEX_PAYMENTENTRY",
+                "referencedColumns": "PAYMENTENTRY_ID"
             }
         ]
     }

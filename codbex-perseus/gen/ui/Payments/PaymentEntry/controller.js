@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.Payment';
+		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.PaymentEntry';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/Payment.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/PaymentEntry.js";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-perseus-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "Payments" && e.view === "Payment" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "Payments" && e.view === "Payment" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "Payments" && e.view === "PaymentEntry" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Payments" && e.view === "PaymentEntry" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {
@@ -57,7 +57,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage = pageNumber;
 			entityApi.count().then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Payment", `Unable to count Payment: '${response.message}'`);
+					messageHub.showAlertError("PaymentEntry", `Unable to count PaymentEntry: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
@@ -65,7 +65,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				let limit = $scope.dataLimit;
 				entityApi.list(offset, limit).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Payment", `Unable to list Payment: '${response.message}'`);
+						messageHub.showAlertError("PaymentEntry", `Unable to list PaymentEntry: '${response.message}'`);
 						return;
 					}
 
@@ -90,7 +90,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("Payment-details", {
+			messageHub.showDialogWindow("PaymentEntry-details", {
 				action: "select",
 				entity: entity,
 				optionsCompany: $scope.optionsCompany,
@@ -101,7 +101,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Payment-details", {
+			messageHub.showDialogWindow("PaymentEntry-details", {
 				action: "create",
 				entity: {},
 				optionsCompany: $scope.optionsCompany,
@@ -111,7 +111,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Payment-details", {
+			messageHub.showDialogWindow("PaymentEntry-details", {
 				action: "update",
 				entity: entity,
 				optionsCompany: $scope.optionsCompany,
@@ -123,8 +123,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete Payment?',
-				`Are you sure you want to delete Payment? This action cannot be undone.`,
+				'Delete PaymentEntry?',
+				`Are you sure you want to delete PaymentEntry? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -139,7 +139,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("Payment", `Unable to delete Payment: '${response.message}'`);
+							messageHub.showAlertError("PaymentEntry", `Unable to delete PaymentEntry: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage);

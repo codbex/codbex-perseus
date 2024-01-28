@@ -6,9 +6,9 @@
 exports.getTile = function () {
     return {
         group: "Payments",
-        name: "Payment",
-        caption: "Manage entity Payment",
-        tooltip: "Payment",
+        name: "PaymentEntry",
+        caption: "Manage entity PaymentEntry",
+        tooltip: "PaymentEntry",
         // icon: "file-o",
         location: "/services/web/codbex-perseus/gen/ui/Payments/index.html",
         order: "100",

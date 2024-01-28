@@ -5,68 +5,68 @@ import { dao as daoApi } from "@dirigible/db";
 import * as EntityUtils from "../utils/EntityUtils";
 
 let dao = daoApi.create({
-	table: "CODBEX_PAYMENT",
+	table: "CODBEX_PAYMENTENTRY",
 	properties: [
 		{
 			name: "Id",
-			column: "PAYMENT_ID",
+			column: "PAYMENTENTRY_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
 			name: "Date",
-			column: "PAYMENT_DATE",
+			column: "PAYMENTENTRY_DATE",
 			type: "DATE",
 		},
  {
 			name: "Valor",
-			column: "PAYMENT_VALOR",
+			column: "PAYMENTENTRY_VALOR",
 			type: "DATE",
 		},
  {
 			name: "Company",
-			column: "PAYMENT_COMPANY",
+			column: "PAYMENTENTRY_COMPANY",
 			type: "INTEGER",
 		},
  {
 			name: "CompanyIBAN",
-			column: "PAYMENT_COMPANYIBAN",
+			column: "PAYMENTENTRY_COMPANYIBAN",
 			type: "VARCHAR",
 		},
  {
 			name: "CounterpartyIBAN",
-			column: "PAYMENT_COUNTERPARTYIBAN",
+			column: "PAYMENTENTRY_COUNTERPARTYIBAN",
 			type: "VARCHAR",
 		},
  {
 			name: "CounterpartyName",
-			column: "PAYMENT_COUNTERPARTYNAME",
+			column: "PAYMENTENTRY_COUNTERPARTYNAME",
 			type: "VARCHAR",
 		},
  {
 			name: "Amount",
-			column: "PAYMENT_AMOUNT",
+			column: "PAYMENTENTRY_AMOUNT",
 			type: "VARCHAR",
 		},
  {
 			name: "Currency",
-			column: "PAYMENT_CURRENCY",
+			column: "PAYMENTENTRY_CURRENCY",
 			type: "INTEGER",
 		},
  {
 			name: "Reason",
-			column: "PAYMENT_REASON",
+			column: "PAYMENTENTRY_REASON",
 			type: "VARCHAR",
 		},
  {
 			name: "Description",
-			column: "PAYMENT_DESCRIPTION",
+			column: "PAYMENTENTRY_DESCRIPTION",
 			type: "VARCHAR",
 		},
  {
 			name: "Direction",
-			column: "PAYMENT_DIRECTION",
+			column: "PAYMENTENTRY_DIRECTION",
 			type: "INTEGER",
 		}
 ]
@@ -93,11 +93,11 @@ export const create = (entity) => {
 	let id = dao.insert(entity);
 	triggerEvent({
 		operation: "create",
-		table: "CODBEX_PAYMENT",
+		table: "CODBEX_PAYMENTENTRY",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENT_ID",
+			column: "PAYMENTENTRY_ID",
 			value: id
 		}
 	});
@@ -110,11 +110,11 @@ export const update = (entity) => {
 	dao.update(entity);
 	triggerEvent({
 		operation: "update",
-		table: "CODBEX_PAYMENT",
+		table: "CODBEX_PAYMENTENTRY",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENT_ID",
+			column: "PAYMENTENTRY_ID",
 			value: entity.Id
 		}
 	});
@@ -125,11 +125,11 @@ export const remove = (id) => {
 	dao.remove(id);
 	triggerEvent({
 		operation: "delete",
-		table: "CODBEX_PAYMENT",
+		table: "CODBEX_PAYMENTENTRY",
 		entity: entity,
 		key: {
 			name: "Id",
-			column: "PAYMENT_ID",
+			column: "PAYMENTENTRY_ID",
 			value: id
 		}
 	});
@@ -140,7 +140,7 @@ export const count = () => {
 }
 
 export const customDataCount = () => {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENT"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTENTRY"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -153,7 +153,7 @@ export const customDataCount = () => {
 
 
 const triggerEvent = async(data) => {
-	const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Payments/Payment", ["trigger"]);
+	const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Payments/PaymentEntry", ["trigger"]);
 	triggerExtensions.forEach(triggerExtension => {
 		try {
 			triggerExtension.trigger(data);
@@ -161,5 +161,5 @@ const triggerEvent = async(data) => {
 			console.error(error);
 		}			
 	});
-	producer.queue("codbex-perseus/Payments/Payment").send(JSON.stringify(data));
+	producer.queue("codbex-perseus/Payments/PaymentEntry").send(JSON.stringify(data));
 }
