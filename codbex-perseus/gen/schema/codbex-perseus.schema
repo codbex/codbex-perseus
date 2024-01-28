@@ -664,6 +664,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDER_SALESORDERSTATUSID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_COMPANY"
                     }
                 ]
             },
@@ -854,6 +862,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESINVOICE_STATUS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESINVOICE_COMPANY"
                     }
                 ]
             },
@@ -974,7 +990,7 @@
                         "name": "PAYMENTENTRY_COUNTERPARTYNAME"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -1230,6 +1246,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PURCHASEORDER_STATUS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PURCHASEORDER_COMPANY"
                     }
                 ]
             },
@@ -1360,6 +1384,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PURCHASEINVOICE_STATUS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PURCHASEINVOICE_COMPANY"
                     }
                 ]
             },
@@ -2223,6 +2255,15 @@
                 "referencedColumns": "SALESORDERSTATUS_ID"
             },
             {
+                "name": "SalesOrder_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_Company",
+                "columns": "SALESORDER_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
                 "name": "SalesOrderItem_SalesOrder",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
@@ -2266,6 +2307,15 @@
                 "columns": "SALESINVOICE_STATUS",
                 "referencedTable": "CODBEX_SALESINVOICESTATUS",
                 "referencedColumns": "SALESINVOICESTATUS_ID"
+            },
+            {
+                "name": "SalesInvoice_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESINVOICE",
+                "constraintName": "SalesInvoice_Company",
+                "columns": "SALESINVOICE_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
             },
             {
                 "name": "SalesInvoiceItem_SalesInvoice",
@@ -2331,6 +2381,15 @@
                 "referencedColumns": "PURCHASEORDERSTATUS_ID"
             },
             {
+                "name": "PurchaseOrder_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_PURCHASEORDER",
+                "constraintName": "PurchaseOrder_Company",
+                "columns": "PURCHASEORDER_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
                 "name": "Exchange_Currency",
                 "type": "foreignKey",
                 "table": "CODBEX_EXCHANGE",
@@ -2374,6 +2433,15 @@
                 "columns": "PURCHASEINVOICE_STATUS",
                 "referencedTable": "CODBEX_PURCHASEINVOICESTATUS",
                 "referencedColumns": "PURCHASEINVOICESTATUS_ID"
+            },
+            {
+                "name": "PurchaseInvoice_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_PURCHASEINVOICE",
+                "constraintName": "PurchaseInvoice_Company",
+                "columns": "PURCHASEINVOICE_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
             },
             {
                 "name": "Vacation_Employee",

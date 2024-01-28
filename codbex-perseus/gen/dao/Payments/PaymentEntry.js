@@ -47,7 +47,7 @@ let dao = daoApi.create({
  {
 			name: "Amount",
 			column: "PAYMENTENTRY_AMOUNT",
-			type: "VARCHAR",
+			type: "DOUBLE",
 		},
  {
 			name: "Currency",

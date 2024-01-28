@@ -155,7 +155,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idAmount" dg-required="false" dg-colon="true">Amount</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col fd-col-md--4">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Amount ? false : true }}">
 	                            <fd-input id="idAmount"
 	                                name="Amount"
@@ -164,11 +164,9 @@
 	                                ng-change="isValid(formFieldset['Amount'].$valid, 'Amount')"
 	                                ng-model="entity.Amount"
 	                                ng-readonly="action === 'select'"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
-	                                type="text"
-	                                placeholder="Enter Amount">
+	                                type="number"
+	                                placeholder="Enter Amount"
+	                                class="right-align">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>

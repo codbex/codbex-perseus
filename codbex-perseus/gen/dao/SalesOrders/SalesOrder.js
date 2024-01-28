@@ -58,6 +58,11 @@ let dao = daoApi.create({
 			name: "Status",
 			column: "SALESORDER_SALESORDERSTATUSID",
 			type: "INTEGER",
+		},
+ {
+			name: "Company",
+			column: "SALESORDER_COMPANY",
+			type: "INTEGER",
 		}
 ]
 });

@@ -104,6 +104,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
+				optionsCompany: $scope.optionsCompany,
 			});
 		};
 
@@ -117,6 +118,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
+				optionsCompany: $scope.optionsCompany,
 			});
 		};
 
@@ -128,6 +130,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
+				optionsCompany: $scope.optionsCompany,
 			});
 		};
 
@@ -166,6 +169,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsSalesOrder = [];
 		$scope.optionsCurrency = [];
 		$scope.optionsStatus = [];
+		$scope.optionsCompany = [];
 
 		$http.get("/services/js/codbex-perseus/gen/api/Partners/Customer.js").then(function (response) {
 			$scope.optionsCustomer = response.data.map(e => {
@@ -202,6 +206,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
+		$http.get("/services/js/codbex-perseus/gen/api/Settings/Company.js").then(function (response) {
+			$scope.optionsCompany = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 		$scope.optionsCustomerValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
 				if ($scope.optionsCustomer[i].value === optionKey) {
@@ -230,6 +243,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {
 					return $scope.optionsStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCompanyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCompany.length; i++) {
+				if ($scope.optionsCompany[i].value === optionKey) {
+					return $scope.optionsCompany[i].text;
 				}
 			}
 			return null;
