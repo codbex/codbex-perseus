@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-perseus.Projects.Project';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Projects/Project.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-perseus/gen/api/Projects/ProjectService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -159,7 +159,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCustomer = [];
 		$scope.optionsCompany = [];
 
-		$http.get("/services/js/codbex-perseus/gen/api/Partners/Customer.js").then(function (response) {
+		$http.get("/services/ts/codbex-perseus/gen/api/Partners/CustomerService.ts").then(function (response) {
 			$scope.optionsCustomer = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -168,7 +168,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/Company.js").then(function (response) {
+		$http.get("/services/ts/codbex-perseus/gen/api/Settings/CompanyService.ts").then(function (response) {
 			$scope.optionsCompany = response.data.map(e => {
 				return {
 					value: e.Id,

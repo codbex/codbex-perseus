@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-perseus.PurchaseOrders.PurchaseOrderItem';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/PurchaseOrders/PurchaseOrderItem.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-perseus/gen/api/PurchaseOrders/PurchaseOrderItemService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -162,7 +162,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsPurchaseOrder = [];
 
-		$http.get("/services/js/codbex-perseus/gen/api/PurchaseOrders/PurchaseOrder.js").then(function (response) {
+		$http.get("/services/ts/codbex-perseus/gen/api/PurchaseOrders/PurchaseOrderService.ts").then(function (response) {
 			$scope.optionsPurchaseOrder = response.data.map(e => {
 				return {
 					value: e.Id,

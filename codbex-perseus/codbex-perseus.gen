@@ -1,11 +1,11 @@
 {
-  "tablePrefix": "CODBEX",
+  "tablePrefix": "CODBEX_",
   "brand": "codbex",
   "brandUrl": "https://codbex.com",
   "title": "Customer Relationship Management for Services",
   "description": "Managing employees, projects, timesheets, orders, invoices and payments data",
   "projectName": "codbex-perseus",
-  "workspaceName": "workspace",
+  "workspaceName": "demo",
   "filePath": "codbex-perseus.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {

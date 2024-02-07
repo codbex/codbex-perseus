@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-perseus.Payments.PaymentSalesInvoice';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Payments/PaymentSalesInvoice.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-perseus/gen/api/Payments/PaymentSalesInvoiceService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -150,7 +150,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsSalesInvoice = [];
 		$scope.optionsCurrency = [];
 
-		$http.get("/services/js/codbex-perseus/gen/api/SalesInvoices/SalesInvoice.js").then(function (response) {
+		$http.get("/services/ts/codbex-perseus/gen/api/SalesInvoices/SalesInvoiceService.ts").then(function (response) {
 			$scope.optionsSalesInvoice = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -159,7 +159,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-perseus/gen/api/Settings/Currency.js").then(function (response) {
+		$http.get("/services/ts/codbex-perseus/gen/api/Settings/CurrencyService.ts").then(function (response) {
 			$scope.optionsCurrency = response.data.map(e => {
 				return {
 					value: e.Id,

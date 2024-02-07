@@ -59,7 +59,7 @@
                     }
                 ],
                 "caption": "Manage entity Team",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_TEAM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}TEAM\"",
                 "dataName": "TEAM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -273,7 +273,7 @@
                     }
                 ],
                 "caption": "Manage entity Employee",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_EMPLOYEE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}EMPLOYEE\"",
                 "dataName": "EMPLOYEE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -473,7 +473,7 @@
                     }
                 ],
                 "caption": "Manage entity Customer",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_CUSTOMER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CUSTOMER\"",
                 "dataName": "CUSTOMER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -604,7 +604,7 @@
                     }
                 ],
                 "caption": "Manage entity Project",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PROJECT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PROJECT\"",
                 "dataName": "PROJECT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -776,7 +776,7 @@
                     }
                 ],
                 "caption": "Manage entity ProjectAssignment",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PROJECTASSIGNMENT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PROJECTASSIGNMENT\"",
                 "dataName": "PROJECTASSIGNMENT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -827,7 +827,7 @@
                     }
                 ],
                 "caption": "Manage entity Position",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_POSITION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}POSITION\"",
                 "dataName": "POSITION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -970,7 +970,7 @@
                     }
                 ],
                 "caption": "Manage entity Timesheet",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_TIMESHEET\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}TIMESHEET\"",
                 "dataName": "TIMESHEET",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1140,7 +1140,7 @@
                     }
                 ],
                 "caption": "Manage entity Salary",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALARY\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALARY\"",
                 "dataName": "SALARY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1357,7 +1357,7 @@
                     }
                 ],
                 "caption": "Manage entity Supplier",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SUPPLIER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SUPPLIER\"",
                 "dataName": "SUPPLIER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1581,7 +1581,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesOrder",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDER\"",
                 "dataName": "SALESORDER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -1705,7 +1705,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesOrderItem",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDERITEM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERITEM\"",
                 "dataName": "SALESORDERITEM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2053,7 +2053,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesInvoice",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESINVOICE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESINVOICE\"",
                 "dataName": "SALESINVOICE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2181,7 +2181,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesInvoiceItem",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESINVOICEITEM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESINVOICEITEM\"",
                 "dataName": "SALESINVOICEITEM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2421,7 +2421,7 @@
                     }
                 ],
                 "caption": "Manage entity PaymentEntry",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYMENTENTRY\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PAYMENTENTRY\"",
                 "dataName": "PAYMENTENTRY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2638,7 +2638,7 @@
                     }
                 ],
                 "caption": "Manage entity Company",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_COMPANY\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COMPANY\"",
                 "dataName": "COMPANY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2708,7 +2708,7 @@
                     }
                 ],
                 "caption": "Manage entity Currency",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_CURRENCY\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CURRENCY\"",
                 "dataName": "CURRENCY",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -2949,7 +2949,7 @@
                     }
                 ],
                 "caption": "Manage entity PurchaseOrder",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEORDER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PURCHASEORDER\"",
                 "dataName": "PURCHASEORDER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3024,7 +3024,7 @@
                     }
                 ],
                 "caption": "Manage entity Exchange",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_EXCHANGE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}EXCHANGE\"",
                 "dataName": "EXCHANGE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3287,7 +3287,7 @@
                     }
                 ],
                 "caption": "Manage entity PurchaseInvoice",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEINVOICE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PURCHASEINVOICE\"",
                 "dataName": "PURCHASEINVOICE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3414,7 +3414,7 @@
                     }
                 ],
                 "caption": "Manage entity Vacation",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_VACATION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}VACATION\"",
                 "dataName": "VACATION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3467,7 +3467,7 @@
                     }
                 ],
                 "caption": "Manage entity VacationType",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_VACATIONTYPE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}VACATIONTYPE\"",
                 "dataName": "VACATIONTYPE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3595,7 +3595,7 @@
                     }
                 ],
                 "caption": "Manage entity PurchaseOrderItem",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEORDERITEM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PURCHASEORDERITEM\"",
                 "dataName": "PURCHASEORDERITEM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3723,7 +3723,7 @@
                     }
                 ],
                 "caption": "Manage entity PurchaseInvoiceItem",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEINVOICEITEM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PURCHASEINVOICEITEM\"",
                 "dataName": "PURCHASEINVOICEITEM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3774,7 +3774,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesOrderStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESORDERSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESORDERSTATUS\"",
                 "dataName": "SALESORDERSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3825,7 +3825,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesInvoiceStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESINVOICESTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESINVOICESTATUS\"",
                 "dataName": "SALESINVOICESTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3876,7 +3876,7 @@
                     }
                 ],
                 "caption": "Manage entity PurchaseOrderStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEORDERSTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PURCHASEORDERSTATUS\"",
                 "dataName": "PURCHASEORDERSTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -3927,7 +3927,7 @@
                     }
                 ],
                 "caption": "Manage entity PurchaseInvoiceStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEINVOICESTATUS\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PURCHASEINVOICESTATUS\"",
                 "dataName": "PURCHASEINVOICESTATUS",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4026,7 +4026,7 @@
                     }
                 ],
                 "caption": "Manage entity ProjectTimesheetsReportFilter",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PROJECTTIMESHEETSREPORTFILTER\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PROJECTTIMESHEETSREPORTFILTER\"",
                 "dataName": "PROJECTTIMESHEETSREPORTFILTER",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4115,9 +4115,9 @@
                     }
                 ],
                 "caption": "Manage entity ProjectTimesheets",
-                "dataCount": "select count(*) from (     select PROJECT_NAME as \"Project\",         sum(TIMESHEET_HOURS) as \"TotalHours\",         convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",         convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\"     from ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET     where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT     ${         filter.Project && filter.StartPeriod && filter.EndPeriod ?             'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.Project && filter.StartPeriod ?             'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ?'         :         filter.Project && filter.EndPeriod ?             'and PROJECT_ID = ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.StartPeriod && filter.EndPeriod ?             'and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.Project ?             'and PROJECT_ID = ?'         :         filter.StartPeriod ?             'and TIMESHEET_STARTPERIOD >= ?'         :         filter.EndPeriod ?             'and TIMESHEET_ENDPERIOD <= ?'         :             ''     }     group by PROJECT_NAME )",
+                "dataCount": "select count(*) from (     select PROJECT_NAME as \"Project\",         sum(TIMESHEET_HOURS) as \"TotalHours\",         convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",         convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\"     from ${tablePrefix}PROJECT, ${tablePrefix}PROJECTASSIGNMENT, ${tablePrefix}TIMESHEET     where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT     ${         filter.Project && filter.StartPeriod && filter.EndPeriod ?             'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.Project && filter.StartPeriod ?             'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ?'         :         filter.Project && filter.EndPeriod ?             'and PROJECT_ID = ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.StartPeriod && filter.EndPeriod ?             'and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'         :         filter.Project ?             'and PROJECT_ID = ?'         :         filter.StartPeriod ?             'and TIMESHEET_STARTPERIOD >= ?'         :         filter.EndPeriod ?             'and TIMESHEET_ENDPERIOD <= ?'         :             ''     }     group by PROJECT_NAME )",
                 "dataName": "PROJECTTIMESHEETSREPORT",
-                "dataQuery": "select PROJECT_NAME as \"Project\",     sum(TIMESHEET_HOURS) as \"TotalHours\",     convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",     convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\" from ${tablePrefix}_PROJECT, ${tablePrefix}_PROJECTASSIGNMENT, ${tablePrefix}_TIMESHEET where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT ${     filter.Project && filter.StartPeriod && filter.EndPeriod ?         'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.Project && filter.StartPeriod ?         'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ?'     :     filter.Project && filter.EndPeriod ?         'and PROJECT_ID = ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.StartPeriod && filter.EndPeriod ?         'and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.Project ?         'and PROJECT_ID = ?'     :     filter.StartPeriod ?         'and TIMESHEET_STARTPERIOD >= ?'     :     filter.EndPeriod ?         'and TIMESHEET_ENDPERIOD <= ?'     :         '' } group by PROJECT_NAME ${     filter[\"$limit\"] && filter[\"$offset\"] ?         'limit ? offset ?'     :     filter[\"$limit\"] ?         'limit ?'     :     filter[\"$offset\"] ?         'offset ?'     :         '' }",
+                "dataQuery": "select PROJECT_NAME as \"Project\",     sum(TIMESHEET_HOURS) as \"TotalHours\",     convert(avg(TIMESHEET_RATE), float) as \"AverageRate\",     convert(sum(TIMESHEET_HOURS * TIMESHEET_RATE), float) AS \"Total\" from ${tablePrefix}PROJECT, ${tablePrefix}PROJECTASSIGNMENT, ${tablePrefix}TIMESHEET where PROJECT_ID = PROJECTASSIGNMENT_PROJECT and PROJECTASSIGNMENT_ID = TIMESHEET_PROJECTASSIGNMENT ${     filter.Project && filter.StartPeriod && filter.EndPeriod ?         'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.Project && filter.StartPeriod ?         'and PROJECT_ID = ? and TIMESHEET_STARTPERIOD >= ?'     :     filter.Project && filter.EndPeriod ?         'and PROJECT_ID = ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.StartPeriod && filter.EndPeriod ?         'and TIMESHEET_STARTPERIOD >= ? and TIMESHEET_ENDPERIOD <= ?'     :     filter.Project ?         'and PROJECT_ID = ?'     :     filter.StartPeriod ?         'and TIMESHEET_STARTPERIOD >= ?'     :     filter.EndPeriod ?         'and TIMESHEET_ENDPERIOD <= ?'     :         '' } group by PROJECT_NAME ${     filter[\"$limit\"] && filter[\"$offset\"] ?         'limit ? offset ?'     :     filter[\"$limit\"] ?         'limit ?'     :     filter[\"$offset\"] ?         'offset ?'     :         '' }",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "REPORT_TABLE",
                 "menuIndex": "100",
@@ -4166,7 +4166,7 @@
                     }
                 ],
                 "caption": "Manage entity PaymentDirection",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYMENTDIRECTION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PAYMENTDIRECTION\"",
                 "dataName": "PAYMENTDIRECTION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4261,7 +4261,7 @@
                     }
                 ],
                 "caption": "Manage entity PurchaseInvoicePayment",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PURCHASEINVOICEPAYMENT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PURCHASEINVOICEPAYMENT\"",
                 "dataName": "PURCHASEINVOICEPAYMENT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4356,7 +4356,7 @@
                     }
                 ],
                 "caption": "Manage entity SalesInvoicePayment",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALESINVOICEPAYMENT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALESINVOICEPAYMENT\"",
                 "dataName": "SALESINVOICEPAYMENT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4560,7 +4560,7 @@
                     }
                 ],
                 "caption": "Manage entity Payslip",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYSLIP\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PAYSLIP\"",
                 "dataName": "PAYSLIP",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4672,7 +4672,7 @@
                     }
                 ],
                 "caption": "Manage entity SalaryItem",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALARYITEM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALARYITEM\"",
                 "dataName": "SALARYITEM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4723,7 +4723,7 @@
                     }
                 ],
                 "caption": "Manage entity SalaryItemDirection",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SALARYITEMDIRECTION\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SALARYITEMDIRECTION\"",
                 "dataName": "SALARYITEMDIRECTION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4833,7 +4833,7 @@
                     }
                 ],
                 "caption": "Manage entity PayslipItem",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYSLIPITEM\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PAYSLIPITEM\"",
                 "dataName": "PAYSLIPITEM",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -4926,7 +4926,7 @@
                     }
                 ],
                 "caption": "Manage entity PayslipPayment",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYSLIPPAYMENT\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PAYSLIPPAYMENT\"",
                 "dataName": "PAYSLIPPAYMENT",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -5091,7 +5091,7 @@
                     }
                 ],
                 "caption": "Manage entity PaymentSalesInvoice",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYMENTSALESINVOICE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PAYMENTSALESINVOICE\"",
                 "dataName": "PAYMENTSALESINVOICE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
@@ -5256,7 +5256,7 @@
                     }
                 ],
                 "caption": "Manage entity PaymentPurchaseInvoice",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_PAYMENTPURCHASEINVOICE\"",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PAYMENTPURCHASEINVOICE\"",
                 "dataName": "PAYMENTPURCHASEINVOICE",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",

@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-perseus.Employees.Vacation';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Employees/Vacation.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-perseus/gen/api/Employees/VacationService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -143,7 +143,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsEmployee = [];
 
-		$http.get("/services/js/codbex-perseus/gen/api/Employees/Employee.js").then(function (response) {
+		$http.get("/services/ts/codbex-perseus/gen/api/Employees/EmployeeService.ts").then(function (response) {
 			$scope.optionsEmployee = response.data.map(e => {
 				return {
 					value: e.Id,

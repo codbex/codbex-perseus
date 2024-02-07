@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-perseus.Timesheets.Timesheet';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-perseus/gen/api/Timesheets/Timesheet.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-perseus/gen/api/Timesheets/TimesheetService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
@@ -146,7 +146,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsProjectAssignment = [];
 
-		$http.get("/services/js/codbex-perseus/gen/api/Projects/ProjectAssignment.js").then(function (response) {
+		$http.get("/services/ts/codbex-perseus/gen/api/Projects/ProjectAssignmentService.ts").then(function (response) {
 			$scope.optionsProjectAssignment = response.data.map(e => {
 				return {
 					value: e.Id,
