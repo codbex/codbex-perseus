@@ -156,6 +156,7 @@ export class PurchaseInvoiceItemRepository {
     }
 
     public create(entity: PurchaseInvoiceItemCreateEntity): number {
+        // @ts-ignore
         (entity as PurchaseInvoiceItemEntity).Amount = entity["Quantity"] * entity["Price"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
@@ -172,6 +173,7 @@ export class PurchaseInvoiceItemRepository {
     }
 
     public update(entity: PurchaseInvoiceItemUpdateEntity): void {
+        // @ts-ignore
         (entity as PurchaseInvoiceItemEntity).Amount = entity["Quantity"] * entity["Price"];
         this.dao.update(entity);
         this.triggerEvent({

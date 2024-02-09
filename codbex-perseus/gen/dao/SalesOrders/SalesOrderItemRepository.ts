@@ -156,6 +156,7 @@ export class SalesOrderItemRepository {
     }
 
     public create(entity: SalesOrderItemCreateEntity): number {
+        // @ts-ignore
         (entity as SalesOrderItemEntity).Amount = entity["Quantity"] * entity["Price"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
@@ -172,6 +173,7 @@ export class SalesOrderItemRepository {
     }
 
     public update(entity: SalesOrderItemUpdateEntity): void {
+        // @ts-ignore
         (entity as SalesOrderItemEntity).Amount = entity["Quantity"] * entity["Price"];
         this.dao.update(entity);
         this.triggerEvent({
