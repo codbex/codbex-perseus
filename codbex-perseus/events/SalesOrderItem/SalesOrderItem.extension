@@ -1,5 +1,5 @@
 {
-    "module": "codbex-perseus/events/SalesOrderItem/SalesOrderItemHandler.js",
+    "module": "codbex-perseus/events/SalesOrderItem/SalesOrderItemHandler.ts",
     "extensionPoint": "codbex-perseus/SalesOrders/SalesOrderItem",
     "description": "SalesOrderItem Extension"
 }

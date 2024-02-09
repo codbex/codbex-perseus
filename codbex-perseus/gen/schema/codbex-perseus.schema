@@ -2633,5 +2633,6 @@
                 "referencedColumns": "CURRENCY_ID"
             }
         ]
-    }
+    },
+    "datasource": "DefaultDB"
 }

@@ -1,11 +1,11 @@
 {
-  "tablePrefix": "CODBEX",
+  "tablePrefix": "CODBEX_",
   "brand": "codbex",
   "brandUrl": "https://codbex.com",
   "title": "Customer Relationship Management for Services",
   "description": "Managing employees, projects, timesheets, orders, invoices and payments data",
   "projectName": "codbex-perseus",
-  "workspaceName": "workspace",
+  "workspaceName": "demo",
   "filePath": "codbex-perseus.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
@@ -285,6 +285,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -305,6 +307,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -332,6 +336,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -376,6 +382,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -396,6 +404,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -418,6 +428,8 @@
           "widgetType": "EMAIL",
           "dataNotNull": false,
           "widgetLabel": "Email",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -440,6 +452,8 @@
           "widgetType": "TEL",
           "dataNotNull": false,
           "widgetLabel": "Phone",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -462,6 +476,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Address",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -482,6 +498,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "PostCode",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -504,6 +522,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "City",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -526,6 +546,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Country",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -553,6 +575,8 @@
           "relationshipEntityPerspectiveName": "Employees",
           "dataNotNull": false,
           "widgetLabel": "Team",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -578,6 +602,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -598,6 +624,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Vacation",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -642,6 +670,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -662,6 +692,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -682,6 +714,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Contact",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -704,6 +738,8 @@
           "widgetType": "EMAIL",
           "dataNotNull": false,
           "widgetLabel": "Email",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -726,6 +762,8 @@
           "widgetType": "TEL",
           "dataNotNull": false,
           "widgetLabel": "Phone",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -748,6 +786,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Address",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -768,6 +808,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "PostCode",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -790,6 +832,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "City",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -812,6 +856,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Country",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -834,6 +880,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "IBAN",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 34,
           "inputRule": ""
@@ -854,6 +902,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "VATNO",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -899,6 +949,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -919,6 +971,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -946,6 +1000,8 @@
           "relationshipEntityPerspectiveName": "Partners",
           "dataNotNull": false,
           "widgetLabel": "Customer",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -966,6 +1022,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "StartDate",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -987,6 +1045,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "EndDate",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -1013,6 +1073,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -1056,6 +1118,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -1084,6 +1148,8 @@
             "relationshipEntityPerspectiveName": "Partners",
             "dataNotNull": false,
             "widgetLabel": "Customer",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -1104,6 +1170,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "StartDate",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -1125,6 +1193,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "EndDate",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -1151,6 +1221,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Company",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
@@ -1176,6 +1248,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1196,6 +1270,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -1223,6 +1299,8 @@
           "relationshipEntityPerspectiveName": "Employees",
           "dataNotNull": false,
           "widgetLabel": "Employee",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1250,6 +1328,8 @@
           "relationshipEntityPerspectiveName": "Projects",
           "dataNotNull": false,
           "widgetLabel": "Project",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1275,6 +1355,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Position",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1295,6 +1377,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "HourlyRate",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1315,6 +1399,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "StartDate",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -1336,6 +1422,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "EndDate",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         }
@@ -1384,6 +1472,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1402,6 +1492,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -1447,6 +1539,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1467,6 +1561,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -1489,6 +1585,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "StartPeriod",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -1510,6 +1608,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "EndPeriod",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -1536,6 +1636,8 @@
           "relationshipEntityPerspectiveName": "Projects",
           "dataNotNull": false,
           "widgetLabel": "ProjectAssignment",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1556,6 +1658,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Hours",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1576,6 +1680,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Rate",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -1621,6 +1727,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1641,6 +1749,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -1668,6 +1778,8 @@
           "relationshipEntityPerspectiveName": "Employees",
           "dataNotNull": false,
           "widgetLabel": "Employee",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1693,6 +1805,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1718,6 +1832,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1738,6 +1854,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Net",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1758,6 +1876,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Gross",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1778,6 +1898,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -1821,6 +1943,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -1849,6 +1973,8 @@
             "relationshipEntityPerspectiveName": "Employees",
             "dataNotNull": false,
             "widgetLabel": "Employee",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -1874,6 +2000,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Company",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -1899,6 +2027,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Currency",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -1919,6 +2049,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Net",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -1939,6 +2071,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Gross",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -1959,6 +2093,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Total",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
@@ -1983,6 +2119,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2003,6 +2141,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2025,6 +2165,8 @@
           "widgetType": "EMAIL",
           "dataNotNull": false,
           "widgetLabel": "Email",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2047,6 +2189,8 @@
           "widgetType": "TEL",
           "dataNotNull": false,
           "widgetLabel": "Phone",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -2069,6 +2213,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Address",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -2089,6 +2235,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "PostCode",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -2111,6 +2259,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "City",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2133,6 +2283,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Country",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2153,6 +2305,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "VATNO",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -2175,6 +2329,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "IBAN",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 34,
           "inputRule": ""
@@ -2195,6 +2351,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "SWIFT",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -2217,6 +2375,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Bank",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2262,6 +2422,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2282,6 +2444,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2302,6 +2466,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Number",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -2324,6 +2490,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -2350,6 +2518,8 @@
           "relationshipEntityPerspectiveName": "Partners",
           "dataNotNull": false,
           "widgetLabel": "Customer",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2370,6 +2540,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2395,6 +2567,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2415,6 +2589,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "VAT",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2435,6 +2611,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2460,6 +2638,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2485,6 +2665,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -2528,6 +2710,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2549,6 +2733,8 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "Number",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -2571,6 +2757,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "Date",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -2597,6 +2785,8 @@
             "relationshipEntityPerspectiveName": "Partners",
             "dataNotNull": false,
             "widgetLabel": "Customer",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -2617,6 +2807,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Amount",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -2642,6 +2834,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Currency",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -2662,6 +2856,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "VAT",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -2682,6 +2878,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Total",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -2707,6 +2905,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -2732,6 +2932,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Company",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
@@ -2757,6 +2959,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2780,6 +2984,8 @@
           "relationshipEntityPerspectiveName": "SalesOrders",
           "dataNotNull": false,
           "widgetLabel": "SalesOrder",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2800,6 +3006,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -2822,6 +3030,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Quantity",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2842,6 +3052,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Price",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2862,6 +3074,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -2907,6 +3121,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -2927,6 +3143,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -2949,6 +3167,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Number",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -2971,6 +3191,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -2992,6 +3214,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Due",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -3018,6 +3242,8 @@
           "relationshipEntityPerspectiveName": "Partners",
           "dataNotNull": false,
           "widgetLabel": "Customer",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3043,6 +3269,8 @@
           "relationshipEntityPerspectiveName": "SalesOrders",
           "dataNotNull": false,
           "widgetLabel": "SalesOrder",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3063,6 +3291,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3088,6 +3318,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3108,6 +3340,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "VAT",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3129,6 +3363,8 @@
           "widgetShortLabel": "Discount %",
           "widgetType": "NUMBER",
           "dataNotNull": false,
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3149,6 +3385,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Taxes",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3169,6 +3407,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3189,6 +3429,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Conditions",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -3209,6 +3451,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "PaymentMethod",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -3229,6 +3473,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "SentMethod",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -3256,6 +3502,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3281,6 +3529,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -3324,6 +3574,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -3347,6 +3599,8 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "Number",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -3369,6 +3623,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "Date",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -3390,6 +3646,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "Due",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -3416,6 +3674,8 @@
             "relationshipEntityPerspectiveName": "Partners",
             "dataNotNull": false,
             "widgetLabel": "Customer",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3441,6 +3701,8 @@
             "relationshipEntityPerspectiveName": "SalesOrders",
             "dataNotNull": false,
             "widgetLabel": "SalesOrder",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3461,6 +3723,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Amount",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3486,6 +3750,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Currency",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3506,6 +3772,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "VAT",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3527,6 +3795,8 @@
             "widgetShortLabel": "Discount %",
             "widgetType": "NUMBER",
             "dataNotNull": false,
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3547,6 +3817,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Taxes",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3567,6 +3839,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Total",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3587,6 +3861,8 @@
             "widgetType": "TEXTAREA",
             "dataNotNull": false,
             "widgetLabel": "Conditions",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -3607,6 +3883,8 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "PaymentMethod",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -3627,6 +3905,8 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "SentMethod",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -3654,6 +3934,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -3679,6 +3961,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Company",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
@@ -3704,6 +3988,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3731,6 +4017,8 @@
           "relationshipEntityPerspectiveName": "SalesInvoices",
           "dataNotNull": false,
           "widgetLabel": "SalesInvoice",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3751,6 +4039,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -3773,6 +4063,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Quantity",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3793,6 +4085,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Price",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3813,6 +4107,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -3861,6 +4157,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3881,6 +4179,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -3902,6 +4202,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Valor",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -3928,6 +4230,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3948,6 +4252,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "CompanyIBAN",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 22,
           "inputRule": ""
@@ -3970,6 +4276,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "CounterpartyIBAN",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 22,
           "inputRule": ""
@@ -3992,6 +4300,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "CounterpartyName",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4014,6 +4324,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4039,6 +4351,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4059,6 +4373,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Reason",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -4081,6 +4397,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Description",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4108,6 +4426,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Direction",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -4153,6 +4473,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4173,6 +4495,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4195,6 +4519,8 @@
           "widgetType": "EMAIL",
           "dataNotNull": false,
           "widgetLabel": "Email",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4217,6 +4543,8 @@
           "widgetType": "TEL",
           "dataNotNull": false,
           "widgetLabel": "Phone",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -4239,6 +4567,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Address",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -4259,6 +4589,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "PostCode",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -4279,6 +4611,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "VATNO",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -4301,6 +4635,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "IBAN",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 34,
           "inputRule": ""
@@ -4321,6 +4657,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "SWIFT",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -4343,6 +4681,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Bank",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4365,6 +4705,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "City",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4387,6 +4729,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Country",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4432,6 +4776,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4452,6 +4798,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 3,
           "inputRule": ""
@@ -4474,6 +4822,8 @@
           "widgetType": "CHECKBOX",
           "dataNotNull": false,
           "widgetLabel": "Default",
+          "dataTypeJava": "boolean",
+          "dataTypeTypescript": "boolean",
           "inputRule": ""
         }
       ],
@@ -4517,6 +4867,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4537,6 +4889,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4557,6 +4911,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Number",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -4579,6 +4935,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -4605,6 +4963,8 @@
           "relationshipEntityPerspectiveName": "Partners",
           "dataNotNull": false,
           "widgetLabel": "Supplier",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4625,6 +4985,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Description",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -4647,6 +5009,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4672,6 +5036,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4692,6 +5058,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "VAT",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4712,6 +5080,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4737,6 +5107,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -4762,6 +5134,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -4805,6 +5179,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -4826,6 +5202,8 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "Number",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -4848,6 +5226,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "Date",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -4874,6 +5254,8 @@
             "relationshipEntityPerspectiveName": "Partners",
             "dataNotNull": false,
             "widgetLabel": "Supplier",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -4894,6 +5276,8 @@
             "widgetType": "TEXTAREA",
             "dataNotNull": false,
             "widgetLabel": "Description",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -4916,6 +5300,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Amount",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -4941,6 +5327,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Currency",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -4961,6 +5349,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "VAT",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -4981,6 +5371,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Total",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5006,6 +5398,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5031,6 +5425,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Company",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
@@ -5056,6 +5452,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5081,6 +5479,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5101,6 +5501,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Rate",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -5145,6 +5547,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5165,6 +5569,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -5185,6 +5591,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Number",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -5207,6 +5615,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -5233,6 +5643,8 @@
           "relationshipEntityPerspectiveName": "Partners",
           "dataNotNull": false,
           "widgetLabel": "Supplier",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5258,6 +5670,8 @@
           "relationshipEntityPerspectiveName": "PurchaseOrders",
           "dataNotNull": false,
           "widgetLabel": "PurchaseOrder",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5278,6 +5692,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Description",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 2000,
           "inputRule": ""
@@ -5300,6 +5716,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5325,6 +5743,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5345,6 +5765,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "VAT",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5365,6 +5787,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5390,6 +5814,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5415,6 +5841,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -5458,6 +5886,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -5479,6 +5909,8 @@
             "widgetType": "TEXTBOX",
             "dataNotNull": false,
             "widgetLabel": "Number",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -5501,6 +5933,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "Date",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -5527,6 +5961,8 @@
             "relationshipEntityPerspectiveName": "Partners",
             "dataNotNull": false,
             "widgetLabel": "Supplier",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5552,6 +5988,8 @@
             "relationshipEntityPerspectiveName": "PurchaseOrders",
             "dataNotNull": false,
             "widgetLabel": "PurchaseOrder",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5572,6 +6010,8 @@
             "widgetType": "TEXTAREA",
             "dataNotNull": false,
             "widgetLabel": "Description",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 2000,
             "inputRule": ""
@@ -5594,6 +6034,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Amount",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5619,6 +6061,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Currency",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5639,6 +6083,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "VAT",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5659,6 +6105,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Total",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5684,6 +6132,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -5709,6 +6159,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Company",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
@@ -5734,6 +6186,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5754,6 +6208,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -5780,6 +6236,8 @@
           "relationshipEntityPerspectiveName": "Employees",
           "dataNotNull": false,
           "widgetLabel": "Employee",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5800,6 +6258,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Reason",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -5822,6 +6282,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Ratio",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5843,6 +6305,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "VacationTypeId",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -5888,6 +6352,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5908,6 +6374,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -5953,6 +6421,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -5980,6 +6450,8 @@
           "relationshipEntityPerspectiveName": "PurchaseOrders",
           "dataNotNull": false,
           "widgetLabel": "PurchaseOrder",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6000,6 +6472,8 @@
           "widgetType": "TEXTAREA",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -6022,6 +6496,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Quantity",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6042,6 +6518,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Price",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6062,6 +6540,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -6108,6 +6588,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6135,6 +6617,8 @@
           "relationshipEntityPerspectiveName": "PurchaseInvoices",
           "dataNotNull": false,
           "widgetLabel": "PurchaseInvoice",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6155,6 +6639,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 200,
           "inputRule": ""
@@ -6177,6 +6663,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Quantity",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6197,6 +6685,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Price",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6217,6 +6707,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -6263,6 +6755,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6281,6 +6775,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -6326,6 +6822,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6344,6 +6842,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -6389,6 +6889,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6407,6 +6909,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -6452,6 +6956,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6470,6 +6976,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -6522,6 +7030,8 @@
           "relationshipEntityPerspectiveName": "Reports",
           "dataNotNull": false,
           "widgetLabel": "Report",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -6549,6 +7059,8 @@
           "relationshipEntityPerspectiveName": "Projects",
           "dataNotNull": false,
           "widgetLabel": "Project",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6569,6 +7081,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "StartPeriod",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -6590,6 +7104,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "EndPeriod",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         }
@@ -6638,6 +7154,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Project",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -6660,6 +7178,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "TotalHours",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6680,6 +7200,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "AverageRate",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6700,6 +7222,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -6749,6 +7273,8 @@
             "relationshipEntityPerspectiveName": "Reports",
             "dataNotNull": false,
             "widgetLabel": "Report",
+            "dataTypeJava": "string",
+            "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -6776,6 +7302,8 @@
             "relationshipEntityPerspectiveName": "Projects",
             "dataNotNull": false,
             "widgetLabel": "Project",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -6796,6 +7324,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "StartPeriod",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -6817,6 +7347,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "EndPeriod",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           }
@@ -6864,6 +7396,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6882,6 +7416,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -6927,6 +7463,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6950,6 +7488,8 @@
           "relationshipEntityPerspectiveName": "PurchaseInvoices",
           "dataNotNull": false,
           "widgetLabel": "PurchaseInvoice",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6975,6 +7515,8 @@
           "relationshipEntityPerspectiveName": "Payments",
           "dataNotNull": false,
           "widgetLabel": "PaymentEntry",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -6995,6 +7537,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -7041,6 +7585,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7064,6 +7610,8 @@
           "relationshipEntityPerspectiveName": "SalesInvoices",
           "dataNotNull": false,
           "widgetLabel": "SalesInvoice",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7089,6 +7637,8 @@
           "relationshipEntityPerspectiveName": "Payments",
           "dataNotNull": false,
           "widgetLabel": "PaymentEntry",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7109,6 +7659,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -7155,6 +7707,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7175,6 +7729,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 50,
           "inputRule": ""
@@ -7202,6 +7758,8 @@
           "relationshipEntityPerspectiveName": "Employees",
           "dataNotNull": false,
           "widgetLabel": "Employee",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7227,6 +7785,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Company",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7247,6 +7807,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "StartDate",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -7268,6 +7830,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "EndDate",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -7294,6 +7858,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7314,6 +7880,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Net",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7334,6 +7902,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Gross",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7354,6 +7924,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Total",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -7397,6 +7969,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 50,
           "inputRule": ""
@@ -7425,6 +7999,8 @@
             "relationshipEntityPerspectiveName": "Employees",
             "dataNotNull": false,
             "widgetLabel": "Employee",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -7450,6 +8026,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Company",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -7470,6 +8048,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "StartDate",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -7491,6 +8071,8 @@
             "widgetType": "DATE",
             "dataNotNull": false,
             "widgetLabel": "EndDate",
+            "dataTypeJava": "date",
+            "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
@@ -7517,6 +8099,8 @@
             "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Currency",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -7537,6 +8121,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Net",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -7557,6 +8143,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Gross",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
@@ -7577,6 +8165,8 @@
             "widgetType": "NUMBER",
             "dataNotNull": false,
             "widgetLabel": "Total",
+            "dataTypeJava": "double",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
@@ -7602,6 +8192,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7625,6 +8217,8 @@
           "relationshipEntityPerspectiveName": "Salaries",
           "dataNotNull": false,
           "widgetLabel": "Salary",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7645,6 +8239,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 50,
           "inputRule": ""
@@ -7667,6 +8263,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7692,6 +8290,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Direction",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -7738,6 +8338,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7756,6 +8358,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -7801,6 +8405,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7826,6 +8432,8 @@
           "relationshipEntityPerspectiveName": "Payslips",
           "dataNotNull": false,
           "widgetLabel": "Payslip",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7846,6 +8454,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 50,
           "inputRule": ""
@@ -7868,6 +8478,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7889,6 +8501,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Direction",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -7934,6 +8548,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7955,6 +8571,8 @@
           "relationshipEntityPerspectiveName": "Payslips",
           "dataNotNull": false,
           "widgetLabel": "Payslip",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7980,6 +8598,8 @@
           "relationshipEntityPerspectiveName": "Payments",
           "dataNotNull": false,
           "widgetLabel": "Payment",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8000,6 +8620,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],
@@ -8044,6 +8666,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8069,6 +8693,8 @@
           "relationshipEntityPerspectiveName": "SalesInvoices",
           "dataNotNull": false,
           "widgetLabel": "SalesInvoice",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8089,6 +8715,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -8110,6 +8738,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Valor",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -8131,6 +8761,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8156,6 +8788,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8176,6 +8810,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Reason",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -8198,6 +8834,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Description",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -8245,6 +8883,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8270,6 +8910,8 @@
           "relationshipEntityPerspectiveName": "PurchaseInvoices",
           "dataNotNull": false,
           "widgetLabel": "PurchaseInvoice",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8290,6 +8932,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Date",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -8311,6 +8955,8 @@
           "widgetType": "DATE",
           "dataNotNull": false,
           "widgetLabel": "Valor",
+          "dataTypeJava": "date",
+          "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
@@ -8332,6 +8978,8 @@
           "widgetType": "NUMBER",
           "dataNotNull": false,
           "widgetLabel": "Amount",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8357,6 +9005,8 @@
           "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Currency",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -8377,6 +9027,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Reason",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""
@@ -8399,6 +9051,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Description",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 100,
           "inputRule": ""

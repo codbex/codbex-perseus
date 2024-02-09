@@ -1,4 +1,4 @@
-import { database } from "@dirigible/db";
+import { database } from "sdk/db";
 
 export interface ProjectTimesheetsReport {
     readonly Project: string;
