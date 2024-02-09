@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, response } from "@dirigible/http"
+import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { PurchaseOrderStatusRepository, PurchaseOrderStatusEntityOptions } from "../../dao/Settings/PurchaseOrderStatusRepository";
 import { HttpUtils } from "../utils/HttpUtils";
 

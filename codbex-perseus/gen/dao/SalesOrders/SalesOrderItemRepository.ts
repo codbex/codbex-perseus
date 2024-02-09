@@ -1,7 +1,7 @@
-import { query } from "@dirigible/db";
-import { producer } from "@dirigible/messaging";
-import { extensions } from "@dirigible/extensions";
-import { dao as daoApi } from "@dirigible/db";
+import { query } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
+import { dao as daoApi } from "sdk/db";
 
 export interface SalesOrderItemEntity {
     readonly Id: number;
@@ -241,7 +241,6 @@ export class SalesOrderItemRepository {
         }
         return 0;
     }
-
 
     private async triggerEvent(data: SalesOrderItemEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/SalesOrders/SalesOrderItem", ["trigger"]);

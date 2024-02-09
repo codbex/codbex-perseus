@@ -1,4 +1,4 @@
-import { Controller, Get } from "@dirigible/http"
+import { Controller, Get } from "sdk/http"
 import { ProjectTimesheetsReportRepository, ProjectTimesheetsReportFilter, ProjectTimesheetsReportPaginatedFilter } from "../../dao/Reports/ProjectTimesheetsReportRepository";
 
 @Controller

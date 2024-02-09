@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, response } from "@dirigible/http"
+import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { TimesheetRepository, TimesheetEntityOptions } from "../../dao/Timesheets/TimesheetRepository";
 import { HttpUtils } from "../utils/HttpUtils";
 

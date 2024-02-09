@@ -1,7 +1,7 @@
-import { query } from "@dirigible/db";
-import { producer } from "@dirigible/messaging";
-import { extensions } from "@dirigible/extensions";
-import { dao as daoApi } from "@dirigible/db";
+import { query } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
+import { dao as daoApi } from "sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
 export interface CurrencyEntity {
@@ -195,7 +195,6 @@ export class CurrencyRepository {
         }
         return 0;
     }
-
 
     private async triggerEvent(data: CurrencyEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Settings/Currency", ["trigger"]);

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, response } from "@dirigible/http"
+import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { PayslipRepository, PayslipEntityOptions } from "../../dao/Payslips/PayslipRepository";
 import { HttpUtils } from "../utils/HttpUtils";
 
