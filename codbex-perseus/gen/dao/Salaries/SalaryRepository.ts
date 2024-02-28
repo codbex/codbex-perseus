@@ -243,11 +243,11 @@ export class SalaryRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: SalaryEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalaryEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALARY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -268,6 +268,6 @@ export class SalaryRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Salaries/Salary").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Salaries/Salary").send(JSON.stringify(data));
     }
 }

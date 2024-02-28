@@ -66,29 +66,48 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
 			let Project = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(Project).then(function (response) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
+			if (!filter) {
+				filter = {};
+			}
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.Project = Project;
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("ProjectAssignment", `Unable to count ProjectAssignment: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `Project=${Project}`;
-				let offset = (pageNumber - 1) * $scope.dataLimit;
-				let limit = $scope.dataLimit;
-				entityApi.filter(query, offset, limit).then(function (response) {
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
+				filter.$limit = $scope.dataLimit;
+				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("ProjectAssignment", `Unable to list ProjectAssignment: '${response.message}'`);
+						messageHub.showAlertError("ProjectAssignment", `Unable to list/filter ProjectAssignment: '${response.message}'`);
 						return;
 					}
 
@@ -115,6 +134,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("ProjectAssignment-details", {
 				action: "select",
 				entity: entity,
+				optionsEmployee: $scope.optionsEmployee,
+				optionsProject: $scope.optionsProject,
+				optionsPosition: $scope.optionsPosition,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("ProjectAssignment-filter", {
+				entity: $scope.filterEntity,
 				optionsEmployee: $scope.optionsEmployee,
 				optionsProject: $scope.optionsProject,
 				optionsPosition: $scope.optionsPosition,
@@ -168,7 +196,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("ProjectAssignment", `Unable to delete ProjectAssignment: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
@@ -179,6 +207,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsEmployee = [];
 		$scope.optionsProject = [];
 		$scope.optionsPosition = [];
+
 
 		$http.get("/services/ts/codbex-perseus/gen/api/Employees/EmployeeService.ts").then(function (response) {
 			$scope.optionsEmployee = response.data.map(e => {
@@ -206,6 +235,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsEmployeeValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsEmployee.length; i++) {
 				if ($scope.optionsEmployee[i].value === optionKey) {

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-perseus/gen/ui/Salaries/Salary/dialog-filter/view.js",
+    "extensionPoint": "codbex-perseus-dialog-window",
+    "description": "codbex-perseus - Application Dialog Window"
+}

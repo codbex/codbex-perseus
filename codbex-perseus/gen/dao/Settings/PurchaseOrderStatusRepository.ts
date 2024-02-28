@@ -159,11 +159,11 @@ export class PurchaseOrderStatusRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PurchaseOrderStatusEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PurchaseOrderStatusEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERSTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -184,6 +184,6 @@ export class PurchaseOrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Settings/PurchaseOrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Settings/PurchaseOrderStatus").send(JSON.stringify(data));
     }
 }

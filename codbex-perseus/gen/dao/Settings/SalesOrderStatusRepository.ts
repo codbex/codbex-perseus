@@ -159,11 +159,11 @@ export class SalesOrderStatusRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: SalesOrderStatusEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalesOrderStatusEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERSTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -184,6 +184,6 @@ export class SalesOrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Settings/SalesOrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Settings/SalesOrderStatus").send(JSON.stringify(data));
     }
 }

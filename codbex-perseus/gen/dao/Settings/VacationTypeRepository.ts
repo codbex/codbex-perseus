@@ -159,11 +159,11 @@ export class VacationTypeRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: VacationTypeEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: VacationTypeEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_VACATIONTYPE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -184,6 +184,6 @@ export class VacationTypeRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Settings/VacationType").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Settings/VacationType").send(JSON.stringify(data));
     }
 }

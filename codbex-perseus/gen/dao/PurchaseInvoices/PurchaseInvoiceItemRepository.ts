@@ -157,7 +157,7 @@ export class PurchaseInvoiceItemRepository {
 
     public create(entity: PurchaseInvoiceItemCreateEntity): number {
         // @ts-ignore
-        (entity as PurchaseInvoiceItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as PurchaseInvoiceItemEntity).Amount = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -174,7 +174,7 @@ export class PurchaseInvoiceItemRepository {
 
     public update(entity: PurchaseInvoiceItemUpdateEntity): void {
         // @ts-ignore
-        (entity as PurchaseInvoiceItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as PurchaseInvoiceItemEntity).Amount = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -218,21 +218,11 @@ export class PurchaseInvoiceItemRepository {
         });
     }
 
-
-
-    public count(PurchaseInvoice: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEINVOICEITEM" WHERE "PURCHASEINVOICEITEM_PURCHASEINVOICE" = ?', [PurchaseInvoice]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: PurchaseInvoiceItemEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PurchaseInvoiceItemEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEINVOICEITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -253,6 +243,6 @@ export class PurchaseInvoiceItemRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/PurchaseInvoices/PurchaseInvoiceItem").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/PurchaseInvoices/PurchaseInvoiceItem").send(JSON.stringify(data));
     }
 }

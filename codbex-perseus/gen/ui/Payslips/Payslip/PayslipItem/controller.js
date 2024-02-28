@@ -66,29 +66,48 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
 			let Payslip = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(Payslip).then(function (response) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
+			if (!filter) {
+				filter = {};
+			}
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.Payslip = Payslip;
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("PayslipItem", `Unable to count PayslipItem: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `Payslip=${Payslip}`;
-				let offset = (pageNumber - 1) * $scope.dataLimit;
-				let limit = $scope.dataLimit;
-				entityApi.filter(query, offset, limit).then(function (response) {
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
+				filter.$limit = $scope.dataLimit;
+				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("PayslipItem", `Unable to list PayslipItem: '${response.message}'`);
+						messageHub.showAlertError("PayslipItem", `Unable to list/filter PayslipItem: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -105,6 +124,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("PayslipItem-details", {
 				action: "select",
 				entity: entity,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("PayslipItem-filter", {
+				entity: $scope.filterEntity,
 			});
 		};
 
@@ -149,7 +174,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("PayslipItem", `Unable to delete PayslipItem: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}

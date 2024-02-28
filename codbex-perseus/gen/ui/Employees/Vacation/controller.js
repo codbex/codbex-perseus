@@ -45,17 +45,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Events-------------------//
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
 			$scope.dataPage = pageNumber;
-			entityApi.count().then(function (response) {
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Vacation", `Unable to count Vacation: '${response.message}'`);
 					return;
@@ -63,9 +73,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.dataCount = response.data;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
-				entityApi.list(offset, limit).then(function (response) {
+				let request;
+				if (filter) {
+					filter.$offset = offset;
+					filter.$limit = limit;
+					request = entityApi.search(filter);
+				} else {
+					request = entityApi.list(offset, limit);
+				}
+				request.then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Vacation", `Unable to list Vacation: '${response.message}'`);
+						messageHub.showAlertError("Vacation", `Unable to list/filter Vacation: '${response.message}'`);
 						return;
 					}
 
@@ -79,7 +97,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage);
+		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -90,6 +108,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Vacation-details", {
 				action: "select",
 				entity: entity,
+				optionsEmployee: $scope.optionsEmployee,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("Vacation-filter", {
+				entity: $scope.filterEntity,
 				optionsEmployee: $scope.optionsEmployee,
 			});
 		};
@@ -133,7 +158,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("Vacation", `Unable to delete Vacation: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
@@ -143,6 +168,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsEmployee = [];
 
+
 		$http.get("/services/ts/codbex-perseus/gen/api/Employees/EmployeeService.ts").then(function (response) {
 			$scope.optionsEmployee = response.data.map(e => {
 				return {
@@ -151,6 +177,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsEmployeeValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsEmployee.length; i++) {
 				if ($scope.optionsEmployee[i].value === optionKey) {

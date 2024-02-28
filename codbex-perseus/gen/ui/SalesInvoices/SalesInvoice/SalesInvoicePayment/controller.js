@@ -66,29 +66,48 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
 			let SalesInvoice = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
-			entityApi.count(SalesInvoice).then(function (response) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
+			if (!filter) {
+				filter = {};
+			}
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.SalesInvoice = SalesInvoice;
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("SalesInvoicePayment", `Unable to count SalesInvoicePayment: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
-				let query = `SalesInvoice=${SalesInvoice}`;
-				let offset = (pageNumber - 1) * $scope.dataLimit;
-				let limit = $scope.dataLimit;
-				entityApi.filter(query, offset, limit).then(function (response) {
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
+				filter.$limit = $scope.dataLimit;
+				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("SalesInvoicePayment", `Unable to list SalesInvoicePayment: '${response.message}'`);
+						messageHub.showAlertError("SalesInvoicePayment", `Unable to list/filter SalesInvoicePayment: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -105,6 +124,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("SalesInvoicePayment-details", {
 				action: "select",
 				entity: entity,
+				optionsPaymentEntry: $scope.optionsPaymentEntry,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("SalesInvoicePayment-filter", {
+				entity: $scope.filterEntity,
 				optionsPaymentEntry: $scope.optionsPaymentEntry,
 			});
 		};
@@ -152,7 +178,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("SalesInvoicePayment", `Unable to delete SalesInvoicePayment: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
@@ -162,6 +188,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsPaymentEntry = [];
 
+
 		$http.get("/services/ts/codbex-perseus/gen/api/Payments/PaymentEntryService.ts").then(function (response) {
 			$scope.optionsPaymentEntry = response.data.map(e => {
 				return {
@@ -170,6 +197,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsPaymentEntryValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsPaymentEntry.length; i++) {
 				if ($scope.optionsPaymentEntry[i].value === optionKey) {

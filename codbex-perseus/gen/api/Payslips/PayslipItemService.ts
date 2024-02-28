@@ -10,7 +10,14 @@ class PayslipItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Payslip = parseInt(ctx.queryParameters.Payslip);
+            Payslip = isNaN(Payslip) ? ctx.queryParameters.Payslip : Payslip;
             const options: PayslipItemEntityOptions = {
+                $filter: {
+                    equals: {
+                        Payslip: Payslip
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class PayslipItemService {
         }
     }
 
-    @Get("/count/:Payslip")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Payslip = parseInt(ctx.pathParameters.Payslip);
-            Payslip = isNaN(Payslip) ? ctx.pathParameters.Payslip : Payslip;
-            return this.repository.count(Payslip);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

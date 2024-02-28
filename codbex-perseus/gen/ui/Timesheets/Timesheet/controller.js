@@ -45,17 +45,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Events-------------------//
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
 			$scope.dataPage = pageNumber;
-			entityApi.count().then(function (response) {
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Timesheet", `Unable to count Timesheet: '${response.message}'`);
 					return;
@@ -63,9 +73,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.dataCount = response.data;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
-				entityApi.list(offset, limit).then(function (response) {
+				let request;
+				if (filter) {
+					filter.$offset = offset;
+					filter.$limit = limit;
+					request = entityApi.search(filter);
+				} else {
+					request = entityApi.list(offset, limit);
+				}
+				request.then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Timesheet", `Unable to list Timesheet: '${response.message}'`);
+						messageHub.showAlertError("Timesheet", `Unable to list/filter Timesheet: '${response.message}'`);
 						return;
 					}
 
@@ -82,7 +100,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage);
+		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -93,6 +111,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Timesheet-details", {
 				action: "select",
 				entity: entity,
+				optionsProjectAssignment: $scope.optionsProjectAssignment,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("Timesheet-filter", {
+				entity: $scope.filterEntity,
 				optionsProjectAssignment: $scope.optionsProjectAssignment,
 			});
 		};
@@ -136,7 +161,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("Timesheet", `Unable to delete Timesheet: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
@@ -146,6 +171,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsProjectAssignment = [];
 
+
 		$http.get("/services/ts/codbex-perseus/gen/api/Projects/ProjectAssignmentService.ts").then(function (response) {
 			$scope.optionsProjectAssignment = response.data.map(e => {
 				return {
@@ -154,6 +180,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsProjectAssignmentValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsProjectAssignment.length; i++) {
 				if ($scope.optionsProjectAssignment[i].value === optionKey) {

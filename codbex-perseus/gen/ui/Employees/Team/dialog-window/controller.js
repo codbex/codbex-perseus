@@ -8,12 +8,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
 		$scope.entity = {};
+		$scope.forms = {
+			details: {},
+		};
 		$scope.formHeaders = {
 			select: "Team Details",
 			create: "Create Team",
 			update: "Update Team"
 		};
-		$scope.formErrors = {};
 		$scope.action = 'select';
 
 		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
@@ -21,27 +23,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (dataParameters) {
 				let params = JSON.parse(dataParameters);
 				$scope.action = params.action;
-				if ($scope.action == "create") {
-					$scope.formErrors = {
-					};
-				}
 				$scope.entity = params.entity;
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
 				$scope.optionsCompany = params.optionsCompany;
 			}
 		}
-
-		$scope.isValid = function (isValid, property) {
-			$scope.formErrors[property] = !isValid ? true : undefined;
-			for (let next in $scope.formErrors) {
-				if ($scope.formErrors[next] === true) {
-					$scope.isFormValid = false;
-					return;
-				}
-			}
-			$scope.isFormValid = true;
-		};
 
 		$scope.create = function () {
 			let entity = $scope.entity;

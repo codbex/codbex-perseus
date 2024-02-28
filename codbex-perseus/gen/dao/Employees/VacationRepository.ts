@@ -222,11 +222,11 @@ export class VacationRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: VacationEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: VacationEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_VACATION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -247,6 +247,6 @@ export class VacationRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Employees/Vacation").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Employees/Vacation").send(JSON.stringify(data));
     }
 }

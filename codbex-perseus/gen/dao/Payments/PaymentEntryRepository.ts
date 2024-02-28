@@ -310,11 +310,11 @@ export class PaymentEntryRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PaymentEntryEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PaymentEntryEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTENTRY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -335,6 +335,6 @@ export class PaymentEntryRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Payments/PaymentEntry").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Payments/PaymentEntry").send(JSON.stringify(data));
     }
 }

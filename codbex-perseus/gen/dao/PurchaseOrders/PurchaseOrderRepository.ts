@@ -246,9 +246,9 @@ export class PurchaseOrderRepository {
     public create(entity: PurchaseOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as PurchaseOrderEntity).VAT = entity['Amount'] * 0.2;
+        (entity as PurchaseOrderEntity).VAT = ${property.calculatedPropertyExpressionCreate};
         // @ts-ignore
-        (entity as PurchaseOrderEntity).Total = entity["Amount"] + entity["VAT"];
+        (entity as PurchaseOrderEntity).Total = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -266,9 +266,9 @@ export class PurchaseOrderRepository {
     public update(entity: PurchaseOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as PurchaseOrderEntity).VAT = entity['Amount'] * 0.2;
+        (entity as PurchaseOrderEntity).VAT = ${property.calculatedPropertyExpressionUpdate};
         // @ts-ignore
-        (entity as PurchaseOrderEntity).Total = entity["Amount"] + entity["VAT"];
+        (entity as PurchaseOrderEntity).Total = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -312,11 +312,11 @@ export class PurchaseOrderRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PurchaseOrderEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PurchaseOrderEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -337,6 +337,6 @@ export class PurchaseOrderRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/PurchaseOrders/PurchaseOrder").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/PurchaseOrders/PurchaseOrder").send(JSON.stringify(data));
     }
 }

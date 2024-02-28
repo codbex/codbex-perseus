@@ -201,21 +201,11 @@ export class SalaryItemRepository {
         });
     }
 
-
-
-    public count(Salary: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALARYITEM" WHERE "SALARYITEM_SALARY" = ?', [Salary]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: SalaryItemEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalaryItemEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALARYITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -236,6 +226,6 @@ export class SalaryItemRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Salaries/SalaryItem").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Salaries/SalaryItem").send(JSON.stringify(data));
     }
 }

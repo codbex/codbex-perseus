@@ -157,7 +157,7 @@ export class PurchaseOrderItemRepository {
 
     public create(entity: PurchaseOrderItemCreateEntity): number {
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as PurchaseOrderItemEntity).Amount = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -174,7 +174,7 @@ export class PurchaseOrderItemRepository {
 
     public update(entity: PurchaseOrderItemUpdateEntity): void {
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as PurchaseOrderItemEntity).Amount = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -218,21 +218,11 @@ export class PurchaseOrderItemRepository {
         });
     }
 
-
-
-    public count(PurchaseOrder: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM" WHERE "PURCHASEORDERITEM_PURCHASEORDER" = ?', [PurchaseOrder]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: PurchaseOrderItemEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PurchaseOrderItemEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -253,6 +243,6 @@ export class PurchaseOrderItemRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/PurchaseOrders/PurchaseOrderItem").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/PurchaseOrders/PurchaseOrderItem").send(JSON.stringify(data));
     }
 }

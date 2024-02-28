@@ -157,7 +157,7 @@ export class SalesInvoiceItemRepository {
 
     public create(entity: SalesInvoiceItemCreateEntity): number {
         // @ts-ignore
-        (entity as SalesInvoiceItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as SalesInvoiceItemEntity).Amount = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -174,7 +174,7 @@ export class SalesInvoiceItemRepository {
 
     public update(entity: SalesInvoiceItemUpdateEntity): void {
         // @ts-ignore
-        (entity as SalesInvoiceItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as SalesInvoiceItemEntity).Amount = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -218,21 +218,11 @@ export class SalesInvoiceItemRepository {
         });
     }
 
-
-
-    public count(SalesInvoice: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESINVOICEITEM" WHERE "SALESINVOICEITEM_SALESINVOICE" = ?', [SalesInvoice]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: SalesInvoiceItemEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalesInvoiceItemEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESINVOICEITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -253,6 +243,6 @@ export class SalesInvoiceItemRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/SalesInvoices/SalesInvoiceItem").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/SalesInvoices/SalesInvoiceItem").send(JSON.stringify(data));
     }
 }

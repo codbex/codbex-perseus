@@ -8,7 +8,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', '$http', 'entityApi', function ($scope, messageHub, ViewParameters, $http, entityApi) {
 
 		$scope.entity = {};
-		$scope.formErrors = {};
+		$scope.forms = {
+			details: {},
+		};
 
 		$scope.dataParameters = ViewParameters.get();
 		if ($scope.dataParameters?.filter) {
@@ -23,17 +25,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.entity = filter;
 			$scope.entity.Project = undefined;
 		}
-
-		$scope.isValid = function (isValid, property) {
-			$scope.formErrors[property] = !isValid ? true : undefined;
-			for (let next in $scope.formErrors) {
-				if ($scope.formErrors[next] === true) {
-					$scope.isFormValid = false;
-					return;
-				}
-			}
-			$scope.isFormValid = true;
-		};
 
 		$scope.filter = function () {
 			const filter = {
@@ -64,7 +55,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					text: e.Name
 				}
 			});
-			$scope.entity.Project = $scope.ProjectValue;
 		});
 		$scope.optionsProjectValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsProject.length; i++) {

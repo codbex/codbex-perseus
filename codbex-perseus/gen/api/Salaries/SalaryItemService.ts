@@ -10,7 +10,14 @@ class SalaryItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Salary = parseInt(ctx.queryParameters.Salary);
+            Salary = isNaN(Salary) ? ctx.queryParameters.Salary : Salary;
             const options: SalaryItemEntityOptions = {
+                $filter: {
+                    equals: {
+                        Salary: Salary
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class SalaryItemService {
         }
     }
 
-    @Get("/count/:Salary")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Salary = parseInt(ctx.pathParameters.Salary);
-            Salary = isNaN(Salary) ? ctx.pathParameters.Salary : Salary;
-            return this.repository.count(Salary);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

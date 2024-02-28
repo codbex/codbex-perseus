@@ -226,11 +226,11 @@ export class ProjectRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: ProjectEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: ProjectEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PROJECT"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -251,6 +251,6 @@ export class ProjectRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Projects/Project").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Projects/Project").send(JSON.stringify(data));
     }
 }

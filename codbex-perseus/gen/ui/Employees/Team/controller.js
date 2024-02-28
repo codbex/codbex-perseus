@@ -45,17 +45,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Events-------------------//
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
 			$scope.dataPage = pageNumber;
-			entityApi.count().then(function (response) {
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Team", `Unable to count Team: '${response.message}'`);
 					return;
@@ -63,16 +73,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.dataCount = response.data;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
-				entityApi.list(offset, limit).then(function (response) {
+				let request;
+				if (filter) {
+					filter.$offset = offset;
+					filter.$limit = limit;
+					request = entityApi.search(filter);
+				} else {
+					request = entityApi.list(offset, limit);
+				}
+				request.then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Team", `Unable to list Team: '${response.message}'`);
+						messageHub.showAlertError("Team", `Unable to list/filter Team: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage);
+		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -83,6 +101,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Team-details", {
 				action: "select",
 				entity: entity,
+				optionsCompany: $scope.optionsCompany,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("Team-filter", {
+				entity: $scope.filterEntity,
 				optionsCompany: $scope.optionsCompany,
 			});
 		};
@@ -126,7 +151,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("Team", `Unable to delete Team: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
@@ -136,6 +161,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsCompany = [];
 
+
 		$http.get("/services/ts/codbex-perseus/gen/api/Settings/CompanyService.ts").then(function (response) {
 			$scope.optionsCompany = response.data.map(e => {
 				return {
@@ -144,6 +170,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsCompanyValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCompany.length; i++) {
 				if ($scope.optionsCompany[i].value === optionKey) {
