@@ -299,11 +299,11 @@ export class CompanyRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: CompanyEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: CompanyEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_COMPANY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -324,6 +324,6 @@ export class CompanyRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Settings/Company").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Settings/Company").send(JSON.stringify(data));
     }
 }

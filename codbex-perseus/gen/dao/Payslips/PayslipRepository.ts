@@ -282,11 +282,11 @@ export class PayslipRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PayslipEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PayslipEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYSLIP"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -307,6 +307,6 @@ export class PayslipRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Payslips/Payslip").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Payslips/Payslip").send(JSON.stringify(data));
     }
 }

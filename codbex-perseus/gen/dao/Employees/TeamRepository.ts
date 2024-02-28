@@ -173,11 +173,11 @@ export class TeamRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: TeamEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: TeamEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_TEAM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -198,6 +198,6 @@ export class TeamRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Employees/Team").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Employees/Team").send(JSON.stringify(data));
     }
 }

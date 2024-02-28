@@ -10,7 +10,14 @@ class SalesOrderItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let SalesOrder = parseInt(ctx.queryParameters.SalesOrder);
+            SalesOrder = isNaN(SalesOrder) ? ctx.queryParameters.SalesOrder : SalesOrder;
             const options: SalesOrderItemEntityOptions = {
+                $filter: {
+                    equals: {
+                        SalesOrder: SalesOrder
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class SalesOrderItemService {
         }
     }
 
-    @Get("/count/:SalesOrder")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let SalesOrder = parseInt(ctx.pathParameters.SalesOrder);
-            SalesOrder = isNaN(SalesOrder) ? ctx.pathParameters.SalesOrder : SalesOrder;
-            return this.repository.count(SalesOrder);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

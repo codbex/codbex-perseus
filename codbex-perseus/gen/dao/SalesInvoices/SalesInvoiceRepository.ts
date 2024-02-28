@@ -333,9 +333,9 @@ export class SalesInvoiceRepository {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as SalesInvoiceEntity).VAT = entity['Amount'] * 0.2;
+        (entity as SalesInvoiceEntity).VAT = ${property.calculatedPropertyExpressionCreate};
         // @ts-ignore
-        (entity as SalesInvoiceEntity).Total = entity["Amount"] + entity["VAT"] - (entity["Amount"] * entity["Discount"] ? entity["Discount"] : 0) / 100 + (entity["Taxes"] ? entity["Taxes"] : 0);
+        (entity as SalesInvoiceEntity).Total = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -354,9 +354,9 @@ export class SalesInvoiceRepository {
         // EntityUtils.setLocalDate(entity, "Date");
         // EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as SalesInvoiceEntity).VAT = entity['Amount'] * 0.2;
+        (entity as SalesInvoiceEntity).VAT = ${property.calculatedPropertyExpressionUpdate};
         // @ts-ignore
-        (entity as SalesInvoiceEntity).Total = entity["Amount"] + entity["VAT"] - (entity["Amount"] * entity["Discount"] ? entity["Discount"] : 0) / 100 + (entity["Taxes"] ? entity["Taxes"] : 0);
+        (entity as SalesInvoiceEntity).Total = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -400,11 +400,11 @@ export class SalesInvoiceRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: SalesInvoiceEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalesInvoiceEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESINVOICE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -425,6 +425,6 @@ export class SalesInvoiceRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/SalesInvoices/SalesInvoice").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/SalesInvoices/SalesInvoice").send(JSON.stringify(data));
     }
 }

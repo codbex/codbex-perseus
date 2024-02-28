@@ -17,18 +17,17 @@
 
     <body class="dg-vbox">
         <fd-scrollbar class="dg-full-height">
-            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
-                    <fd-form-item class="fd-row fd-form-item">
+            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
+                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPaymentEntry" dg-required="false" dg-colon="true">PaymentEntry</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idPaymentEntry"
 	                            name="PaymentEntry"
-	                            state="{{ formErrors.PaymentEntry ? 'error' : '' }}"
-	                            ng-required="true"
-	                            ng-change="isValid(formFieldset['PaymentEntry'].$valid, 'PaymentEntry')"
+	                            state="{{ forms.details['PaymentEntry'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
 	                            ng-model="entity.PaymentEntry"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsPaymentEntry"
@@ -36,25 +35,20 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idAmount" dg-required="false" dg-colon="true">Amount</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--4">
-	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Amount ? false : true }}">
-	                            <fd-input id="idAmount"
-	                                name="Amount"
-	                                state="{{ formErrors.Amount ? 'error' : '' }}"
-									ng-required="false"
-	                                ng-change="isValid(formFieldset['Amount'].$valid, 'Amount')"
-	                                ng-model="entity.Amount"
-	                                ng-readonly="action === 'select'"
-	                                type="number"
-	                                placeholder="Enter Amount"
-	                                class="right-align">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
+                        <div class="fd-col  fd-col-md--4 ">
+	                        <fd-step-input dg-id="idAmount"
+								name="Amount"
+								state="{{ forms.details['Amount'].$valid ? '' : 'error' }}"
+								dg-required="false"
+								ng-model="entity.Amount"
+								is-readonly="action === 'select'"
+								placeholder="Enter Amount"
+								>
+							</fd-step-input>
 	                    </div>
                     </fd-form-item>
                 </fd-form-group>
@@ -65,7 +59,7 @@
             <div class="fd-bar__right">
                 <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="emphasized"
                     dg-label="{{action === 'create' ? 'Create' : 'Update'}}"
-                    ng-click="action === 'create' ? create() : update()" state="{{ !isFormValid ? 'disabled' : '' }}">
+                    ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled'  }}">
                 </fd-button>
                 <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
                     ng-click="cancel()"></fd-button>

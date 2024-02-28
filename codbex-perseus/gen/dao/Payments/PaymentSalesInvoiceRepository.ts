@@ -254,11 +254,11 @@ export class PaymentSalesInvoiceRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PaymentSalesInvoiceEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PaymentSalesInvoiceEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTSALESINVOICE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -279,6 +279,6 @@ export class PaymentSalesInvoiceRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Payments/PaymentSalesInvoice").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Payments/PaymentSalesInvoice").send(JSON.stringify(data));
     }
 }

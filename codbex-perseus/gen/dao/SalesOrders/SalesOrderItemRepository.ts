@@ -157,7 +157,7 @@ export class SalesOrderItemRepository {
 
     public create(entity: SalesOrderItemCreateEntity): number {
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as SalesOrderItemEntity).Amount = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -174,7 +174,7 @@ export class SalesOrderItemRepository {
 
     public update(entity: SalesOrderItemUpdateEntity): void {
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Amount = entity["Quantity"] * entity["Price"];
+        (entity as SalesOrderItemEntity).Amount = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -218,21 +218,11 @@ export class SalesOrderItemRepository {
         });
     }
 
-
-
-    public count(SalesOrder: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM" WHERE "SALESORDERITEM_SALESORDER" = ?', [SalesOrder]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: SalesOrderItemEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalesOrderItemEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -253,6 +243,6 @@ export class SalesOrderItemRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/SalesOrders/SalesOrderItem").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/SalesOrders/SalesOrderItem").send(JSON.stringify(data));
     }
 }

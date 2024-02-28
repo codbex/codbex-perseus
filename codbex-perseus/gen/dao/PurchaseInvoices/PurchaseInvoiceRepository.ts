@@ -260,9 +260,9 @@ export class PurchaseInvoiceRepository {
     public create(entity: PurchaseInvoiceCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as PurchaseInvoiceEntity).VAT = entity['Amount'] * 0.2;
+        (entity as PurchaseInvoiceEntity).VAT = ${property.calculatedPropertyExpressionCreate};
         // @ts-ignore
-        (entity as PurchaseInvoiceEntity).Total = entity["Amount"] + entity["VAT"];
+        (entity as PurchaseInvoiceEntity).Total = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -280,9 +280,9 @@ export class PurchaseInvoiceRepository {
     public update(entity: PurchaseInvoiceUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as PurchaseInvoiceEntity).VAT = entity['Amount'] * 0.2;
+        (entity as PurchaseInvoiceEntity).VAT = ${property.calculatedPropertyExpressionUpdate};
         // @ts-ignore
-        (entity as PurchaseInvoiceEntity).Total = entity["Amount"] + entity["VAT"];
+        (entity as PurchaseInvoiceEntity).Total = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -326,11 +326,11 @@ export class PurchaseInvoiceRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PurchaseInvoiceEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PurchaseInvoiceEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEINVOICE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -351,6 +351,6 @@ export class PurchaseInvoiceRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/PurchaseInvoices/PurchaseInvoice").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/PurchaseInvoices/PurchaseInvoice").send(JSON.stringify(data));
     }
 }

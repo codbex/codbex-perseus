@@ -10,7 +10,14 @@ class PurchaseOrderItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let PurchaseOrder = parseInt(ctx.queryParameters.PurchaseOrder);
+            PurchaseOrder = isNaN(PurchaseOrder) ? ctx.queryParameters.PurchaseOrder : PurchaseOrder;
             const options: PurchaseOrderItemEntityOptions = {
+                $filter: {
+                    equals: {
+                        PurchaseOrder: PurchaseOrder
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class PurchaseOrderItemService {
         }
     }
 
-    @Get("/count/:PurchaseOrder")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let PurchaseOrder = parseInt(ctx.pathParameters.PurchaseOrder);
-            PurchaseOrder = isNaN(PurchaseOrder) ? ctx.pathParameters.PurchaseOrder : PurchaseOrder;
-            return this.repository.count(PurchaseOrder);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

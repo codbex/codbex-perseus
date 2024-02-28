@@ -232,9 +232,9 @@ export class SalesOrderRepository {
     public create(entity: SalesOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as SalesOrderEntity).VAT = entity['Amount'] * 0.2;
+        (entity as SalesOrderEntity).VAT = ${property.calculatedPropertyExpressionCreate};
         // @ts-ignore
-        (entity as SalesOrderEntity).Total = entity["Amount"] + entity["VAT"];
+        (entity as SalesOrderEntity).Total = ${property.calculatedPropertyExpressionCreate};
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -252,9 +252,9 @@ export class SalesOrderRepository {
     public update(entity: SalesOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as SalesOrderEntity).VAT = entity['Amount'] * 0.2;
+        (entity as SalesOrderEntity).VAT = ${property.calculatedPropertyExpressionUpdate};
         // @ts-ignore
-        (entity as SalesOrderEntity).Total = entity["Amount"] + entity["VAT"];
+        (entity as SalesOrderEntity).Total = ${property.calculatedPropertyExpressionUpdate};
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -298,11 +298,11 @@ export class SalesOrderRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: SalesOrderEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: SalesOrderEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -323,6 +323,6 @@ export class SalesOrderRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/SalesOrders/SalesOrder").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/SalesOrders/SalesOrder").send(JSON.stringify(data));
     }
 }

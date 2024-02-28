@@ -10,7 +10,14 @@ class ProjectAssignmentService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Project = parseInt(ctx.queryParameters.Project);
+            Project = isNaN(Project) ? ctx.queryParameters.Project : Project;
             const options: ProjectAssignmentEntityOptions = {
+                $filter: {
+                    equals: {
+                        Project: Project
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class ProjectAssignmentService {
         }
     }
 
-    @Get("/count/:Project")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Project = parseInt(ctx.pathParameters.Project);
-            Project = isNaN(Project) ? ctx.pathParameters.Project : Project;
-            return this.repository.count(Project);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

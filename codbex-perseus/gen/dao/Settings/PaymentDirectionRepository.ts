@@ -159,11 +159,11 @@ export class PaymentDirectionRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: PaymentDirectionEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: PaymentDirectionEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTDIRECTION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -184,6 +184,6 @@ export class PaymentDirectionRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-perseus/Settings/PaymentDirection").send(JSON.stringify(data));
+        producer.topic("codbex-perseus/Settings/PaymentDirection").send(JSON.stringify(data));
     }
 }

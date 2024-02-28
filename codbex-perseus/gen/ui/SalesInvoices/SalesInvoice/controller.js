@@ -35,6 +35,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage--;
 		}
 
+		function resetPagination() {
+			$scope.dataReset = true;
+			$scope.dataPage = 1;
+			$scope.dataCount = 0;
+			$scope.dataLimit = 10;
+		}
+
 		//-----------------Events-------------------//
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
@@ -45,33 +52,47 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
 			refreshData();
-			$scope.loadPage();
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
 			refreshData();
-			$scope.loadPage();
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function () {
+		$scope.loadPage = function (pageNumber, filter) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
+			if (!filter) {
+				filter = {};
+			}
 			$scope.selectedEntity = null;
-			entityApi.count().then(function (response) {
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("SalesInvoice", `Unable to count SalesInvoice: '${response.message}'`);
 					return;
 				}
 				$scope.dataCount = response.data;
 				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
-				let offset = ($scope.dataPage - 1) * $scope.dataLimit;
-				let limit = $scope.dataLimit;
+				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
+				filter.$limit = $scope.dataLimit;
 				if ($scope.dataReset) {
-					offset = 0;
-					limit = $scope.dataPage * $scope.dataLimit;
+					filter.$offset = 0;
+					filter.$limit = $scope.dataPage * $scope.dataLimit;
 				}
-				entityApi.list(offset, limit).then(function (response) {
+
+				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("SalesInvoice", `Unable to list SalesInvoice: '${response.message}'`);
+						messageHub.showAlertError("SalesInvoice", `Unable to list/filter SalesInvoice: '${response.message}'`);
 						return;
 					}
 					if ($scope.data == null || $scope.dataReset) {
@@ -93,7 +114,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage);
+		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -157,10 +178,21 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							return;
 						}
 						refreshData();
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("SalesInvoice-filter", {
+				entity: $scope.filterEntity,
+				optionsCustomer: $scope.optionsCustomer,
+				optionsSalesOrder: $scope.optionsSalesOrder,
+				optionsCurrency: $scope.optionsCurrency,
+				optionsStatus: $scope.optionsStatus,
+				optionsCompany: $scope.optionsCompany,
 			});
 		};
 
@@ -170,6 +202,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCurrency = [];
 		$scope.optionsStatus = [];
 		$scope.optionsCompany = [];
+
 
 		$http.get("/services/ts/codbex-perseus/gen/api/Partners/CustomerService.ts").then(function (response) {
 			$scope.optionsCustomer = response.data.map(e => {
@@ -215,6 +248,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsCustomerValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
 				if ($scope.optionsCustomer[i].value === optionKey) {
