@@ -157,7 +157,7 @@ export class SalesOrderItemRepository {
 
     public create(entity: SalesOrderItemCreateEntity): number {
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Amount = ${property.calculatedPropertyExpressionCreate};
+        (entity as SalesOrderItemEntity).Amount = entity.Quantity * entity.Price;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -174,7 +174,7 @@ export class SalesOrderItemRepository {
 
     public update(entity: SalesOrderItemUpdateEntity): void {
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Amount = ${property.calculatedPropertyExpressionUpdate};
+        (entity as SalesOrderItemEntity).Amount = entity.Quantity * entity.Price;
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
