@@ -271,7 +271,7 @@ export class PaymentSalesInvoiceRepository {
     }
 
     private async triggerEvent(data: PaymentSalesInvoiceEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Payments/PaymentSalesInvoice", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Payments-PaymentSalesInvoice", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

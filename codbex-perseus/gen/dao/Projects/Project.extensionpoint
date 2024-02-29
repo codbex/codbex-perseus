@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Projects/Project.extensionpoint","name":"codbex-perseus/Projects/Project","description":"Extension Point for codbex-perseus Projects Project"}
+{
+    "name": "codbex-perseus-Projects-Project",
+    "description": "Extension Point for the codbex-perseus-Projects-Project entity"
+}

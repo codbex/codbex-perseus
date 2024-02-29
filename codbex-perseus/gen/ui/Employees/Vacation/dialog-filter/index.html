@@ -38,7 +38,6 @@
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.DateFrom"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -54,7 +53,6 @@
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.DateTo"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -86,10 +84,8 @@
 								state="{{ forms.details['Reason'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Reason"
-	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
 								ng-maxlength="200.0 || -1"
-								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Reason">
 							</fd-textarea>
 							<fd-form-message dg-type="error" ng-show="!forms.details['Reason'].$valid">Incorrect Input</fd-form-message>
@@ -105,7 +101,6 @@
 								state="{{ forms.details['Ratio'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Ratio"
-								is-readonly="action === 'select'"
 								placeholder="Enter Ratio"
 								>
 							</fd-step-input>
@@ -122,10 +117,8 @@
 	                                state="{{ forms.details['VacationTypeId'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.VacationTypeId"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="${property.minLength} || 0"
 	                                ng-maxlength="${property.maxLength} || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter VacationTypeId">
 	                            </fd-input>

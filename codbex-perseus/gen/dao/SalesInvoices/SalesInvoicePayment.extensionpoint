@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/SalesInvoices/SalesInvoicePayment.extensionpoint","name":"codbex-perseus/SalesInvoices/SalesInvoicePayment","description":"Extension Point for codbex-perseus SalesInvoices SalesInvoicePayment"}
+{
+    "name": "codbex-perseus-SalesInvoices-SalesInvoicePayment",
+    "description": "Extension Point for the codbex-perseus-SalesInvoices-SalesInvoicePayment entity"
+}

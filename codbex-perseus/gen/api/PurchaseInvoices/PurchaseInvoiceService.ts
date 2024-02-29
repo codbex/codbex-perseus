@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { PurchaseInvoiceRepository, PurchaseInvoiceEntityOptions } from "../../dao/PurchaseInvoices/PurchaseInvoiceRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-perseus-PurchaseInvoices-PurchaseInvoice", ["validate"]);
 
 @Controller
 class PurchaseInvoiceService {
@@ -24,6 +27,7 @@ class PurchaseInvoiceService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-perseus/gen/api/PurchaseInvoices/PurchaseInvoiceService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -79,6 +83,7 @@ class PurchaseInvoiceService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -109,6 +114,21 @@ class PurchaseInvoiceService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private validateEntity(entity: any): void {
+        if (entity.Name.length > 100) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Number.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Description.length > 2000) {
+            throw new ValidationError(`The 'Description' exceeds the maximum length of [2000] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
         }
     }
 }

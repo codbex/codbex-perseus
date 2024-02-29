@@ -38,10 +38,8 @@
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Name"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="100.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
 	                            </fd-input>
@@ -89,7 +87,6 @@
 								state="{{ forms.details['HourlyRate'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.HourlyRate"
-								is-readonly="action === 'select'"
 								placeholder="Enter HourlyRate"
 								>
 							</fd-step-input>
@@ -106,7 +103,6 @@
 	                                state="{{ forms.details['StartDate'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.StartDateFrom"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -122,7 +118,6 @@
 	                                state="{{ forms.details['StartDate'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.StartDateTo"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -140,7 +135,6 @@
 	                                state="{{ forms.details['EndDate'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.EndDateFrom"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -156,7 +150,6 @@
 	                                state="{{ forms.details['EndDate'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.EndDateTo"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>

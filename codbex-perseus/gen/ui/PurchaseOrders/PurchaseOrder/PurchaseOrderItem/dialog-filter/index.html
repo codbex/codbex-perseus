@@ -37,10 +37,8 @@
 								state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Name"
-	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
 								ng-maxlength="200.0 || -1"
-								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Name">
 							</fd-textarea>
 							<fd-form-message dg-type="error" ng-show="!forms.details['Name'].$valid">Incorrect Input</fd-form-message>
@@ -56,7 +54,6 @@
 								state="{{ forms.details['Quantity'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Quantity"
-								is-readonly="action === 'select'"
 								placeholder="Enter Quantity"
 								>
 							</fd-step-input>
@@ -72,7 +69,6 @@
 								state="{{ forms.details['Price'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Price"
-								is-readonly="action === 'select'"
 								placeholder="Enter Price"
 								>
 							</fd-step-input>
@@ -88,7 +84,6 @@
 								state="{{ forms.details['Amount'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Amount"
-								is-readonly="true"
 								placeholder="Enter Amount"
 								>
 							</fd-step-input>

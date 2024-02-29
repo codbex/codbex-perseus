@@ -302,7 +302,7 @@ export class EmployeeRepository {
     }
 
     private async triggerEvent(data: EmployeeEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Employees/Employee", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Employees-Employee", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

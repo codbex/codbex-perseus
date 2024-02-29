@@ -38,7 +38,6 @@
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.DateFrom"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -54,7 +53,6 @@
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.DateTo"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -72,7 +70,6 @@
 	                                state="{{ forms.details['Valor'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.ValorFrom"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -88,7 +85,6 @@
 	                                state="{{ forms.details['Valor'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.ValorTo"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -121,10 +117,8 @@
 	                                state="{{ forms.details['CompanyIBAN'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.CompanyIBAN"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="22.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter CompanyIBAN">
 	                            </fd-input>
@@ -143,10 +137,8 @@
 	                                state="{{ forms.details['CounterpartyIBAN'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.CounterpartyIBAN"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="22.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter CounterpartyIBAN">
 	                            </fd-input>
@@ -165,10 +157,8 @@
 	                                state="{{ forms.details['CounterpartyName'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.CounterpartyName"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="100.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter CounterpartyName">
 	                            </fd-input>
@@ -186,7 +176,6 @@
 								state="{{ forms.details['Amount'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Amount"
-								is-readonly="action === 'select'"
 								placeholder="Enter Amount"
 								>
 							</fd-step-input>
@@ -218,10 +207,8 @@
 	                                state="{{ forms.details['Reason'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Reason"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Reason">
 	                            </fd-input>
@@ -240,10 +227,8 @@
 	                                state="{{ forms.details['Description'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Description"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="100.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Description">
 	                            </fd-input>

@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/PurchaseInvoices/PurchaseInvoicePayment.extensionpoint","name":"codbex-perseus/PurchaseInvoices/PurchaseInvoicePayment","description":"Extension Point for codbex-perseus PurchaseInvoices PurchaseInvoicePayment"}
+{
+    "name": "codbex-perseus-PurchaseInvoices-PurchaseInvoicePayment",
+    "description": "Extension Point for the codbex-perseus-PurchaseInvoices-PurchaseInvoicePayment entity"
+}

@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { PurchaseInvoiceItemRepository, PurchaseInvoiceItemEntityOptions } from "../../dao/PurchaseInvoices/PurchaseInvoiceItemRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-perseus-PurchaseInvoices-PurchaseInvoiceItem", ["validate"]);
 
 @Controller
 class PurchaseInvoiceItemService {
@@ -31,6 +34,7 @@ class PurchaseInvoiceItemService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-perseus/gen/api/PurchaseInvoices/PurchaseInvoiceItemService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -86,6 +90,7 @@ class PurchaseInvoiceItemService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -116,6 +121,15 @@ class PurchaseInvoiceItemService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private validateEntity(entity: any): void {
+        if (entity.Name.length > 200) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
         }
     }
 }

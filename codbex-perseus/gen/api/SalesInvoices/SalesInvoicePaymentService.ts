@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { SalesInvoicePaymentRepository, SalesInvoicePaymentEntityOptions } from "../../dao/SalesInvoices/SalesInvoicePaymentRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-perseus-SalesInvoices-SalesInvoicePayment", ["validate"]);
 
 @Controller
 class SalesInvoicePaymentService {
@@ -31,6 +34,7 @@ class SalesInvoicePaymentService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-perseus/gen/api/SalesInvoices/SalesInvoicePaymentService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -86,6 +90,7 @@ class SalesInvoicePaymentService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -116,6 +121,12 @@ class SalesInvoicePaymentService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private validateEntity(entity: any): void {
+        for (const next of validationModules) {
+            next.validate(entity);
         }
     }
 }

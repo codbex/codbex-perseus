@@ -218,7 +218,7 @@ export class PayslipItemRepository {
     }
 
     private async triggerEvent(data: PayslipItemEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Payslips/PayslipItem", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Payslips-PayslipItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Settings/PaymentDirection.extensionpoint","name":"codbex-perseus/Settings/PaymentDirection","description":"Extension Point for codbex-perseus Settings PaymentDirection"}
+{
+    "name": "codbex-perseus-Settings-PaymentDirection",
+    "description": "Extension Point for the codbex-perseus-Settings-PaymentDirection entity"
+}

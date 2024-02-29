@@ -176,7 +176,7 @@ export class SalesInvoiceStatusRepository {
     }
 
     private async triggerEvent(data: SalesInvoiceStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Settings/SalesInvoiceStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Settings-SalesInvoiceStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

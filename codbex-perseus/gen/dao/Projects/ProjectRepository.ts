@@ -243,7 +243,7 @@ export class ProjectRepository {
     }
 
     private async triggerEvent(data: ProjectEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Projects/Project", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Projects-Project", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Settings/Company.extensionpoint","name":"codbex-perseus/Settings/Company","description":"Extension Point for codbex-perseus Settings Company"}
+{
+    "name": "codbex-perseus-Settings-Company",
+    "description": "Extension Point for the codbex-perseus-Settings-Company entity"
+}

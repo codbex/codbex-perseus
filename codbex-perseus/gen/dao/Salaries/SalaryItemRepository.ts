@@ -218,7 +218,7 @@ export class SalaryItemRepository {
     }
 
     private async triggerEvent(data: SalaryItemEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Salaries/SalaryItem", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Salaries-SalaryItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

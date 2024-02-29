@@ -176,7 +176,7 @@ export class PositionRepository {
     }
 
     private async triggerEvent(data: PositionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Settings/Position", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Settings-Position", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

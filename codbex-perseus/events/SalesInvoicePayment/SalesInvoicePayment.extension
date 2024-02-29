@@ -1,5 +1,5 @@
 {
     "module": "codbex-perseus/events/SalesInvoicePayment/SalesInvoicePaymentHandler.ts",
-    "extensionPoint": "codbex-perseus/SalesInvoices/SalesInvoicePayment",
+    "extensionPoint": "codbex-perseus-SalesInvoices-SalesInvoicePayment",
     "description": "SalesInvoicePayment Extension"
 }

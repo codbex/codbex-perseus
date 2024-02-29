@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { PaymentEntryRepository, PaymentEntryEntityOptions } from "../../dao/Payments/PaymentEntryRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Payments-PaymentEntry", ["validate"]);
 
 @Controller
 class PaymentEntryService {
@@ -24,6 +27,7 @@ class PaymentEntryService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-perseus/gen/api/Payments/PaymentEntryService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -79,6 +83,7 @@ class PaymentEntryService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -109,6 +114,27 @@ class PaymentEntryService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private validateEntity(entity: any): void {
+        if (entity.CompanyIBAN.length > 22) {
+            throw new ValidationError(`The 'CompanyIBAN' exceeds the maximum length of [22] characters`);
+        }
+        if (entity.CounterpartyIBAN.length > 22) {
+            throw new ValidationError(`The 'CounterpartyIBAN' exceeds the maximum length of [22] characters`);
+        }
+        if (entity.CounterpartyName.length > 100) {
+            throw new ValidationError(`The 'CounterpartyName' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Reason.length > 100) {
+            throw new ValidationError(`The 'Reason' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Description.length > 100) {
+            throw new ValidationError(`The 'Description' exceeds the maximum length of [100] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
         }
     }
 }

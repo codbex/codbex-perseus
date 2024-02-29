@@ -1,5 +1,5 @@
 {
     "module": "codbex-perseus/events/PurchaseOrderItem/PurchaseOrderItemHandler.ts",
-    "extensionPoint": "codbex-perseus/PurchaseOrders/PurchaseOrderItem",
+    "extensionPoint": "codbex-perseus-PurchaseOrders-PurchaseOrderItem",
     "description": "PurchaseOrderItem Extension"
 }

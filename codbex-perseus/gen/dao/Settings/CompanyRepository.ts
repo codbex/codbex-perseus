@@ -316,7 +316,7 @@ export class CompanyRepository {
     }
 
     private async triggerEvent(data: CompanyEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Settings/Company", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Settings-Company", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

@@ -176,7 +176,7 @@ export class PaymentDirectionRepository {
     }
 
     private async triggerEvent(data: PaymentDirectionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Settings/PaymentDirection", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Settings-PaymentDirection", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

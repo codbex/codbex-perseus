@@ -176,7 +176,7 @@ export class SalaryItemDirectionRepository {
     }
 
     private async triggerEvent(data: SalaryItemDirectionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Settings/SalaryItemDirection", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Settings-SalaryItemDirection", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

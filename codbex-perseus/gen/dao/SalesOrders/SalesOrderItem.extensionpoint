@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/SalesOrders/SalesOrderItem.extensionpoint","name":"codbex-perseus/SalesOrders/SalesOrderItem","description":"Extension Point for codbex-perseus SalesOrders SalesOrderItem"}
+{
+    "name": "codbex-perseus-SalesOrders-SalesOrderItem",
+    "description": "Extension Point for the codbex-perseus-SalesOrders-SalesOrderItem entity"
+}

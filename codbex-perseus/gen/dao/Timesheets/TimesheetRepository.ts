@@ -257,7 +257,7 @@ export class TimesheetRepository {
     }
 
     private async triggerEvent(data: TimesheetEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Timesheets/Timesheet", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Timesheets-Timesheet", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

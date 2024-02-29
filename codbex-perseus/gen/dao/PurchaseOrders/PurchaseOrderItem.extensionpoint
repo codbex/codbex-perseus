@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/PurchaseOrders/PurchaseOrderItem.extensionpoint","name":"codbex-perseus/PurchaseOrders/PurchaseOrderItem","description":"Extension Point for codbex-perseus PurchaseOrders PurchaseOrderItem"}
+{
+    "name": "codbex-perseus-PurchaseOrders-PurchaseOrderItem",
+    "description": "Extension Point for the codbex-perseus-PurchaseOrders-PurchaseOrderItem entity"
+}

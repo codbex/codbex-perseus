@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Settings/VacationType.extensionpoint","name":"codbex-perseus/Settings/VacationType","description":"Extension Point for codbex-perseus Settings VacationType"}
+{
+    "name": "codbex-perseus-Settings-VacationType",
+    "description": "Extension Point for the codbex-perseus-Settings-VacationType entity"
+}
