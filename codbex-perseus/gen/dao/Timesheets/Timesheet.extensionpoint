@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Timesheets/Timesheet.extensionpoint","name":"codbex-perseus/Timesheets/Timesheet","description":"Extension Point for codbex-perseus Timesheets Timesheet"}
+{
+    "name": "codbex-perseus-Timesheets-Timesheet",
+    "description": "Extension Point for the codbex-perseus-Timesheets-Timesheet entity"
+}

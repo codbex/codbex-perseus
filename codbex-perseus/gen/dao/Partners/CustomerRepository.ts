@@ -302,7 +302,7 @@ export class CustomerRepository {
     }
 
     private async triggerEvent(data: CustomerEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Partners/Customer", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Partners-Customer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

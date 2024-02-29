@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { PurchaseOrderStatusRepository, PurchaseOrderStatusEntityOptions } from "../../dao/Settings/PurchaseOrderStatusRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Settings-PurchaseOrderStatus", ["validate"]);
 
 @Controller
 class PurchaseOrderStatusService {
@@ -24,6 +27,7 @@ class PurchaseOrderStatusService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-perseus/gen/api/Settings/PurchaseOrderStatusService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -79,6 +83,7 @@ class PurchaseOrderStatusService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -109,6 +114,15 @@ class PurchaseOrderStatusService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private validateEntity(entity: any): void {
+        if (entity.Name.length > 20) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
         }
     }
 }

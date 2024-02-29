@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Employees/Team.extensionpoint","name":"codbex-perseus/Employees/Team","description":"Extension Point for codbex-perseus Employees Team"}
+{
+    "name": "codbex-perseus-Employees-Team",
+    "description": "Extension Point for the codbex-perseus-Employees-Team entity"
+}

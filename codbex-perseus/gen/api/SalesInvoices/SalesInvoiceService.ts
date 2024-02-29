@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { SalesInvoiceRepository, SalesInvoiceEntityOptions } from "../../dao/SalesInvoices/SalesInvoiceRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-perseus-SalesInvoices-SalesInvoice", ["validate"]);
 
 @Controller
 class SalesInvoiceService {
@@ -24,6 +27,7 @@ class SalesInvoiceService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-perseus/gen/api/SalesInvoices/SalesInvoiceService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -79,6 +83,7 @@ class SalesInvoiceService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -109,6 +114,27 @@ class SalesInvoiceService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private validateEntity(entity: any): void {
+        if (entity.Name.length > 100) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Number.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Conditions.length > 200) {
+            throw new ValidationError(`The 'Conditions' exceeds the maximum length of [200] characters`);
+        }
+        if (entity.PaymentMethod.length > 20) {
+            throw new ValidationError(`The 'PaymentMethod' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.SentMethod.length > 20) {
+            throw new ValidationError(`The 'SentMethod' exceeds the maximum length of [20] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
         }
     }
 }

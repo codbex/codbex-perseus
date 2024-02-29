@@ -190,7 +190,7 @@ export class TeamRepository {
     }
 
     private async triggerEvent(data: TeamEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Employees/Team", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Employees-Team", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

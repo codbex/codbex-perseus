@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Salaries/SalaryItem.extensionpoint","name":"codbex-perseus/Salaries/SalaryItem","description":"Extension Point for codbex-perseus Salaries SalaryItem"}
+{
+    "name": "codbex-perseus-Salaries-SalaryItem",
+    "description": "Extension Point for the codbex-perseus-Salaries-SalaryItem entity"
+}

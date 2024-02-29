@@ -316,7 +316,7 @@ export class SupplierRepository {
     }
 
     private async triggerEvent(data: SupplierEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Partners/Supplier", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Partners-Supplier", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

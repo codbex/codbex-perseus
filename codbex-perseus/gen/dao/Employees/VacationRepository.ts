@@ -239,7 +239,7 @@ export class VacationRepository {
     }
 
     private async triggerEvent(data: VacationEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Employees/Vacation", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Employees-Vacation", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

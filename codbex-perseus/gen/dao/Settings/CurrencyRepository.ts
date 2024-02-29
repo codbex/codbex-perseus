@@ -197,7 +197,7 @@ export class CurrencyRepository {
     }
 
     private async triggerEvent(data: CurrencyEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus/Settings/Currency", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-perseus-Settings-Currency", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

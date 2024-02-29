@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { EmployeeRepository, EmployeeEntityOptions } from "../../dao/Employees/EmployeeRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Employees-Employee", ["validate"]);
 
 @Controller
 class EmployeeService {
@@ -24,6 +27,7 @@ class EmployeeService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-perseus/gen/api/Employees/EmployeeService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -79,6 +83,7 @@ class EmployeeService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -109,6 +114,33 @@ class EmployeeService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private validateEntity(entity: any): void {
+        if (entity.Name.length > 100) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Email.length > 100) {
+            throw new ValidationError(`The 'Email' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Phone.length > 20) {
+            throw new ValidationError(`The 'Phone' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Address.length > 200) {
+            throw new ValidationError(`The 'Address' exceeds the maximum length of [200] characters`);
+        }
+        if (entity.PostCode.length > 20) {
+            throw new ValidationError(`The 'PostCode' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.City.length > 100) {
+            throw new ValidationError(`The 'City' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Country.length > 100) {
+            throw new ValidationError(`The 'Country' exceeds the maximum length of [100] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
         }
     }
 }

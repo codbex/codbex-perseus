@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Partners/Supplier.extensionpoint","name":"codbex-perseus/Partners/Supplier","description":"Extension Point for codbex-perseus Partners Supplier"}
+{
+    "name": "codbex-perseus-Partners-Supplier",
+    "description": "Extension Point for the codbex-perseus-Partners-Supplier entity"
+}

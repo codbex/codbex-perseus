@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Settings/PurchaseInvoiceStatus.extensionpoint","name":"codbex-perseus/Settings/PurchaseInvoiceStatus","description":"Extension Point for codbex-perseus Settings PurchaseInvoiceStatus"}
+{
+    "name": "codbex-perseus-Settings-PurchaseInvoiceStatus",
+    "description": "Extension Point for the codbex-perseus-Settings-PurchaseInvoiceStatus entity"
+}

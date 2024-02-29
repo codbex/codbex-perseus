@@ -1,1 +1,4 @@
-{"location":"codbex-perseus/gen/dao/Settings/Exchange.extensionpoint","name":"codbex-perseus/Settings/Exchange","description":"Extension Point for codbex-perseus Settings Exchange"}
+{
+    "name": "codbex-perseus-Settings-Exchange",
+    "description": "Extension Point for the codbex-perseus-Settings-Exchange entity"
+}
