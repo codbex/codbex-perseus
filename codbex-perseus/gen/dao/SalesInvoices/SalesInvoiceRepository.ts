@@ -333,9 +333,9 @@ export class SalesInvoiceRepository {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as SalesInvoiceEntity).VAT = ${property.calculatedPropertyExpressionCreate};
+        (entity as SalesInvoiceEntity).VAT = entity.Amount * 0.2;
         // @ts-ignore
-        (entity as SalesInvoiceEntity).Total = ${property.calculatedPropertyExpressionCreate};
+        (entity as SalesInvoiceEntity).Total = (entity.Amount + entity.VAT) - (entity.Amount * (entity.Discount ? entity.Discount : 0) / 100) + (entity.Taxes ? entity.Taxes : 0);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -354,9 +354,9 @@ export class SalesInvoiceRepository {
         // EntityUtils.setLocalDate(entity, "Date");
         // EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as SalesInvoiceEntity).VAT = ${property.calculatedPropertyExpressionUpdate};
+        (entity as SalesInvoiceEntity).VAT = entity.Amount * 0.2;
         // @ts-ignore
-        (entity as SalesInvoiceEntity).Total = ${property.calculatedPropertyExpressionUpdate};
+        (entity as SalesInvoiceEntity).Total = (entity.Amount + entity.VAT) - (entity.Amount * (entity.Discount ? entity.Discount : 0) / 100) + (entity.Taxes ? entity.Taxes : 0);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

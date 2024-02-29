@@ -232,9 +232,9 @@ export class SalesOrderRepository {
     public create(entity: SalesOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as SalesOrderEntity).VAT = ${property.calculatedPropertyExpressionCreate};
+        (entity as SalesOrderEntity).VAT = entity.Amount * 0.2;
         // @ts-ignore
-        (entity as SalesOrderEntity).Total = ${property.calculatedPropertyExpressionCreate};
+        (entity as SalesOrderEntity).Total = entity.Amount + entity.VAT;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -252,9 +252,9 @@ export class SalesOrderRepository {
     public update(entity: SalesOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as SalesOrderEntity).VAT = ${property.calculatedPropertyExpressionUpdate};
+        (entity as SalesOrderEntity).VAT = entity.Amount * 0.2;
         // @ts-ignore
-        (entity as SalesOrderEntity).Total = ${property.calculatedPropertyExpressionUpdate};
+        (entity as SalesOrderEntity).Total = entity.Amount + entity.VAT;
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

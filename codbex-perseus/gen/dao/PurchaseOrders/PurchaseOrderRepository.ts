@@ -246,9 +246,9 @@ export class PurchaseOrderRepository {
     public create(entity: PurchaseOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as PurchaseOrderEntity).VAT = ${property.calculatedPropertyExpressionCreate};
+        (entity as PurchaseOrderEntity).VAT = entity.Amount * 0.2;
         // @ts-ignore
-        (entity as PurchaseOrderEntity).Total = ${property.calculatedPropertyExpressionCreate};
+        (entity as PurchaseOrderEntity).Total = entity.Amount + entity.VAT;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -266,9 +266,9 @@ export class PurchaseOrderRepository {
     public update(entity: PurchaseOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as PurchaseOrderEntity).VAT = ${property.calculatedPropertyExpressionUpdate};
+        (entity as PurchaseOrderEntity).VAT = entity.Amount * 0.2;
         // @ts-ignore
-        (entity as PurchaseOrderEntity).Total = ${property.calculatedPropertyExpressionUpdate};
+        (entity as PurchaseOrderEntity).Total = entity.Amount + entity.VAT;
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
