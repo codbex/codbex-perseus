@@ -7,7 +7,7 @@ const viewData = {
     id: "Team-filter",
     label: "Team Filter",
     link: "/services/web/codbex-perseus/gen/ui/Employees/Team/dialog-filter/index.html",
-    perspectiveName: "Employees"
+    perspectiveName: "Employees",
 };
 
 if (typeof exports !== 'undefined') {

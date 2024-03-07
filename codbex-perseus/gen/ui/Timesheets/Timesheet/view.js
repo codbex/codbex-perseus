@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-perseus/gen/ui/Timesheets/Timesheet/index.html",
-    perspectiveName: "Timesheets"
+    perspectiveName: "Timesheets",
 };
 
 if (typeof exports !== 'undefined') {

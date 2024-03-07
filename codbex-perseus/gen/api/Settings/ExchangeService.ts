@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { ExchangeRepository, ExchangeEntityOptions } from "../../dao/Settings/ExchangeRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Settings-Exchange", ["validate"]);
@@ -70,7 +71,7 @@ class ExchangeService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("Exchange not found");
             }
@@ -122,4 +123,5 @@ class ExchangeService {
             next.validate(entity);
         }
     }
+
 }

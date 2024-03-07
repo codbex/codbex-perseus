@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-perseus/gen/ui/Payslips/Payslip/PayslipItem/index.html",
-    perspectiveName: "Payslips"
+    perspectiveName: "Payslips",
 };
 
 if (typeof exports !== 'undefined') {

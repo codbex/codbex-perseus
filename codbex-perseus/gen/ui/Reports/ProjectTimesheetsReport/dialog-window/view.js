@@ -7,7 +7,7 @@ const viewData = {
     id: "ProjectTimesheetsReport-details",
     label: "ProjectTimesheetsReport",
     link: "/services/web/codbex-perseus/gen/ui/Reports/ProjectTimesheetsReport/dialog-window/index.html",
-    perspectiveName: "Reports"
+    perspectiveName: "Reports",
 };
 
 if (typeof exports !== 'undefined') {

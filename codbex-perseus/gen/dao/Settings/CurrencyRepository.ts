@@ -184,7 +184,7 @@ export class CurrencyRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CurrencyEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CURRENCY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

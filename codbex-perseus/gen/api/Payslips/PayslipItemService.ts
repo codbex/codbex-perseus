@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { PayslipItemRepository, PayslipItemEntityOptions } from "../../dao/Payslips/PayslipItemRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Payslips-PayslipItem", ["validate"]);
@@ -77,7 +78,7 @@ class PayslipItemService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("PayslipItem not found");
             }
@@ -125,11 +126,12 @@ class PayslipItemService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name.length > 50) {
+        if (entity.Name?.length > 50) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [50] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);
         }
     }
+
 }

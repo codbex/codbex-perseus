@@ -7,7 +7,7 @@ const viewData = {
     id: "PaymentDirection-details",
     label: "PaymentDirection",
     link: "/services/web/codbex-perseus/gen/ui/Settings/PaymentDirection/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-perseus/gen/ui/SalesInvoices/SalesInvoice/SalesInvoicePayment/index.html",
-    perspectiveName: "SalesInvoices"
+    perspectiveName: "SalesInvoices",
 };
 
 if (typeof exports !== 'undefined') {

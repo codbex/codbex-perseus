@@ -222,7 +222,7 @@ export class PurchaseOrderItemRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: PurchaseOrderItemEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

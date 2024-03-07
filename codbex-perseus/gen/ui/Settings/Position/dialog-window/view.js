@@ -7,7 +7,7 @@ const viewData = {
     id: "Position-details",
     label: "Position",
     link: "/services/web/codbex-perseus/gen/ui/Settings/Position/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

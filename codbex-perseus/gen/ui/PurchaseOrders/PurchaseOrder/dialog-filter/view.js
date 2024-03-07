@@ -7,7 +7,7 @@ const viewData = {
     id: "PurchaseOrder-filter",
     label: "PurchaseOrder Filter",
     link: "/services/web/codbex-perseus/gen/ui/PurchaseOrders/PurchaseOrder/dialog-filter/index.html",
-    perspectiveName: "PurchaseOrders"
+    perspectiveName: "PurchaseOrders",
 };
 
 if (typeof exports !== 'undefined') {

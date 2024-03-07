@@ -7,7 +7,7 @@ const viewData = {
     id: "PurchaseInvoiceStatus-filter",
     label: "PurchaseInvoiceStatus Filter",
     link: "/services/web/codbex-perseus/gen/ui/Settings/PurchaseInvoiceStatus/dialog-filter/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

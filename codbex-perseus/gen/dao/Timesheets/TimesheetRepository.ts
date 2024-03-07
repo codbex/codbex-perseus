@@ -244,7 +244,7 @@ export class TimesheetRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: TimesheetEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_TIMESHEET"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

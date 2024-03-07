@@ -7,7 +7,7 @@ const viewData = {
     id: "Payslip-filter",
     label: "Payslip Filter",
     link: "/services/web/codbex-perseus/gen/ui/Payslips/Payslip/dialog-filter/index.html",
-    perspectiveName: "Payslips"
+    perspectiveName: "Payslips",
 };
 
 if (typeof exports !== 'undefined') {

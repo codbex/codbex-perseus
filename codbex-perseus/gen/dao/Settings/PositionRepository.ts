@@ -163,7 +163,7 @@ export class PositionRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: PositionEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_POSITION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

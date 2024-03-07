@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { SalesOrderStatusRepository, SalesOrderStatusEntityOptions } from "../../dao/Settings/SalesOrderStatusRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Settings-SalesOrderStatus", ["validate"]);
@@ -70,7 +71,7 @@ class SalesOrderStatusService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("SalesOrderStatus not found");
             }
@@ -118,11 +119,12 @@ class SalesOrderStatusService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name.length > 20) {
+        if (entity.Name?.length > 20) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);
         }
     }
+
 }

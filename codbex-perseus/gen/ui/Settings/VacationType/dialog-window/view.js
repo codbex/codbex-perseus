@@ -7,7 +7,7 @@ const viewData = {
     id: "VacationType-details",
     label: "VacationType",
     link: "/services/web/codbex-perseus/gen/ui/Settings/VacationType/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

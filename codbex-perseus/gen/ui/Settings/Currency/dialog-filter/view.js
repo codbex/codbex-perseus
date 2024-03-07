@@ -7,7 +7,7 @@ const viewData = {
     id: "Currency-filter",
     label: "Currency Filter",
     link: "/services/web/codbex-perseus/gen/ui/Settings/Currency/dialog-filter/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

@@ -303,7 +303,7 @@ export class SupplierRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SupplierEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SUPPLIER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
