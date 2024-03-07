@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { PurchaseInvoiceItemRepository, PurchaseInvoiceItemEntityOptions } from "../../dao/PurchaseInvoices/PurchaseInvoiceItemRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-PurchaseInvoices-PurchaseInvoiceItem", ["validate"]);
@@ -77,7 +78,7 @@ class PurchaseInvoiceItemService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("PurchaseInvoiceItem not found");
             }
@@ -125,11 +126,12 @@ class PurchaseInvoiceItemService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name.length > 200) {
+        if (entity.Name?.length > 200) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);
         }
     }
+
 }

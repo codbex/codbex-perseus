@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "left",
     link: "/services/web/codbex-perseus/gen/ui/Salaries/Salary/index.html",
-    perspectiveName: "Salaries"
+    perspectiveName: "Salaries",
 };
 
 if (typeof exports !== 'undefined') {

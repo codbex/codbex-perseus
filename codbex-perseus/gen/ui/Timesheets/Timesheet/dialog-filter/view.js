@@ -7,7 +7,7 @@ const viewData = {
     id: "Timesheet-filter",
     label: "Timesheet Filter",
     link: "/services/web/codbex-perseus/gen/ui/Timesheets/Timesheet/dialog-filter/index.html",
-    perspectiveName: "Timesheets"
+    perspectiveName: "Timesheets",
 };
 
 if (typeof exports !== 'undefined') {

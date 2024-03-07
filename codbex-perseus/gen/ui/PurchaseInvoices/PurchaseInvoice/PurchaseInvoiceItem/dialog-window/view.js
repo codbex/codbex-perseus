@@ -7,7 +7,7 @@ const viewData = {
     id: "PurchaseInvoiceItem-details",
     label: "PurchaseInvoiceItem",
     link: "/services/web/codbex-perseus/gen/ui/PurchaseInvoices/PurchaseInvoice/PurchaseInvoiceItem/dialog-window/index.html",
-    perspectiveName: "PurchaseInvoices"
+    perspectiveName: "PurchaseInvoices",
 };
 
 if (typeof exports !== 'undefined') {

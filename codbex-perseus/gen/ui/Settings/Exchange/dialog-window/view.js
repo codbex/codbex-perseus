@@ -7,7 +7,7 @@ const viewData = {
     id: "Exchange-details",
     label: "Exchange",
     link: "/services/web/codbex-perseus/gen/ui/Settings/Exchange/dialog-window/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

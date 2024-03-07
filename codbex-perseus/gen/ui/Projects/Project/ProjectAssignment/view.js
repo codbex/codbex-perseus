@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-perseus/gen/ui/Projects/Project/ProjectAssignment/index.html",
-    perspectiveName: "Projects"
+    perspectiveName: "Projects",
 };
 
 if (typeof exports !== 'undefined') {

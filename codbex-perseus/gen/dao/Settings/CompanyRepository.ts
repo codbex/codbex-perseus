@@ -303,7 +303,7 @@ export class CompanyRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CompanyEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_COMPANY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

@@ -7,7 +7,7 @@ const viewData = {
     id: "Customer-filter",
     label: "Customer Filter",
     link: "/services/web/codbex-perseus/gen/ui/Partners/Customer/dialog-filter/index.html",
-    perspectiveName: "Partners"
+    perspectiveName: "Partners",
 };
 
 if (typeof exports !== 'undefined') {

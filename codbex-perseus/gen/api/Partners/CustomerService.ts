@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { CustomerRepository, CustomerEntityOptions } from "../../dao/Partners/CustomerRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Partners-Customer", ["validate"]);
@@ -70,7 +71,7 @@ class CustomerService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("Customer not found");
             }
@@ -118,38 +119,39 @@ class CustomerService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name.length > 100) {
+        if (entity.Name?.length > 100) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
         }
-        if (entity.Contact.length > 20) {
+        if (entity.Contact?.length > 20) {
             throw new ValidationError(`The 'Contact' exceeds the maximum length of [20] characters`);
         }
-        if (entity.Email.length > 100) {
+        if (entity.Email?.length > 100) {
             throw new ValidationError(`The 'Email' exceeds the maximum length of [100] characters`);
         }
-        if (entity.Phone.length > 20) {
+        if (entity.Phone?.length > 20) {
             throw new ValidationError(`The 'Phone' exceeds the maximum length of [20] characters`);
         }
-        if (entity.Address.length > 200) {
+        if (entity.Address?.length > 200) {
             throw new ValidationError(`The 'Address' exceeds the maximum length of [200] characters`);
         }
-        if (entity.PostCode.length > 20) {
+        if (entity.PostCode?.length > 20) {
             throw new ValidationError(`The 'PostCode' exceeds the maximum length of [20] characters`);
         }
-        if (entity.City.length > 100) {
+        if (entity.City?.length > 100) {
             throw new ValidationError(`The 'City' exceeds the maximum length of [100] characters`);
         }
-        if (entity.Country.length > 100) {
+        if (entity.Country?.length > 100) {
             throw new ValidationError(`The 'Country' exceeds the maximum length of [100] characters`);
         }
-        if (entity.IBAN.length > 34) {
+        if (entity.IBAN?.length > 34) {
             throw new ValidationError(`The 'IBAN' exceeds the maximum length of [34] characters`);
         }
-        if (entity.VATNO.length > 20) {
+        if (entity.VATNO?.length > 20) {
             throw new ValidationError(`The 'VATNO' exceeds the maximum length of [20] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);
         }
     }
+
 }

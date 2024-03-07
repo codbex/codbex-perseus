@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { PayslipPaymentRepository, PayslipPaymentEntityOptions } from "../../dao/Payslips/PayslipPaymentRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Payslips-PayslipPayment", ["validate"]);
@@ -70,7 +71,7 @@ class PayslipPaymentService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("PayslipPayment not found");
             }
@@ -122,4 +123,5 @@ class PayslipPaymentService {
             next.validate(entity);
         }
     }
+
 }

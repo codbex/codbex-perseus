@@ -163,7 +163,7 @@ export class SalaryItemDirectionRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SalaryItemDirectionEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALARYITEMDIRECTION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

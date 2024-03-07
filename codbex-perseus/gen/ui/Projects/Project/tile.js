@@ -12,6 +12,6 @@ exports.getTile = function () {
         // icon: "file-o",
         location: "/services/web/codbex-perseus/gen/ui/Projects/index.html",
         order: "100",
-        groupOrder: "100"
+        groupOrder: "100",
     };
 };

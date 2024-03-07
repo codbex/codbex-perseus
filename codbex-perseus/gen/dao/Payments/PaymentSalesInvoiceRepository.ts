@@ -258,7 +258,7 @@ export class PaymentSalesInvoiceRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: PaymentSalesInvoiceEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTSALESINVOICE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

@@ -7,7 +7,7 @@ const viewData = {
     id: "Team-details",
     label: "Team",
     link: "/services/web/codbex-perseus/gen/ui/Employees/Team/dialog-window/index.html",
-    perspectiveName: "Employees"
+    perspectiveName: "Employees",
 };
 
 if (typeof exports !== 'undefined') {

@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { PurchaseInvoicePaymentRepository, PurchaseInvoicePaymentEntityOptions } from "../../dao/PurchaseInvoices/PurchaseInvoicePaymentRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-PurchaseInvoices-PurchaseInvoicePayment", ["validate"]);
@@ -77,7 +78,7 @@ class PurchaseInvoicePaymentService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("PurchaseInvoicePayment not found");
             }
@@ -129,4 +130,5 @@ class PurchaseInvoicePaymentService {
             next.validate(entity);
         }
     }
+
 }

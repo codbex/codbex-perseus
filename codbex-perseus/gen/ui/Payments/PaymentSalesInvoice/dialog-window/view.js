@@ -7,7 +7,7 @@ const viewData = {
     id: "PaymentSalesInvoice-details",
     label: "PaymentSalesInvoice",
     link: "/services/web/codbex-perseus/gen/ui/Payments/PaymentSalesInvoice/dialog-window/index.html",
-    perspectiveName: "Payments"
+    perspectiveName: "Payments",
 };
 
 if (typeof exports !== 'undefined') {

@@ -12,6 +12,6 @@ exports.getTile = function () {
         // icon: "file-o",
         location: "/services/web/codbex-perseus/gen/ui/Payments/index.html",
         order: "100",
-        groupOrder: "400"
+        groupOrder: "400",
     };
 };

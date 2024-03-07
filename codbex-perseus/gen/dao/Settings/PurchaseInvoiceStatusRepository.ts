@@ -163,7 +163,7 @@ export class PurchaseInvoiceStatusRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: PurchaseInvoiceStatusEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEINVOICESTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

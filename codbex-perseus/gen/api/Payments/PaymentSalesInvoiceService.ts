@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { PaymentSalesInvoiceRepository, PaymentSalesInvoiceEntityOptions } from "../../dao/Payments/PaymentSalesInvoiceRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-perseus-Payments-PaymentSalesInvoice", ["validate"]);
@@ -70,7 +71,7 @@ class PaymentSalesInvoiceService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("PaymentSalesInvoice not found");
             }
@@ -118,14 +119,15 @@ class PaymentSalesInvoiceService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Reason.length > 100) {
+        if (entity.Reason?.length > 100) {
             throw new ValidationError(`The 'Reason' exceeds the maximum length of [100] characters`);
         }
-        if (entity.Description.length > 100) {
+        if (entity.Description?.length > 100) {
             throw new ValidationError(`The 'Description' exceeds the maximum length of [100] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);
         }
     }
+
 }

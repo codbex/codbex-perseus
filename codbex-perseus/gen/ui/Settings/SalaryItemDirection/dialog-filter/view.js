@@ -7,7 +7,7 @@ const viewData = {
     id: "SalaryItemDirection-filter",
     label: "SalaryItemDirection Filter",
     link: "/services/web/codbex-perseus/gen/ui/Settings/SalaryItemDirection/dialog-filter/index.html",
-    perspectiveName: "Settings"
+    perspectiveName: "Settings",
 };
 
 if (typeof exports !== 'undefined') {

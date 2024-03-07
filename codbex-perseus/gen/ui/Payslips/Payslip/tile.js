@@ -12,6 +12,6 @@ exports.getTile = function () {
         // icon: "file-o",
         location: "/services/web/codbex-perseus/gen/ui/Payslips/index.html",
         order: "100",
-        groupOrder: "830"
+        groupOrder: "830",
     };
 };
